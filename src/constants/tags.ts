@@ -1,4 +1,5 @@
 export enum Tags {
   ReactQuery = "react-query",
-  Utility = "utils"
+  Utility = "utils",
+  Regex = "regex"
 }

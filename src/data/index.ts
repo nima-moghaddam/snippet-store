@@ -53,5 +53,29 @@ export const Snippets: ISnippetFormat[] = [
           }
         })
       }`
+  },
+  {
+    title: "Checks if the passed date is today",
+    tags: [Tags.Utility],
+    description: "todays date",
+    code: `const isToday = (date) => {
+      const today = new Date();
+      return (
+        date.getDate() === today.getDate() &&
+        date.getMonth() === today.getMonth() &&
+        date.getFullYear() === today.getFullYear()
+      );
+    };`
+  },
+  {
+    title: "email regex",
+    tags: [Tags.Regex],
+    description: "",
+    code: `email: yup
+    .string()
+    .required("ایمیل را وارد کنید")
+    .matches(
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\. [0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )`
   }
 ]
