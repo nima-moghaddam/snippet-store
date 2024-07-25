@@ -1,0 +1,8 @@
+card detail:
+--------------
+
+-title
+-description
+-code string
+-tag
+-copy code 
