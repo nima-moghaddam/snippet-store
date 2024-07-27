@@ -4,7 +4,7 @@ import { ISnippetFormat } from "../types/ISnippetFormat"
 export const Snippets: ISnippetFormat[] = [
   {
     title: "React query custom useQuery hook",
-    tags: [Tags.ReactQuery],
+    tags: [Tags.ReactQuery, Tags.Utility],
     description: "custom hook for coupling useQuery with axios or fetch api's",
     code: `const useRequest = ({
         queryKey,
@@ -76,6 +76,6 @@ export const Snippets: ISnippetFormat[] = [
     .required("ایمیل را وارد کنید")
     .matches(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\. [0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            )`
+   )`
   }
 ]

@@ -1,5 +1,5 @@
 import SyntaxHighlighter from "react-syntax-highlighter"
-import { nightOwl, dark, atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import { nightOwl, dark, atomOneDark, atelierCaveDark } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
 interface Props {
   children: string
@@ -8,10 +8,10 @@ interface Props {
 const SyntaxHighlighterWrapper = ({ children }: Props) => {
   return (
     <SyntaxHighlighter
-      codeTagProps={{ style: { fontSize: "12px", lineHeight: "0.3px" } }}
+      codeTagProps={{ style: { fontSize: "12px" } }}
       language="javascript"
       style={nightOwl}
-      customStyle={{ overflow: "hidden" }}
+      customStyle={{ backgroundColor: "#304351", lineHeight: "17px", scrollbarWidth: "none" }}
     >
       {children}
     </SyntaxHighlighter>
