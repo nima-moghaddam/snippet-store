@@ -1,5 +1,4 @@
 import SnippetCard from "../../components/snippet-card/SnippetCard"
-import { Category } from "../../constants/Category"
 import { Snippets } from "../../data"
 import { ISnippet } from "../../types/ISnippetModels"
 
