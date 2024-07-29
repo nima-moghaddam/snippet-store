@@ -5,7 +5,7 @@ export interface ISnippet {
   description: string
   tags: string[]
   code: string
-  category: string
+  category: Category
 }
 
 export interface ISnippetList {

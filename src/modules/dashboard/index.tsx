@@ -1,16 +1,12 @@
 import SnippetCard from "../../components/snippet-card/SnippetCard"
-import { Snippets } from "../../data"
-import { ISnippet } from "../../types/ISnippetModels"
+import useFilterStore from "../../store/useFilterStore"
 
 const Dashboard = () => {
-  let allSnippets: ISnippet[] = []
-  Object.entries(Snippets).map(([_, value]) => {
-    value.map((i: ISnippet) => allSnippets.push(i))
-  })
+  const { snippets } = useFilterStore((state) => state)
 
   return (
     <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-8 p-4">
-      {allSnippets.map((item) => (
+      {snippets.map((item) => (
         <SnippetCard key={item.title} details={item} />
       ))}
     </div>

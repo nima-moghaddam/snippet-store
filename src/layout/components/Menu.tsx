@@ -2,33 +2,53 @@ import { useState } from "react"
 import { ISnippet } from "../../types/ISnippetModels"
 import { IoIosArrowForward } from "react-icons/io"
 import { IoIosArrowDown } from "react-icons/io"
-import { RiCodeSSlashFill } from "react-icons/ri"
+import useMenuStore from "../../store/useMenuStore"
+import { Category } from "../../constants/Category"
+import useFilterStore from "../../store/useFilterStore"
 
 interface Props {
-  name: string
-  items: ISnippet[]
+  name: Category
+  subMenus: ISnippet[]
   classes?: string
 }
 
-const Menu = ({ name, items, classes }: Props) => {
-  const [isOpen, setIsOpen] = useState(false)
+const Menu = ({ name, subMenus, classes }: Props) => {
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
+
+  const { setMenuFilter, setSubMenuFilter } = useFilterStore((state) => state)
+  const { activeMenu, setActiveMenu } = useMenuStore((state) => state)
+  const isMenuActive = activeMenu === name
 
   const handleMenuClick = () => {
-    setIsOpen((prev) => !prev)
+    if (!isMenuActive) {
+      setActiveMenu(name)
+      setMenuFilter(name)
+    }
+  }
+
+  const handleSubMenuClick = (name: string) => {
+    setActiveSubmenu(name)
+    setSubMenuFilter(name)
   }
 
   return (
     <div className={`group text-white font-bold cursor-pointer ${classes}`}>
-      <div className="flex items-center mb-3 group-hover:text-pink" onClick={handleMenuClick}>
+      <div
+        className={`flex items-center subMenus-center mb-3 group-hover:text-pink ${isMenuActive ? "text-pink" : ""}`}
+        onClick={handleMenuClick}
+      >
         <span className="me-3">{name}</span>
-        {isOpen ? <IoIosArrowDown className="w-4 h-4" /> : <IoIosArrowForward className="w-4 h-4" />}
+        {isMenuActive ? <IoIosArrowDown className="w-4 h-4" /> : <IoIosArrowForward className="w-4 h-4" />}
       </div>
-      {isOpen && (
+      {isMenuActive && (
         <ul className="flex flex-col ps-5">
-          {items.map((i) => (
-            <li key={i.title} className="flex items-center mb-2 hover:text-pink">
-              <RiCodeSSlashFill className="w-4 h-4 me-2" />
-              <span className="">{i.title}</span>
+          {subMenus.map((i) => (
+            <li
+              onClick={() => handleSubMenuClick(i.title)}
+              key={i.title}
+              className={`flex subMenus-center mb-2 hover:text-pink ${activeSubmenu === i.title ? "text-pink" : ""}`}
+            >
+              -<span className="ms-2">{i.title}</span>
             </li>
           ))}
         </ul>
