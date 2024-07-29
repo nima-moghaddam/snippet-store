@@ -4,12 +4,17 @@ import copy from "copy-to-clipboard"
 import { MdContentCopy } from "react-icons/md"
 import { toastFire } from "../toast/Toast"
 import { useNavigate } from "react-router"
+import useFilterStore from "../../store/useFilterStore"
+import { Tags } from "../../constants/Tags"
+import useMenuStore from "../../store/useMenuStore"
 
 interface Props {
   details: ISnippet
 }
 
 const SnippetCard = ({ details }: Props) => {
+  const { setTagFilter } = useFilterStore((state) => state)
+  const { resetMenu } = useMenuStore((state) => state)
   const navigate = useNavigate()
   const { title, code, tags } = details
 
@@ -17,6 +22,12 @@ const SnippetCard = ({ details }: Props) => {
     e.stopPropagation()
     copy(code)
     toastFire("success", "Code copied")
+  }
+
+  const handleTagClick = (e: any, tag: Tags) => {
+    e.stopPropagation()
+    setTagFilter(tag)
+    resetMenu()
   }
 
   return (
@@ -34,7 +45,9 @@ const SnippetCard = ({ details }: Props) => {
         <span className="text-white mb-2 line-clamp-1 group-hover:text-pink">{title}</span>
         <div className="flex flex-wrap">
           {tags?.map((i) => (
-            <span className="text-blue me-1 hover:text-pink">#{i}</span>
+            <span className="text-blue me-1 hover:text-pink" onClick={(e) => handleTagClick(e, i)}>
+              #{i}
+            </span>
           ))}
         </div>
       </div>

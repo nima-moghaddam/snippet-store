@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { ISnippet } from "../../types/ISnippetModels"
 import { IoIosArrowForward } from "react-icons/io"
 import { IoIosArrowDown } from "react-icons/io"
@@ -13,10 +12,8 @@ interface Props {
 }
 
 const Menu = ({ name, subMenus, classes }: Props) => {
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
-
   const { setMenuFilter, setSubMenuFilter } = useFilterStore((state) => state)
-  const { activeMenu, setActiveMenu } = useMenuStore((state) => state)
+  const { activeMenu, activeSubMenu, setActiveMenu, setActiveSubMenu } = useMenuStore((state) => state)
   const isMenuActive = activeMenu === name
 
   const handleMenuClick = () => {
@@ -27,7 +24,7 @@ const Menu = ({ name, subMenus, classes }: Props) => {
   }
 
   const handleSubMenuClick = (name: string) => {
-    setActiveSubmenu(name)
+    setActiveSubMenu(name)
     setSubMenuFilter(name)
   }
 
@@ -46,7 +43,7 @@ const Menu = ({ name, subMenus, classes }: Props) => {
             <li
               onClick={() => handleSubMenuClick(i.title)}
               key={i.title}
-              className={`flex subMenus-center mb-2 hover:text-pink ${activeSubmenu === i.title ? "text-pink" : ""}`}
+              className={`flex subMenus-center mb-2 hover:text-pink ${activeSubMenu === i.title ? "text-pink" : ""}`}
             >
               -<span className="ms-2">{i.title}</span>
             </li>

@@ -1,9 +1,10 @@
 import { Category } from "../constants/Category"
+import { Tags } from "../constants/Tags"
 
 export interface ISnippet {
   title: string
   description: string
-  tags: string[]
+  tags: Tags[]
   code: string
   category: Category
 }
