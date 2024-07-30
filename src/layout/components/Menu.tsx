@@ -4,6 +4,8 @@ import { IoIosArrowDown } from "react-icons/io"
 import useMenuStore from "../../store/useMenuStore"
 import { Category } from "../../constants/Category"
 import useFilterStore from "../../store/useFilterStore"
+import { useNavigate } from "react-router"
+import { useLocation } from "react-router-dom"
 
 interface Props {
   name: Category
@@ -12,19 +14,22 @@ interface Props {
 }
 
 const Menu = ({ name, subMenus, classes }: Props) => {
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
   const { setMenuFilter, setSubMenuFilter } = useFilterStore((state) => state)
-  const { activeMenu, activeSubMenu, setActiveMenu, setActiveSubMenu } = useMenuStore((state) => state)
+  const { activeMenu, setActiveMenu } = useMenuStore((state) => state)
+
   const isMenuActive = activeMenu === name
+  const url = decodeURIComponent(pathname.startsWith("/") ? pathname.slice(1) : pathname)
 
   const handleMenuClick = () => {
-    if (!isMenuActive) {
-      setActiveMenu(name)
-      setMenuFilter(name)
-    }
+    navigate("/")
+    setActiveMenu(name)
+    setMenuFilter(name)
   }
 
   const handleSubMenuClick = (name: string) => {
-    setActiveSubMenu(name)
+    navigate(`/${name}`)
     setSubMenuFilter(name)
   }
 
@@ -43,7 +48,7 @@ const Menu = ({ name, subMenus, classes }: Props) => {
             <li
               onClick={() => handleSubMenuClick(i.title)}
               key={i.title}
-              className={`flex subMenus-center mb-2 hover:text-pink ${activeSubMenu === i.title ? "text-pink" : ""}`}
+              className={`flex subMenus-center mb-2 hover:text-pink ${url === i.title ? "text-pink" : ""}`}
             >
               -<span className="ms-2">{i.title}</span>
             </li>

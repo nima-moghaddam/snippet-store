@@ -3,5 +3,6 @@ export enum Tags {
   ReactQuery = "react-query",
   Utility = "utils",
   Regex = "regex",
-  SweetAlert2 = "sweet-alert2"
+  SweetAlert2 = "sweet-alert2",
+  ReactHook = 'react-hook'
 }

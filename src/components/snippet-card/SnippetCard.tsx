@@ -32,7 +32,7 @@ const SnippetCard = ({ details }: Props) => {
 
   return (
     <div
-      onClick={() => navigate("/code")}
+      onClick={() => navigate(`/${title}`)}
       className="rounded-lg max-h-[700px] overflow-hidden cursor-pointer hover:shadow-3xl group z-20"
     >
       <div className="bg-dark pb-5 pt-3 px-3 border-b-2 border-gray shadow-lg shadow-black">

@@ -11,7 +11,7 @@ const SyntaxHighlighterWrapper = ({ children }: Props) => {
       codeTagProps={{ style: { fontSize: "12px" } }}
       language="javascript"
       style={nightOwl}
-      customStyle={{ backgroundColor: "#304351", lineHeight: "17px", scrollbarWidth: "none" }}
+      customStyle={{ backgroundColor: "#304351", lineHeight: "17px", scrollbarWidth: "none", paddingBottom: "1rem" }}
     >
       {children}
     </SyntaxHighlighter>
