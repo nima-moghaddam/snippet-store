@@ -15,7 +15,6 @@ const CodeDetail = () => {
   const { resetMenu } = useMenuStore((state) => state)
 
   const snippetTitle = decodeURIComponent(pathname.slice(1))
-  console.log(snippetTitle)
   const snippet = SnippetList.find((code) => code.title === snippetTitle)
 
   const handleTagFilter = (tag: Tags) => {
@@ -61,8 +60,8 @@ const CodeDetail = () => {
         </div>
       )}
       {snippet?.description && (
-        <div className="relative rounded-lg border p-3 pt-5 border-gray">
-          <span className="absolute bg-gray text-white rounded-md px-3 top-[-10px] right-3">Description</span>
+        <div className="relative rounded-lg border px-3 py-5 border-gray">
+          <span className="absolute bg-blue text-white rounded-md px-3 top-[-10px] right-3">Description</span>
           {snippet?.description}
         </div>
       )}

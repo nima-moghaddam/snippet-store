@@ -9,6 +9,8 @@ interface IStoreState {
   setMenuFilter: (category: Category) => void
   setSubMenuFilter: (name: string) => void
   setTagFilter: (tag: Tags) => void
+  setSearchFilter: (term: string) => void
+  resetFilters: () => void
 }
 
 const useFilterStore = create<IStoreState>((set, get) => ({
@@ -33,7 +35,14 @@ const useFilterStore = create<IStoreState>((set, get) => ({
     set(() => ({
       snippets: filteredSnippets
     }))
-  }
+  },
+  setSearchFilter: (term) => {
+    const filteredSnippets = SnippetList?.filter((i) => i.title.trim().includes(term))
+    set(() => ({
+      snippets: filteredSnippets
+    }))
+  },
+  resetFilters: () => set(() => ({ snippets: SnippetList }))
 }))
 
 export default useFilterStore

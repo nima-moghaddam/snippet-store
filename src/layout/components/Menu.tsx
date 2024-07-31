@@ -34,7 +34,7 @@ const Menu = ({ name, subMenus, classes }: Props) => {
     setSubMenuFilter(name)
   }
 
-  // check if menu remain active when its child submenus are active on reload or state loss
+  // check if menu remain active when its child submenus were active on reload or state loss
   useEffect(() => {
     const currentSubmenu = subMenus.find((i) => i.title === activeSubmenuTitle)
     if (currentSubmenu) {
