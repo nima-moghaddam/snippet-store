@@ -9,7 +9,7 @@ export interface ISnippet {
   category: Category
 }
 
-export interface ISnippetList {
+export interface ISnippetModel {
   [Category.ReactHooks]: ISnippet[]
   [Category.ReactQuery]: ISnippet[]
   [Category.SweetAlert2]: ISnippet[]

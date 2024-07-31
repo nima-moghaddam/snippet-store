@@ -3,7 +3,7 @@ import { Tags } from "../../constants/Tags"
 
 export const Utils = [
   {
-    title: "Date is today?",
+    title: "Date is today",
     tags: [Tags.Utility],
     category: Category.Utils,
     description: "get the date and examine if it is today?",

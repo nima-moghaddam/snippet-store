@@ -6,6 +6,7 @@ import { Category } from "../../constants/Category"
 import useFilterStore from "../../store/useFilterStore"
 import { useNavigate } from "react-router"
 import { useLocation } from "react-router-dom"
+import { useEffect } from "react"
 
 interface Props {
   name: Category
@@ -20,7 +21,7 @@ const Menu = ({ name, subMenus, classes }: Props) => {
   const { activeMenu, setActiveMenu } = useMenuStore((state) => state)
 
   const isMenuActive = activeMenu === name
-  const url = decodeURIComponent(pathname.startsWith("/") ? pathname.slice(1) : pathname)
+  const activeSubmenuTitle = decodeURIComponent(pathname.startsWith("/") ? pathname.slice(1) : pathname)
 
   const handleMenuClick = () => {
     navigate("/")
@@ -32,6 +33,15 @@ const Menu = ({ name, subMenus, classes }: Props) => {
     navigate(`/${name}`)
     setSubMenuFilter(name)
   }
+
+  // check if menu remain active when its child submenus are active on reload or state loss
+  useEffect(() => {
+    const currentSubmenu = subMenus.find((i) => i.title === activeSubmenuTitle)
+    if (currentSubmenu) {
+      const menuHasActiveSub = subMenus.some((menu) => menu.category === currentSubmenu.category)
+      if (menuHasActiveSub) setActiveMenu(name)
+    }
+  }, [activeSubmenuTitle])
 
   return (
     <div className={`group text-white font-bold cursor-pointer ${classes}`}>
@@ -48,7 +58,7 @@ const Menu = ({ name, subMenus, classes }: Props) => {
             <li
               onClick={() => handleSubMenuClick(i.title)}
               key={i.title}
-              className={`flex subMenus-center mb-2 hover:text-pink ${url === i.title ? "text-pink" : ""}`}
+              className={`flex subMenus-center mb-2 hover:text-pink ${activeSubmenuTitle === i.title ? "text-pink" : ""}`}
             >
               -<span className="ms-2">{i.title}</span>
             </li>

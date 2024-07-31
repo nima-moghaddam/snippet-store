@@ -1,7 +1,7 @@
 import { create } from "zustand"
 import { Category } from "../constants/Category"
 import { Tags } from "../constants/Tags"
-import { Snippets } from "../data"
+import { SnippetList } from "../data"
 import { ISnippet } from "../types/ISnippetModels"
 
 interface IStoreState {
@@ -11,27 +11,22 @@ interface IStoreState {
   setTagFilter: (tag: Tags) => void
 }
 
-let allSnippets: ISnippet[] = []
-Object.entries(Snippets).map(([_, value]) => {
-  value.map((i: ISnippet) => allSnippets.push(i))
-})
-
 const useFilterStore = create<IStoreState>((set, get) => ({
-  snippets: allSnippets,
+  snippets: SnippetList,
   setMenuFilter: (category) => {
-    const filteredSnippets = allSnippets?.filter((i) => i.category === category)
+    const filteredSnippets = SnippetList?.filter((i) => i.category === category)
     set(() => ({
       snippets: filteredSnippets
     }))
   },
   setSubMenuFilter: (name) => {
-    const filteredSnippets = allSnippets?.filter((i) => i.title === name)
+    const filteredSnippets = SnippetList?.filter((i) => i.title === name)
     set(() => ({
       snippets: filteredSnippets
     }))
   },
   setTagFilter: (tag) => {
-    const filteredSnippets = allSnippets?.filter((snippet) => {
+    const filteredSnippets = SnippetList?.filter((snippet) => {
       const snippetHasTag = snippet.tags.some((i) => i === tag)
       if (snippetHasTag) return snippet
     })

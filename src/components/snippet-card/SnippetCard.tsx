@@ -7,6 +7,9 @@ import { useNavigate } from "react-router"
 import useFilterStore from "../../store/useFilterStore"
 import { Tags } from "../../constants/Tags"
 import useMenuStore from "../../store/useMenuStore"
+import { leftAlignString } from "../../utils/leftAlignString"
+import SyntaxHighlighter from "react-syntax-highlighter"
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs"
 
 interface Props {
   details: ISnippet
@@ -51,7 +54,9 @@ const SnippetCard = ({ details }: Props) => {
           ))}
         </div>
       </div>
-      <SyntaxHighlighterWrapper>{code}</SyntaxHighlighterWrapper>
+      <SyntaxHighlighterWrapper styles={{ scrollbarWidth: "none", paddingBottom: "1rem" }}>
+        {code}
+      </SyntaxHighlighterWrapper>
     </div>
   )
 }
