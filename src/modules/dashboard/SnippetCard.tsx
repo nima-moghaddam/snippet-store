@@ -1,33 +1,23 @@
 import { ISnippet } from "../../types/ISnippetModels"
-import SyntaxHighlighterWrapper from "../syntax-highlighter/SyntaxHighlighterWrapper"
+import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper"
 import copy from "copy-to-clipboard"
-import { MdContentCopy } from "react-icons/md"
-import { toastFire } from "../toast/Toast"
 import { useNavigate } from "react-router"
-import useFilterStore from "../../store/useFilterStore"
-import { Tags } from "../../constants/Tags"
-import useMenuStore from "../../store/useMenuStore"
+import TagList from "./components/TagList"
+import { toastFire } from "../../components/toast/Toast"
+import { MdContentCopy } from "react-icons/md"
 
 interface Props {
   details: ISnippet
 }
 
 const SnippetCard = ({ details }: Props) => {
-  const { setTagFilter } = useFilterStore((state) => state)
-  const { resetMenu } = useMenuStore((state) => state)
   const navigate = useNavigate()
   const { title, code, tags } = details
 
-  const handleCopy = (e: any) => {
+  const handleCopy = (e: React.MouseEvent) => {
     e.stopPropagation()
     copy(code)
     toastFire("success", "Code copied")
-  }
-
-  const handleTagClick = (e: any, tag: Tags) => {
-    e.stopPropagation()
-    setTagFilter(tag)
-    resetMenu()
   }
 
   return (
@@ -43,13 +33,7 @@ const SnippetCard = ({ details }: Props) => {
           />
         </div>
         <span className="text-white mb-2 line-clamp-1 group-hover:text-pink">{title}</span>
-        <div className="flex flex-wrap">
-          {tags?.map((i) => (
-            <span className="text-blue me-1 hover:text-pink" onClick={(e) => handleTagClick(e, i)}>
-              #{i}
-            </span>
-          ))}
-        </div>
+        <TagList tags={tags} />
       </div>
       <SyntaxHighlighterWrapper styles={{ scrollbarWidth: "none", paddingBottom: "1rem" }}>
         {code}

@@ -62,14 +62,14 @@ const Navbar = () => {
           />
         </div>
         <div
-          className={`relative flex justify-between items-center w-20 h-11 transition-colors duration-300 border border-gray cursor-pointer rounded-lg px-[10px]`}
+          className={`relative flex justify-between items-center w-20 h-10 transition-colors duration-300 border border-gray cursor-pointer rounded-lg px-[10px]`}
           onClick={handleSearhByOnclick}
         >
           <IoCodeSlashOutline className="text-black z-20" />
           <PiTextTBold className="text-black z-20" />
 
           <span
-            className={`absolute z-10 bg-pink left-0  top-[1px] bottom-0 h-10 w-10 rounded-lg shadow-md transform transition-transform duration-300 ${
+            className={`absolute z-10 bg-pink left-0 top-[1px] bottom-0 h-9 w-10 rounded-lg shadow-md transform transition-transform duration-300 ${
               searchBy === "title" ? "translate-x-10" : ""
             }`}
           ></span>
