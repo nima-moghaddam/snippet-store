@@ -4,9 +4,14 @@ import useFilterStore from "../store/useFilterStore"
 import useMenuStore from "../store/useMenuStore"
 import { LuSearch } from "react-icons/lu"
 import { useEffect, useState } from "react"
+import { IoCodeSlashOutline } from "react-icons/io5"
+import { PiTextTBold } from "react-icons/pi"
+import { SearchByStatusType } from "../types/SearchByStatusType"
 
 const Navbar = () => {
   const [term, setTerm] = useState("")
+  const [searchBy, setSearchBy] = useState<SearchByStatusType>("title")
+
   const navigate = useNavigate()
   const { resetFilters, setSearchFilter } = useFilterStore((state) => state)
   const { resetMenu } = useMenuStore((state) => state)
@@ -24,8 +29,19 @@ const Navbar = () => {
 
   const handleSearchOnEnter = (e: any) => {
     if (e.key === "Enter") {
-      setSearchFilter(term)
+      resetMenu()
+      navigate("/")
+      setSearchFilter(term, searchBy)
     }
+  }
+
+  const handleSearhByOnclick = () => {
+    resetFilters()
+    setTerm("")
+    setSearchBy((prev) => {
+      if (prev === "code") return "title"
+      else return "code"
+    })
   }
 
   useEffect(() => {
@@ -33,17 +49,33 @@ const Navbar = () => {
   }, [term])
 
   return (
-    <div className="min-h-[80px] w-full flex justify-between items-center px-[70px]">
-      <div className="relative">
-        <LuSearch className="w-5 h-5 absolute left-2 bottom-[10px]" />
-        <input
-          placeholder="Search snippet"
-          className="border border-gray rounded-md py-2 outline-none ps-10 min-w-[300px] focus:border-slate-400"
-          onChange={handleSearch}
-          value={term}
-          onKeyDown={handleSearchOnEnter}
-        />
+    <div className="min-h-[80px] w-full flex justify-between items-center px-14">
+      <div className="flex items-center">
+        <div className="relative me-4">
+          <LuSearch className="w-5 h-5 absolute left-2 bottom-[10px]" />
+          <input
+            placeholder={`Search snippet ${searchBy === "code" ? "code" : "title"}`}
+            className="border border-gray rounded-md py-2 outline-none ps-10 min-w-[300px] focus:border-slate-400"
+            onChange={handleSearch}
+            value={term}
+            onKeyDown={handleSearchOnEnter}
+          />
+        </div>
+        <div
+          className={`relative flex justify-between items-center w-20 h-11 transition-colors duration-300 border border-gray cursor-pointer rounded-lg px-[10px]`}
+          onClick={handleSearhByOnclick}
+        >
+          <IoCodeSlashOutline className="text-black z-20" />
+          <PiTextTBold className="text-black z-20" />
+
+          <span
+            className={`absolute z-10 bg-pink left-0  top-[1px] bottom-0 h-10 w-10 rounded-lg shadow-md transform transition-transform duration-300 ${
+              searchBy === "title" ? "translate-x-10" : ""
+            }`}
+          ></span>
+        </div>
       </div>
+
       <div className="flex items-center">
         <AiFillHome onClick={handleNavigateHome} className="w-6 h-6 cursor-pointer hover:text-pink" />
       </div>

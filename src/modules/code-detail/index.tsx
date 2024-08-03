@@ -32,7 +32,7 @@ const CodeDetail = () => {
 
   return (
     <section>
-      <div className="border-b border-slate-300 pb-5 mb-1">
+      <div className="border-b border-slate-300 pb-2 mb-1">
         <h1 className="font-semibold text-[2rem]">{snippet?.title}</h1>
       </div>
       <div className="flex justify-between items-center mb-5">

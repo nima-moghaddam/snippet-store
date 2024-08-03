@@ -3,13 +3,14 @@ import { Category } from "../constants/Category"
 import { Tags } from "../constants/Tags"
 import { SnippetList } from "../data"
 import { ISnippet } from "../types/ISnippetModels"
+import { SearchByStatusType } from "../types/SearchByStatusType"
 
 interface IStoreState {
   snippets: ISnippet[]
   setMenuFilter: (category: Category) => void
   setSubMenuFilter: (name: string) => void
   setTagFilter: (tag: Tags) => void
-  setSearchFilter: (term: string) => void
+  setSearchFilter: (term: string, searchBy: SearchByStatusType) => void
   resetFilters: () => void
 }
 
@@ -36,8 +37,11 @@ const useFilterStore = create<IStoreState>((set, get) => ({
       snippets: filteredSnippets
     }))
   },
-  setSearchFilter: (term) => {
-    const filteredSnippets = SnippetList?.filter((i) => i.title.trim().includes(term))
+  setSearchFilter: (term, searchBy) => {
+    let filteredSnippets: ISnippet[]
+    if (searchBy === "title") {
+      filteredSnippets = SnippetList?.filter((i) => i.title.trim().toLocaleLowerCase().includes(term))
+    } else filteredSnippets = SnippetList?.filter((i) => i.code.trim().toLocaleLowerCase().includes(term))
     set(() => ({
       snippets: filteredSnippets
     }))
