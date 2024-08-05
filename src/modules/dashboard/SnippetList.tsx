@@ -17,11 +17,11 @@ interface Props {
 const SnippetList = ({ details, hasBorder = false }: Props) => {
   const [openList, setOpenList] = useState(false)
   const navigate = useNavigate()
-  const { title, code, tags } = details
+  const { title, code, tags, type } = details
 
   const handleCopy = (e: React.MouseEvent) => {
     e.stopPropagation()
-    copy(code)
+    copy(code + (`\n${type}` || ""))
     toastFire("success", "Code copied")
   }
 

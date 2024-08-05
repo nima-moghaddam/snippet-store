@@ -12,11 +12,11 @@ interface Props {
 
 const SnippetCard = ({ details }: Props) => {
   const navigate = useNavigate()
-  const { title, code, tags } = details
+  const { title, code, tags, type } = details
 
   const handleCopy = (e: React.MouseEvent) => {
     e.stopPropagation()
-    copy(code)
+    copy(code + (`\n${type}` || ""))
     toastFire("success", "Code copied")
   }
 

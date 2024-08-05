@@ -25,7 +25,7 @@ const CodeDetail = () => {
 
   const handleCodeCopy = () => {
     if (snippet) {
-      copy(snippet?.code)
+      copy(snippet?.code + (`\n${snippet?.type}` || ""))
       toastFire("success", "Code copied")
     }
   }
@@ -55,8 +55,15 @@ const CodeDetail = () => {
       </div>
 
       {snippet && (
-        <div className="rounded-md overflow-hidden mb-10">
-          <SyntaxHighlighterWrapper>{snippet.code}</SyntaxHighlighterWrapper>
+        <div className="flex mb-10 w-full flex-col">
+          <div className="rounded-md overflow-hidden">
+            <SyntaxHighlighterWrapper>{snippet.code}</SyntaxHighlighterWrapper>
+          </div>
+          {snippet?.type && (
+            <div className="rounded-md overflow-hidden mt-5">
+              <SyntaxHighlighterWrapper>{snippet.type}</SyntaxHighlighterWrapper>
+            </div>
+          )}
         </div>
       )}
       {snippet?.description && (

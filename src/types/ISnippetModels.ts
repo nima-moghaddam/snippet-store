@@ -7,6 +7,7 @@ export interface ISnippet {
   tags: Tags[]
   code: string
   category: Category
+  type?: string
 }
 
 export interface ISnippetModel {

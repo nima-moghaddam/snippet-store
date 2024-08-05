@@ -53,7 +53,18 @@ export const ReactQuery = [
                 errorCallback?.(error.message)
               }
             })
-          }`
+          }`,
+    type: `interface RequestQuery {
+      queryKey: string | any[]
+      url: string
+      staleTime?: number | "Infinity"
+      enabled?: boolean
+      successCallback?: (data: any) => void
+      errorCallback?: (error: string) => void
+      refetchOnWindowFocus?: boolean | "always"
+      header?: Record<string, string>
+      customBaseUrl?: string
+    }`
   },
   {
     title: "Key handler",
@@ -121,6 +132,22 @@ export const ReactQuery = [
             }
           })
         }
-        `
+        `,
+    type: `
+    interface MutateQuery {
+      method: "POST" | "DELETE" | "PATCH" | "PUT"
+      url?: string
+      successCallback?: (data: any) => void
+      errorCallback?: (error: string) => void
+      header?: Record<string, string>
+      preventDefaultMessage?: boolean
+      customBaseUrl?: string
+    }
+    
+     interface QueryParam {
+      query?: any
+      id?: string
+      requestUrl?: string
+    }`
   }
 ]

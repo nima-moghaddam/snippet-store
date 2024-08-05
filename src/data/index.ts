@@ -7,11 +7,11 @@ import { SweetAlert2 } from "./Sweet-Alert2"
 import { Utils } from "./Utils"
 
 export const Snippets: ISnippetModel = {
-  [Category.Regex]: Regex,
   [Category.ReactQuery]: ReactQuery,
   [Category.SweetAlert2]: SweetAlert2,
   [Category.Utils]: Utils,
-  [Category.ReactHooks]: ReactHooks
+  [Category.ReactHooks]: ReactHooks,
+  [Category.Regex]: Regex
 }
 
 export let SnippetList: ISnippet[] = []
