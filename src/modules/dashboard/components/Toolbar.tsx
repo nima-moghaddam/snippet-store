@@ -10,12 +10,17 @@ interface Props {
 }
 
 const Toolbar = ({ snippet, isForCard }: Props) => {
-  const { code, type } = snippet
+  const { code, type, title } = snippet
 
   const handleCodeCopy = (e: React.MouseEvent) => {
     e.stopPropagation()
     copy(code + (`\n${type}` || ""))
     toastFire("success", "Code copied")
+  }
+
+  const handleDownloadImage = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    window.open(`/preview/${title}`)
   }
 
   return (
@@ -24,7 +29,7 @@ const Toolbar = ({ snippet, isForCard }: Props) => {
         className={`w-5 h-5 text-black z-30 hover:text-pink cursor-pointer me-2 ${
           isForCard && "text-white hidden group-hover:block"
         }`}
-        onClick={() => {}}
+        onClick={handleDownloadImage}
       />
       <MdContentCopy
         className={`w-4 h-4 text-black z-30 hover:text-pink cursor-pointer ${

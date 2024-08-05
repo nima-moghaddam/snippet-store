@@ -1,18 +1,24 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaThList } from "react-icons/fa"
 import { BsGrid3X3GapFill } from "react-icons/bs"
 import SnippetList from "./SnippetList"
 import useFilterStore from "../../store/useFilterStore"
 import SnippetCard from "./SnippetCard"
+import useMenuStore from "../../store/useMenuStore"
 
 const Dashboard = () => {
   const [view, setView] = useState<"grid" | "list">("grid")
   const { snippets } = useFilterStore((state) => state)
+  const { setShowSidebar } = useMenuStore((state) => state)
 
   const onViewChange = () => {
     if (view === "grid") setView("list")
     else setView("grid")
   }
+
+  useEffect(() => {
+    setShowSidebar()
+  }, [])
 
   return (
     <section>
