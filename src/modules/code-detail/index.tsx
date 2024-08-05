@@ -7,6 +7,7 @@ import useMenuStore from "../../store/useMenuStore"
 import copy from "copy-to-clipboard"
 import { MdContentCopy } from "react-icons/md"
 import { toastFire } from "../../components/toast/Toast"
+import { IoCameraOutline } from "react-icons/io5"
 
 const CodeDetail = () => {
   const { pathname } = useLocation()
@@ -44,7 +45,14 @@ const CodeDetail = () => {
             </div>
           ))}
         </div>
-        <div>
+        <div className="flex items-center">
+          <button
+            onClick={() => window.open(`preview/${snippet?.title}`)}
+            className="flex items-center justify-center px-2 py-1 hover:text-pink cursor-pointer"
+          >
+            <IoCameraOutline className="w-5 h-5 me-2" />
+            <span>Photo</span>
+          </button>
           <button
             onClick={handleCodeCopy}
             className="flex items-center justify-center px-2 py-1 hover:text-pink cursor-pointer"

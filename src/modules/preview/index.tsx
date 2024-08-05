@@ -19,8 +19,8 @@ const Preview = () => {
   }, [])
 
   return (
-    <div className="flex flex-col items-center justify-center mt-10">
-      <div className="font-bold mb-2">Preview:</div>
+    <div className="flex flex-col items-center justify-center mt-8">
+      <div className="font-semibold mb-2 text-[1.5rem]">Preview:</div>
       <div className="bg-slate-200 p-8 mb-8 min-w-[60%]" ref={codeRef}>
         <div className="rounded-md overflow-hidden w-full">
           {snippet && (
