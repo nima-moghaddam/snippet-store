@@ -4,5 +4,6 @@ export enum Tags {
   Utility = "utils",
   Regex = "regex",
   SweetAlert2 = "sweet-alert2",
-  ReactHook = 'react-hook'
+  ReactHook = "react-hook",
+  Html2Canvas = "html2canvas"
 }

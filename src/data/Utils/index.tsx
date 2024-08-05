@@ -40,5 +40,23 @@ export const Utils = [
       window.scrollTo({ top: position + offset, behavior: 'smooth' });
     };
       }`
+  },
+  {
+    title: "download image",
+    tags: [Tags.Utility, Tags.React, Tags.Html2Canvas],
+    category: Category.Utils,
+    description: "download image using html2canvas lib, formats can be jpeg or png",
+    code: ` const downloadImage = async (format: "png" | "jpeg" | "svg", ref: RefObject<HTMLDivElement>) => {
+      if (!ref.current) return
+      const canvas = await html2canvas(ref.current)
+      const dataUrl = canvas.toDataURL(\`image/\${format}\`)
+    
+      const link = document.createElement("a")
+      link.href = dataUrl
+      link.download = \`component.\${format}\`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }`
   }
 ]

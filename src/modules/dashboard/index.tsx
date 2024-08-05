@@ -23,13 +23,13 @@ const Dashboard = () => {
       {view === "grid" ? (
         <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-8">
           {snippets.map((item) => (
-            <SnippetCard key={item.title} details={item} />
+            <SnippetCard key={item.title} snippet={item} />
           ))}
         </div>
       ) : (
         <div className="border border-gray rounded-xl pt-5 px-5 flex flex-col">
           {snippets.map((code, index) => (
-            <SnippetList key={code.title} details={code} hasBorder={snippets.length !== index + 1} />
+            <SnippetList key={code.title} snippet={code} hasBorder={snippets.length !== index + 1} />
           ))}
         </div>
       )}

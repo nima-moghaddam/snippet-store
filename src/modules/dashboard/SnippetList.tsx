@@ -1,29 +1,21 @@
-import copy from "copy-to-clipboard"
-import React, { useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router"
-import { toastFire } from "../../components/toast/Toast"
 import { ISnippet } from "../../types/ISnippetModels"
 import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper"
-import { MdContentCopy } from "react-icons/md"
 import TagList from "./components/TagList"
 import { FiChevronRight } from "react-icons/fi"
 import { FiChevronDown } from "react-icons/fi"
+import Toolbar from "./components/Toolbar"
 
 interface Props {
-  details: ISnippet
+  snippet: ISnippet
   hasBorder?: boolean
 }
 
-const SnippetList = ({ details, hasBorder = false }: Props) => {
+const SnippetList = ({ snippet, hasBorder = false }: Props) => {
   const [openList, setOpenList] = useState(false)
   const navigate = useNavigate()
-  const { title, code, tags, type } = details
-
-  const handleCopy = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    copy(code + (`\n${type}` || ""))
-    toastFire("success", "Code copied")
-  }
+  const { title, code, tags } = snippet
 
   return (
     <div className="flex flex-col mb-4">
@@ -51,10 +43,7 @@ const SnippetList = ({ details, hasBorder = false }: Props) => {
         </div>
       )}
       <div className={`flex justify-end items-center pb-2 ${hasBorder && "border-b border-gray "}`}>
-        <MdContentCopy
-          className="w-5 h-5 group-hover:block text-black hover:text-pink cursor-pointer"
-          onClick={handleCopy}
-        />
+        <Toolbar snippet={snippet} />
       </div>
     </div>
   )
