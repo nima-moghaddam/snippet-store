@@ -1,5 +1,5 @@
-import { Category } from "../../constants/Category"
-import { Tags } from "../../constants/Tags"
+import { Category } from "../../../constants/Category"
+import { Tags } from "../../../constants/Tags"
 
 export const ReactQuery = [
   {

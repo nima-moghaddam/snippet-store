@@ -14,7 +14,7 @@ interface Props {
   classes?: string
 }
 
-const Menu = ({ name, subMenus, classes }: Props) => {
+const SnippetMenu = ({ name, subMenus, classes }: Props) => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { setMenuFilter, setSubMenuFilter } = useFilterStore((state) => state)
@@ -46,14 +46,18 @@ const Menu = ({ name, subMenus, classes }: Props) => {
   return (
     <div className={`group text-white font-bold cursor-pointer ${classes}`}>
       <div
-        className={`flex items-center subMenus-center mb-3 group-hover:text-pink ${isMenuActive ? "text-pink" : ""}`}
+        className={`flex items-center subMenus-center mb-1 group-hover:text-pink ${isMenuActive ? "text-pink" : ""}`}
         onClick={handleMenuClick}
       >
         <span className="me-3">{name}</span>
         {isMenuActive ? <IoIosArrowDown className="w-4 h-4" /> : <IoIosArrowForward className="w-4 h-4" />}
       </div>
-      {isMenuActive && (
-        <ul className="flex flex-col ps-5">
+      <div
+        className={`overflow-hidden transition-max-height duration-300 ease-in-out ${
+          isMenuActive ? "max-h-40" : "max-h-0"
+        }`}
+      >
+        <ul className="flex flex-col ps-5 opacity-100 transition-opacity duration-200 ease-in-out">
           {subMenus.map((i) => (
             <li
               onClick={() => handleSubMenuClick(i.title)}
@@ -64,9 +68,9 @@ const Menu = ({ name, subMenus, classes }: Props) => {
             </li>
           ))}
         </ul>
-      )}
+      </div>
     </div>
   )
 }
 
-export default Menu
+export default SnippetMenu
