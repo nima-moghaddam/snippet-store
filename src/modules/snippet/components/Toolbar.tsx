@@ -3,6 +3,7 @@ import { toastFire } from "../../../components/toast/Toast"
 import { ISnippet } from "../../../types/SnippetModels"
 import copy from "copy-to-clipboard"
 import { IoCameraOutline } from "react-icons/io5"
+import { RouteEnum } from "../../../types/RouteModels"
 
 interface Props {
   snippet: ISnippet
@@ -20,7 +21,7 @@ const Toolbar = ({ snippet, isForCard }: Props) => {
 
   const handleDownloadImage = (e: React.MouseEvent) => {
     e.stopPropagation()
-    window.open(`/preview/${title}`)
+    window.open(`${RouteEnum.Snippet}/preview/${title}`)
   }
 
   return (

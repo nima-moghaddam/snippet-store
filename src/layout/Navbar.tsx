@@ -1,4 +1,3 @@
-import { AiFillHome } from "react-icons/ai"
 import { useNavigate } from "react-router"
 import useFilterStore from "../store/useFilterStore"
 import useMenuStore from "../store/useMenuStore"
@@ -7,6 +6,7 @@ import { useEffect, useState } from "react"
 import { IoCodeSlashOutline } from "react-icons/io5"
 import { PiTextTBold } from "react-icons/pi"
 import { SearchByStatusType } from "../types/SearchByModels"
+import NavigationToolbar from "./components/NavigationToolbar"
 
 const Navbar = () => {
   const [term, setTerm] = useState("")
@@ -15,12 +15,6 @@ const Navbar = () => {
   const navigate = useNavigate()
   const { resetFilters, setSearchFilter } = useFilterStore((state) => state)
   const { resetMenu } = useMenuStore((state) => state)
-
-  const handleNavigateHome = () => {
-    navigate("/")
-    resetFilters()
-    resetMenu()
-  }
 
   const handleSearch = (e: any) => {
     const term = e.target.value
@@ -75,10 +69,7 @@ const Navbar = () => {
           ></span>
         </div>
       </div>
-
-      <div className="flex items-center">
-        <AiFillHome onClick={handleNavigateHome} className="w-6 h-6 cursor-pointer hover:text-pink" />
-      </div>
+      <NavigationToolbar />
     </div>
   )
 }
