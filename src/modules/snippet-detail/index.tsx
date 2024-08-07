@@ -9,7 +9,7 @@ import { MdContentCopy } from "react-icons/md"
 import { toastFire } from "../../components/toast/Toast"
 import { IoCameraOutline } from "react-icons/io5"
 
-const CodeDetail = () => {
+const SnippetDetailPage = () => {
   const { pathname } = useLocation()
   const navigate = useNavigate()
   const { setTagFilter } = useFilterStore((state) => state)
@@ -21,7 +21,7 @@ const CodeDetail = () => {
   const handleTagFilter = (tag: Tags) => {
     setTagFilter(tag)
     resetMenu()
-    navigate("/")
+    navigate("/snippet")
   }
 
   const handleCodeCopy = () => {
@@ -85,4 +85,4 @@ const CodeDetail = () => {
   )
 }
 
-export default CodeDetail
+export default SnippetDetailPage

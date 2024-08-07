@@ -8,4 +8,5 @@ export interface ILinkModel {
 export interface ILink {
   title: string
   link: string
+  category: Category
 }

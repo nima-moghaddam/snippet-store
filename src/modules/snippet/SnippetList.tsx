@@ -32,7 +32,7 @@ const SnippetList = ({ snippet, hasBorder = false }: Props) => {
         )}
         <div
           className="font-semibold hover:text-pink ms-3 cursor-pointer text-[1.3rem]"
-          onClick={() => navigate(`/${title}`)}
+          onClick={() => navigate(`snippet/${title}`)}
         >
           {title}
         </div>

@@ -6,7 +6,7 @@ import useMenuStore from "../../store/useMenuStore"
 import { downloadImage } from "../../utils/downloadImage"
 import DownloadImageBtn from "./DownloadImageBtn"
 
-const Preview = () => {
+const SnippetPreviewPage = () => {
   const { setHideSidebar } = useMenuStore((state) => state)
   const { pathname } = useLocation()
   const codeRef = useRef(null)
@@ -38,4 +38,4 @@ const Preview = () => {
   )
 }
 
-export default Preview
+export default SnippetPreviewPage

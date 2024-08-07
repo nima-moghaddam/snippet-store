@@ -24,13 +24,13 @@ const SnippetMenu = ({ name, subMenus, classes }: Props) => {
   const activeSubmenuTitle = decodeURIComponent(pathname.startsWith("/") ? pathname.slice(1) : pathname)
 
   const handleMenuClick = () => {
-    navigate("/")
+    navigate("/snippet")
     setActiveMenu(name)
     setMenuFilter(name)
   }
 
   const handleSubMenuClick = (name: string) => {
-    navigate(`/${name}`)
+    navigate(`/snippet/${name}`)
     setSubMenuFilter(name)
   }
 
@@ -54,7 +54,7 @@ const SnippetMenu = ({ name, subMenus, classes }: Props) => {
       </div>
       <div
         className={`overflow-hidden transition-max-height duration-300 ease-in-out ${
-          isMenuActive ? "max-h-40" : "max-h-0"
+          isMenuActive ? "max-h-96" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col ps-5 opacity-100 transition-opacity duration-200 ease-in-out">

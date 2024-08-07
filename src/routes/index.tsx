@@ -1,17 +1,22 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import AppLayout from "../layout"
-import CodeDetail from "../modules/code-detail"
 import Dashboard from "../modules/dashboard"
-import Preview from "../modules/preview"
-
+import LinksPage from "../modules/links"
+import SnippetPage from "../modules/snippet"
+import SnippetDetailPage from "../modules/snippet-detail"
+import SnippetPreviewPage from "../modules/snippet-preview"
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route index path="/*" element={<Dashboard />} />
-          <Route path="/:code" element={<CodeDetail />} />
-          <Route path="/preview/:code" element={<Preview />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="links" element={<LinksPage />} />
+          <Route path="snippet" element={<SnippetPage />}>
+            <Route path=":code" element={<SnippetDetailPage />} />
+            <Route path="preview/:code" element={<SnippetPreviewPage />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </BrowserRouter>

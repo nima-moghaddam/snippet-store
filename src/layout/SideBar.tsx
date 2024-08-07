@@ -5,19 +5,19 @@ import { FaCode } from "react-icons/fa"
 import { PiLinkSimpleBold } from "react-icons/pi"
 import LinkMenu from "./components/LinkMenu"
 
+const snippetsMenu = Object.entries(Snippets).map(([key, values]) => {
+  return { categoryName: key as Category, subCategories: values }
+})
+
+const linksMenu = Object.entries(Links).map(([key, values]) => {
+  return { categoryName: key as Category, subCategories: values }
+})
+
 const SideBar = () => {
-  const snippetsMenu = Object.entries(Snippets).map(([key, values]) => {
-    return { categoryName: key as Category, subCategories: values }
-  })
-
-  const linksMenu = Object.entries(Links).map(([key, values]) => {
-    return { categoryName: key as Category, subCategories: values }
-  })
-
-  console.log(linksMenu)
+  // console.log(linksMenu)
 
   return (
-    <div className="w-[20rem] bg-dark h-[100vh] py-5 px-3">
+    <div className="w-[20rem] bg-dark h-[100vh] py-5 px-3 overflow-y-scroll hide-scrollbar">
       <div className="text-pink text-[1.5rem] font-bold mb-8 flex items-center justify-center me-5">
         <FaCode className="me-3 mt-1" />
         <span>Snippets</span>
