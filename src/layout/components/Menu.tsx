@@ -30,7 +30,7 @@ const Menu = ({ menuTitle, subMenus, route, classes }: Props) => {
   }
 
   const handleSubMenuClick = (subMenuTitle: string) => {
-    navigate(`${route}/${subMenuTitle}`)
+    navigate(`/${route}/${subMenuTitle}`)
     setSubMenuFilter(subMenuTitle, route)
   }
 

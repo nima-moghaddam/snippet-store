@@ -8,6 +8,7 @@ import copy from "copy-to-clipboard"
 import { MdContentCopy } from "react-icons/md"
 import { toastFire } from "../../components/toast/Toast"
 import { IoCameraOutline } from "react-icons/io5"
+import { RouteEnum } from "../../types/RouteModels"
 
 const SnippetDetailPage = () => {
   const { pathname } = useLocation()
@@ -15,13 +16,13 @@ const SnippetDetailPage = () => {
   const { setTagFilter } = useFilterStore((state) => state)
   const { resetMenu } = useMenuStore((state) => state)
 
-  const snippetTitle = decodeURIComponent(pathname.slice(1))
+  const snippetTitle = decodeURIComponent(pathname.split(`/${RouteEnum.Snippet}/`)[1])
   const snippet = SnippetList.find((code) => code.title === snippetTitle)
 
   const handleTagFilter = (tag: Tags) => {
     setTagFilter(tag)
     resetMenu()
-    navigate("/snippet")
+    navigate(`/${RouteEnum.Snippet}`)
   }
 
   const handleCodeCopy = () => {

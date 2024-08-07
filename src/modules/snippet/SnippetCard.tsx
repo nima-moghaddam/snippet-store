@@ -3,6 +3,7 @@ import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/Syntax
 import { useNavigate } from "react-router"
 import TagList from "./components/TagList"
 import Toolbar from "./components/Toolbar"
+import { RouteEnum } from "../../types/RouteModels"
 
 interface Props {
   snippet: ISnippet
@@ -14,7 +15,7 @@ const SnippetCard = ({ snippet }: Props) => {
 
   return (
     <div
-      onClick={() => navigate(`snippet/${title}`)}
+      onClick={() => navigate(`/${RouteEnum.Snippet}/${title}`)}
       className="rounded-lg max-h-[700px] overflow-hidden cursor-pointer hover:shadow-3xl group z-20"
     >
       <div className="bg-dark pb-5 pt-4 px-3 border-b-2 border-gray shadow-lg shadow-black">
