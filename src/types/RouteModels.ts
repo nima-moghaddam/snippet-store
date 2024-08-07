@@ -3,4 +3,4 @@ export enum RouteEnum {
   Links = "links"
 }
 
-export type RouteType = RouteEnum.Snippet | RouteEnum.Links
+// export type RouteType = RouteEnum.Snippet | RouteEnum.Links

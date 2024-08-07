@@ -1,15 +1,17 @@
 import { create } from "zustand"
 import { Category } from "../constants/Category"
 import { Tags } from "../constants/Tags"
-import { SnippetList } from "../data"
+import { LinkList, SnippetList } from "../data"
 import { ISnippet } from "../types/SnippetModels"
 import { SearchByStatusType } from "../types/SearchByModels"
-import { MenuModeType } from "../types/RouteModels"
+import {  RouteEnum } from "../types/RouteModels"
+import { ILink } from "../types/LinkModels"
 
 interface IStoreState {
   snippets: ISnippet[]
+  links: ILink[]
   setMenuFilter: (category: Category) => void
-  setSubMenuFilter: (name: string, mode: MenuModeType) => void
+  setSubMenuFilter: (name: string, route: RouteEnum) => void
   setTagFilter: (tag: Tags) => void
   setSearchFilter: (term: string, searchBy: SearchByStatusType) => void
   resetFilters: () => void
@@ -17,17 +19,21 @@ interface IStoreState {
 
 const useFilterStore = create<IStoreState>((set, get) => ({
   snippets: SnippetList,
+  links: LinkList,
   setMenuFilter: (category) => {
     const filteredSnippets = SnippetList?.filter((i) => i.category === category)
     set(() => ({
       snippets: filteredSnippets
     }))
   },
-  setSubMenuFilter: (name) => {
-    const filteredSnippets = SnippetList?.filter((i) => i.title === name)
-    set(() => ({
-      snippets: filteredSnippets
-    }))
+  setSubMenuFilter: (name, route) => {
+    if (route === RouteEnum.Snippet) {
+      const filteredSnippets = SnippetList?.filter((i) => i.title === name)
+      set((state) => ({ ...state, snippets: filteredSnippets }))
+    } else {
+      const filteredLinks = LinkList?.filter((i) => i.title === name)
+      set((state) => ({ ...state, links: filteredLinks }))
+    }
   },
   setTagFilter: (tag) => {
     const filteredSnippets = SnippetList?.filter((snippet) => {

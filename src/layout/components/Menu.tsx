@@ -1,26 +1,46 @@
+import { useEffect } from "react"
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io"
 import { useLocation, useNavigate } from "react-router"
 import { Category } from "../../constants/Category"
+import useFilterStore from "../../store/useFilterStore"
+import useMenuStore from "../../store/useMenuStore"
+import { RouteEnum } from "../../types/RouteModels"
 import { ISnippet } from "../../types/SnippetModels"
 
 interface Props {
   menuTitle: Category
   subMenus: ISnippet[]
-  isMenuActive: boolean
+  route: RouteEnum
   classes?: string
-  handleMenuClick: () => void
-  mode: "snippet" | "links"
 }
 
-const Menu = ({ menuTitle, subMenus, isMenuActive, handleMenuClick, mode, classes }: Props) => {
-  const navigate = useNavigate()
-  const { pathname } = useLocation()
-  const activeSubmenuTitle = decodeURIComponent(pathname.startsWith("/") ? pathname.slice(1) : pathname)
+const Menu = ({ menuTitle, subMenus, route, classes }: Props) => {
+  const { setSubMenuFilter, setMenuFilter } = useFilterStore((state) => state)
+  const { activeMenu, setActiveMenu } = useMenuStore((state) => state)
 
-  const handleSubMenuClick = (name: string) => {
-    navigate(`${mode}/${name}`)
-    // setSubMenuFilter(name)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+  const activeSubmenuTitle = decodeURIComponent(pathname.startsWith("/") ? pathname.slice(1) : pathname)
+  const isMenuActive = activeMenu === menuTitle
+
+  const handleMenuClick = () => {
+    navigate(`/${route}`)
+    setActiveMenu(menuTitle)
+    setMenuFilter(menuTitle)
   }
+
+  const handleSubMenuClick = (subMenuTitle: string) => {
+    navigate(`${route}/${subMenuTitle}`)
+    setSubMenuFilter(subMenuTitle, route)
+  }
+
+  useEffect(() => {
+    const currentSubmenu = subMenus.find((i) => i.title === activeSubmenuTitle)
+    if (currentSubmenu) {
+      const menuHasActiveSub = subMenus.some((menu) => menu.category === currentSubmenu.category)
+      if (menuHasActiveSub) setActiveMenu(menuTitle)
+    }
+  }, [activeSubmenuTitle])
 
   return (
     <div className={`group text-white font-bold cursor-pointer ${classes}`}>

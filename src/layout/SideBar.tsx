@@ -4,6 +4,8 @@ import SnippetMenu from "./components/SnippetMenu"
 import { FaCode } from "react-icons/fa"
 import { PiLinkSimpleBold } from "react-icons/pi"
 import LinkMenu from "./components/LinkMenu"
+import Menu from "./components/Menu"
+import { RouteEnum } from "../types/RouteModels"
 
 const snippetsMenu = Object.entries(Snippets).map(([key, values]) => {
   return { categoryName: key as Category, subCategories: values }
@@ -23,14 +25,26 @@ const SideBar = () => {
         <span>Snippets</span>
       </div>
       {snippetsMenu.map((menu) => (
-        <SnippetMenu key={menu.categoryName} name={menu.categoryName} subMenus={menu.subCategories} classes="mb-2" />
+        <Menu
+          key={menu.categoryName}
+          menuTitle={menu.categoryName}
+          subMenus={menu.subCategories}
+          route={RouteEnum.Snippet}
+          classes="mb-2"
+        />
       ))}
       <div className="text-pink text-[1.5rem] font-bold mb-8 flex items-center justify-center me-5">
         <PiLinkSimpleBold className="me-3 mt-1" />
         <span>Links</span>
       </div>
       {linksMenu.map((menu) => (
-        <LinkMenu key={menu.categoryName} name={menu.categoryName} subMenus={menu.subCategories} classes="mb-2" />
+        <Menu
+          key={menu.categoryName}
+          menuTitle={menu.categoryName}
+          subMenus={menu.subCategories}
+          route={RouteEnum.Links}
+          classes="mb-2"
+        />
       ))}
     </div>
   )
