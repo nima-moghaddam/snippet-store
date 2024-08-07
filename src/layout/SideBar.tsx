@@ -1,9 +1,7 @@
 import { Category } from "../constants/Category"
 import { Links, Snippets } from "../data"
-import SnippetMenu from "./components/SnippetMenu"
 import { FaCode } from "react-icons/fa"
 import { PiLinkSimpleBold } from "react-icons/pi"
-import LinkMenu from "./components/LinkMenu"
 import Menu from "./components/Menu"
 import { RouteEnum } from "../types/RouteModels"
 

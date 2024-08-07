@@ -20,7 +20,7 @@ const Menu = ({ menuTitle, subMenus, route, classes }: Props) => {
 
   const { pathname } = useLocation()
   const navigate = useNavigate()
-  const activeSubmenuTitle = decodeURIComponent(pathname.startsWith("/") ? pathname.slice(1) : pathname)
+  const activeSubmenuTitle = decodeURIComponent(pathname.split(`/${route}/`)[1])
   const isMenuActive = activeMenu === menuTitle
 
   const handleMenuClick = () => {
