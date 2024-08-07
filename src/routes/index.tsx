@@ -5,14 +5,16 @@ import LinksPage from "../modules/links"
 import SnippetPage from "../modules/snippet"
 import SnippetDetailPage from "../modules/snippet-detail"
 import SnippetPreviewPage from "../modules/snippet-preview"
+import { RouteEnum } from "../types/RouteModels"
+
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Dashboard />} />
-          <Route path="links" element={<LinksPage />} />
-          <Route path="snippet" element={<SnippetPage />}>
+          <Route path={RouteEnum.Links} element={<LinksPage />} />
+          <Route path={RouteEnum.Snippet} element={<SnippetPage />}>
             <Route path=":code" element={<SnippetDetailPage />} />
             <Route path="preview/:code" element={<SnippetPreviewPage />} />
           </Route>

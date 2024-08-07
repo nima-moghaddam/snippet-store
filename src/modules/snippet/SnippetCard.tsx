@@ -1,4 +1,4 @@
-import { ISnippet } from "../../types/ISnippetModels"
+import { ISnippet } from "../../types/SnippetModels"
 import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper"
 import { useNavigate } from "react-router"
 import TagList from "./components/TagList"

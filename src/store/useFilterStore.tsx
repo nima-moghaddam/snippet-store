@@ -2,13 +2,14 @@ import { create } from "zustand"
 import { Category } from "../constants/Category"
 import { Tags } from "../constants/Tags"
 import { SnippetList } from "../data"
-import { ISnippet } from "../types/ISnippetModels"
-import { SearchByStatusType } from "../types/SearchByStatusType"
+import { ISnippet } from "../types/SnippetModels"
+import { SearchByStatusType } from "../types/SearchByModels"
+import { MenuModeType } from "../types/RouteModels"
 
 interface IStoreState {
   snippets: ISnippet[]
   setMenuFilter: (category: Category) => void
-  setSubMenuFilter: (name: string) => void
+  setSubMenuFilter: (name: string, mode: MenuModeType) => void
   setTagFilter: (tag: Tags) => void
   setSearchFilter: (term: string, searchBy: SearchByStatusType) => void
   resetFilters: () => void

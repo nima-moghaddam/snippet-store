@@ -1,4 +1,4 @@
-import { ISnippet } from "../../types/ISnippetModels"
+import { ISnippet } from "../../types/SnippetModels"
 import { IoIosArrowForward } from "react-icons/io"
 import { IoIosArrowDown } from "react-icons/io"
 import useMenuStore from "../../store/useMenuStore"

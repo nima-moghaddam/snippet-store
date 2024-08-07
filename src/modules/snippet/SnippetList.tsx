@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router"
-import { ISnippet } from "../../types/ISnippetModels"
+import { ISnippet } from "../../types/SnippetModels"
 import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper"
 import TagList from "./components/TagList"
 import { FiChevronRight } from "react-icons/fi"

@@ -1,6 +1,6 @@
 import { Category } from "../constants/Category"
-import { ILink, ILinkModel } from "../types/ILinkModels"
-import { ISnippet, ISnippetModel } from "../types/ISnippetModels"
+import { ILink, ILinkModel } from "../types/LinkModels"
+import { ISnippet, ISnippetModel } from "../types/SnippetModels"
 import { WebTools } from "./Links/Web-Tools"
 import { ReactHooks } from "./Snippets/React-Hooks"
 import { ReactQuery } from "./Snippets/React-Query"

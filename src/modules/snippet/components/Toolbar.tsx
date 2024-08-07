@@ -1,6 +1,6 @@
 import { MdContentCopy } from "react-icons/md"
 import { toastFire } from "../../../components/toast/Toast"
-import { ISnippet } from "../../../types/ISnippetModels"
+import { ISnippet } from "../../../types/SnippetModels"
 import copy from "copy-to-clipboard"
 import { IoCameraOutline } from "react-icons/io5"
 

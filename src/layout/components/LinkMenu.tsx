@@ -6,7 +6,7 @@ import useFilterStore from "../../store/useFilterStore"
 import { useNavigate } from "react-router"
 import { useLocation } from "react-router-dom"
 import { useEffect } from "react"
-import { ILink } from "../../types/ILinkModels"
+import { ILink } from "../../types/LinkModels"
 
 interface Props {
   name: Category

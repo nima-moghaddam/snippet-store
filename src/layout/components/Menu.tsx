@@ -1,7 +1,7 @@
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io"
 import { useLocation, useNavigate } from "react-router"
 import { Category } from "../../constants/Category"
-import { ISnippet } from "../../types/ISnippetModels"
+import { ISnippet } from "../../types/SnippetModels"
 
 interface Props {
   menuTitle: Category
@@ -9,7 +9,7 @@ interface Props {
   isMenuActive: boolean
   classes?: string
   handleMenuClick: () => void
-  mode: "snippet" | "link"
+  mode: "snippet" | "links"
 }
 
 const Menu = ({ menuTitle, subMenus, isMenuActive, handleMenuClick, mode, classes }: Props) => {
@@ -18,7 +18,7 @@ const Menu = ({ menuTitle, subMenus, isMenuActive, handleMenuClick, mode, classe
   const activeSubmenuTitle = decodeURIComponent(pathname.startsWith("/") ? pathname.slice(1) : pathname)
 
   const handleSubMenuClick = (name: string) => {
-    navigate(`/${name}`)
+    navigate(`${mode}/${name}`)
     // setSubMenuFilter(name)
   }
 

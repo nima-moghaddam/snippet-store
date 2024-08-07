@@ -6,7 +6,7 @@ import { LuSearch } from "react-icons/lu"
 import { useEffect, useState } from "react"
 import { IoCodeSlashOutline } from "react-icons/io5"
 import { PiTextTBold } from "react-icons/pi"
-import { SearchByStatusType } from "../types/SearchByStatusType"
+import { SearchByStatusType } from "../types/SearchByModels"
 
 const Navbar = () => {
   const [term, setTerm] = useState("")
