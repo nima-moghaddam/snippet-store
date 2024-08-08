@@ -14,8 +14,6 @@ const linksMenu = Object.entries(Links).map(([key, values]) => {
 })
 
 const SideBar = () => {
-  // console.log(linksMenu)
-
   return (
     <div className="w-[20rem] bg-dark h-[100vh] py-5 px-3 overflow-y-scroll hide-scrollbar">
       <div className="text-pink text-[1.5rem] font-bold mb-8 flex items-center justify-center me-5">
@@ -31,7 +29,7 @@ const SideBar = () => {
           classes="mb-2"
         />
       ))}
-      <div className="text-pink text-[1.5rem] font-bold mb-8 flex items-center justify-center me-5">
+      <div className="text-pink text-[1.5rem] font-bold mb-8 flex items-center justify-center me-5 mt-8">
         <PiLinkSimpleBold className="me-3 mt-1" />
         <span>Links</span>
       </div>
