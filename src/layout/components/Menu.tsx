@@ -26,12 +26,12 @@ const Menu = ({ menuTitle, subMenus, route, classes }: Props) => {
   const handleMenuClick = () => {
     navigate(`/${route}`)
     setActiveMenu(menuTitle)
-    setMenuFilter(menuTitle)
+    setMenuFilter(menuTitle, route)
   }
 
   const handleSubMenuClick = (subMenuTitle: string) => {
-    navigate(`/${route}/${subMenuTitle}`)
     setSubMenuFilter(subMenuTitle, route)
+    if (route === RouteEnum.Snippet) navigate(`/${route}/${subMenuTitle}`)
   }
 
   useEffect(() => {
