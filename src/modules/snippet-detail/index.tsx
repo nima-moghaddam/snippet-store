@@ -9,12 +9,14 @@ import { MdContentCopy } from "react-icons/md"
 import { toastFire } from "../../components/toast/Toast"
 import { IoCameraOutline } from "react-icons/io5"
 import { RouteEnum } from "../../types/RouteModels"
+import useAnimation from "../../utils/useAnimation"
 
 const SnippetDetailPage = () => {
   const { pathname } = useLocation()
   const navigate = useNavigate()
   const { setTagFilter } = useFilterStore((state) => state)
   const { resetMenu } = useMenuStore((state) => state)
+  const { animateClass } = useAnimation()
 
   const snippetTitle = decodeURIComponent(pathname.split(`/${RouteEnum.Snippet}/`)[1])
   const snippet = SnippetList.find((code) => code.title === snippetTitle)
@@ -33,7 +35,7 @@ const SnippetDetailPage = () => {
   }
 
   return (
-    <section>
+    <section className={`${animateClass}`}>
       <div className="border-b border-slate-300 pb-2 mb-1">
         <h1 className="font-semibold text-[2rem]">{snippet?.title}</h1>
       </div>

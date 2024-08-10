@@ -4,6 +4,7 @@ import { useNavigate } from "react-router"
 import TagList from "./components/TagList"
 import Toolbar from "./components/Toolbar"
 import { RouteEnum } from "../../types/RouteModels"
+import useAnimation from "../../utils/useAnimation"
 
 interface Props {
   snippet: ISnippet
@@ -12,11 +13,12 @@ interface Props {
 const SnippetCard = ({ snippet }: Props) => {
   const navigate = useNavigate()
   const { title, code, tags } = snippet
+  const { animateClass } = useAnimation()
 
   return (
     <div
       onClick={() => navigate(`/${RouteEnum.Snippet}/${title}`)}
-      className="rounded-lg max-h-[700px] overflow-hidden cursor-pointer hover:shadow-3xl group z-20"
+      className={`rounded-lg max-h-[700px] overflow-hidden cursor-pointer hover:shadow-3xl group z-20 ${animateClass}`}
     >
       <div className="bg-dark pb-5 pt-4 px-3 border-b-2 border-gray shadow-lg shadow-black">
         <div className="flex justify-end h-3">

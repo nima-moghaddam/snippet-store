@@ -3,17 +3,19 @@ import { useLocation } from "react-router"
 import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper"
 import { SnippetList } from "../../data"
 import { downloadImage } from "../../utils/downloadImage"
+import useAnimation from "../../utils/useAnimation"
 import DownloadImageBtn from "./DownloadImageBtn"
 
 const SnippetPreviewPage = () => {
   const { pathname } = useLocation()
   const codeRef = useRef(null)
+  const { animateClass } = useAnimation()
 
   const snippetTitle = decodeURIComponent(pathname.split("/").pop() || "")
   const snippet = SnippetList.find((code) => code.title === snippetTitle)
 
   return (
-    <div className="flex flex-col items-center justify-center mt-8">
+    <div className={`flex flex-col items-center justify-center mt-8 ${animateClass}`}>
       <div className="font-semibold mb-2 text-[1.5rem]">Preview:</div>
       <div className="bg-slate-200 p-8 mb-8 min-w-[60%]" ref={codeRef}>
         <div className="rounded-md overflow-hidden w-full">

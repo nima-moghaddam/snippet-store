@@ -1,6 +1,7 @@
 import copy from "copy-to-clipboard"
 import { MdContentCopy } from "react-icons/md"
 import { toastFire } from "../../components/toast/Toast"
+import useAnimation from "../../utils/useAnimation"
 
 interface Props {
   link: string
@@ -8,6 +9,8 @@ interface Props {
 }
 
 const LinkCard = ({ link, title }: Props) => {
+  const { animateClass } = useAnimation()
+
   const handleCodeCopy = (e: React.MouseEvent) => {
     e.stopPropagation()
     copy(link)
@@ -16,7 +19,7 @@ const LinkCard = ({ link, title }: Props) => {
 
   return (
     <div
-      className="bg-dark rounded-md p-5 cursor-pointer relative flex flex-col hover:shadow-3xl group"
+      className={`bg-dark rounded-md p-5 cursor-pointer relative flex flex-col hover:shadow-3xl group ${animateClass}`}
       onClick={() => window.open(link)}
     >
       <MdContentCopy

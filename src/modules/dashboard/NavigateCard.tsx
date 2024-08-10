@@ -2,6 +2,7 @@ import { useNavigate } from "react-router"
 import { RouteEnum } from "../../types/RouteModels"
 import { FaCode } from "react-icons/fa"
 import { PiLinkSimpleBold } from "react-icons/pi"
+import useAnimation from "../../utils/useAnimation"
 
 interface Props {
   title: string
@@ -12,10 +13,12 @@ interface Props {
 
 const NavigateCard = ({ link, title, icon, classes }: Props) => {
   const navigate = useNavigate()
+  const { animateClass } = useAnimation()
+
   return (
     <div
       onClick={() => navigate(link)}
-      className={`group flex items-center justify-center bg-dark_lighter w-[350px] py-5 rounded-md cursor-pointer hover:shadow-3xl pe-5 ${classes}`}
+      className={`group flex items-center justify-center bg-dark_lighter w-[350px] py-5 rounded-md cursor-pointer hover:shadow-3xl pe-5 ${animateClass} ${classes} `}
     >
       {icon === RouteEnum.Snippet ? (
         <FaCode className="w-7 h-7 text-blue group-hover:text-pink mt-1" />
