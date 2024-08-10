@@ -1,10 +1,19 @@
-import { Outlet } from "react-router-dom"
+import { useEffect } from "react"
+import { Outlet, useLocation } from "react-router-dom"
 import useMenuStore from "../store/useMenuStore"
 import Navbar from "./Navbar"
 import SideBar from "./SideBar"
 
 const AppLayout = () => {
-  const { showSidebar } = useMenuStore((state) => state)
+  const { showSidebar, setShowSidebar, setHideSidebar } = useMenuStore((state) => state)
+
+  const { pathname } = useLocation()
+  const pathList = pathname.split("/")
+
+  useEffect(() => {
+    if (pathList[2] === "preview") setHideSidebar()
+    else setShowSidebar()
+  }, [pathname])
 
   return (
     <div className="flex h-screen">

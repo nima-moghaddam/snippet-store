@@ -10,7 +10,7 @@ interface Bar {
 
 const Bar = ({ name, percent }: Bar) => {
   return (
-    <div className={`relative w-[30px] bg-red-300 me-10`} style={{ height: `calc(${percent}% + 50px)` }}>
+    <div className={`relative w-[30px] bg-pink me-10`} style={{ height: `calc(${percent}% + 50px)` }}>
       <span className="absolute bottom-[-50px] right-0 rotate-[-45deg] text-nowrap">{name}</span>
       <span className="absolute top-[50%] rotate-[-55deg]">{percent}%</span>
     </div>

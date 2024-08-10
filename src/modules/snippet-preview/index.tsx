@@ -1,22 +1,16 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import { useLocation } from "react-router"
 import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper"
 import { SnippetList } from "../../data"
-import useMenuStore from "../../store/useMenuStore"
 import { downloadImage } from "../../utils/downloadImage"
 import DownloadImageBtn from "./DownloadImageBtn"
 
 const SnippetPreviewPage = () => {
-  const { setHideSidebar } = useMenuStore((state) => state)
   const { pathname } = useLocation()
   const codeRef = useRef(null)
 
   const snippetTitle = decodeURIComponent(pathname.split("/").pop() || "")
   const snippet = SnippetList.find((code) => code.title === snippetTitle)
-
-  useEffect(() => {
-    setHideSidebar()
-  }, [])
 
   return (
     <div className="flex flex-col items-center justify-center mt-8">
