@@ -1,4 +1,5 @@
 import Chart from "../../components/chart"
+import { Category } from "../../constants/Category"
 import { Tags } from "../../constants/Tags"
 import { SnippetList } from "../../data"
 import { RouteEnum } from "../../types/RouteModels"
@@ -22,10 +23,10 @@ const Dashboard = () => {
     return { [key]: Math.round(percentage) }
   })
 
-  const categoryList = Object.values(Tags).map((tag) => {
-    const tagCount = SnippetList.filter((item) => item.tags.includes(tag)).length
-    return { [tag]: tagCount }
-  })
+  // const categoryList = Object.values(Category).map((category) => {
+  //   const categoryCount = SnippetList.filter((item) => item.category === category).length
+  //   return { [category]: categoryCount }
+  // })
 
 
   return (
@@ -36,7 +37,7 @@ const Dashboard = () => {
       </div>
       <div className="flex flex-col justify-between items-center lg:flex-row">
         <Chart barColor="bg-pink" data={tagPercentsList} title="Tags Chart" />
-        <Chart barColor="bg-blue" data={tagPercentsList} title="Category Chart" />
+        {/* <Chart barColor="bg-blue" data={tagPercentsList} title="Category Chart" /> */}
       </div>
     </section>
   )

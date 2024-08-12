@@ -6,7 +6,6 @@ import SideBar from "./SideBar"
 
 const AppLayout = () => {
   const { showSidebar, setShowSidebar, setHideSidebar } = useMenuStore((state) => state)
-
   const { pathname } = useLocation()
   const pathList = pathname.split("/")
 
