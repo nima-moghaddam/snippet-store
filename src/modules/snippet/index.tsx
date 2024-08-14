@@ -27,7 +27,7 @@ const SnippetPage = () => {
         <span className="ms-2">{view === "grid" ? "Grid view" : "List view"}</span>
       </div>
       {view === "grid" ? (
-        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-8">
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-8">
           {snippets.map((item) => (
             <SnippetCard key={item.title} snippet={item} />
           ))}

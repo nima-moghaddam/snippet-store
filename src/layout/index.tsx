@@ -19,7 +19,7 @@ const AppLayout = () => {
       {showSidebar && <SideBar />}
       <div className="flex flex-col w-full h-full overflow-y-auto">
         <Navbar />
-        <main className="px-14 py-5">
+        <main className="px-14 py-5 z-10">
           <Outlet />
         </main>
       </div>

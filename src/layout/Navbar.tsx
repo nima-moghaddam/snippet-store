@@ -1,77 +1,48 @@
-import { useNavigate } from "react-router"
-import useFilterStore from "../store/useFilterStore"
-import useMenuStore from "../store/useMenuStore"
-import { LuSearch } from "react-icons/lu"
-import { useEffect, useState } from "react"
-import { IoCodeSlashOutline } from "react-icons/io5"
-import { PiTextTBold } from "react-icons/pi"
-import { SearchByStatusType } from "../types/SearchByModels"
-import NavigationToolbar from "./components/NavigationToolbar"
+import ToolBar from "./components/ToolBar";
+import { IoMenu } from "react-icons/io5";
+import Search from "./components/Search";
+import { useRef, useState } from "react";
+import { useOutsideAlerter } from "../utils/useOutsideAlerter";
+import { IoMdClose } from "react-icons/io";
 
 const Navbar = () => {
-  const [term, setTerm] = useState("")
-  const [searchBy, setSearchBy] = useState<SearchByStatusType>("title")
+  const [openMenu, setOpenMenu] = useState(false);
+  const sideBarRef = useRef(null);
 
-  const navigate = useNavigate()
-  const { resetFilters, setSearchFilter } = useFilterStore((state) => state)
-  const { resetMenu } = useMenuStore((state) => state)
+  const closeMenu = () => setOpenMenu(false);
 
-  const handleSearch = (e: any) => {
-    const term = e.target.value
-    setTerm(term)
-  }
-
-  const handleSearchOnEnter = (e: any) => {
-    if (e.key === "Enter") {
-      resetMenu()
-      navigate("/")
-      setSearchFilter(term, searchBy)
-    }
-  }
-
-  const handleSearhByOnclick = () => {
-    resetFilters()
-    setTerm("")
-    setSearchBy((prev) => {
-      if (prev === "code") return "title"
-      else return "code"
-    })
-  }
-
-  useEffect(() => {
-    if (!term) resetFilters()
-  }, [term])
+  useOutsideAlerter({
+    ref: sideBarRef,
+    handleOutsidClick() {
+      closeMenu();
+    },
+  });
 
   return (
-    <div className="min-h-[80px] w-full flex justify-between items-center px-14">
-      <div className="flex items-center">
-        <div className="relative me-4">
-          <LuSearch className="w-5 h-5 absolute left-2 bottom-[10px]" />
-          <input
-            placeholder={`Search snippet ${searchBy === "code" ? "code" : "title"}`}
-            className="border border-gray rounded-md py-2 outline-none ps-10 min-w-[300px] focus:border-slate-400"
-            onChange={handleSearch}
-            value={term}
-            onKeyDown={handleSearchOnEnter}
-          />
-        </div>
-        <div
-          className={`relative flex justify-between items-center w-20 h-10 transition-colors duration-300 border border-gray cursor-pointer rounded-lg px-[10px]`}
-          onClick={handleSearhByOnclick}
-        >
-          <IoCodeSlashOutline className="text-black z-20" />
-          <PiTextTBold className="text-black z-20" />
-
-          <span
-            className={`absolute z-10 bg-pink left-0 top-[1px] bottom-0 h-9 w-10 rounded-lg shadow-md transform transition-transform duration-300 ${
-              searchBy === "title" ? "translate-x-10" : ""
-            }`}
-          ></span>
-        </div>
+    <div className="flex min-h-[80px] w-full items-center justify-between px-14">
+      <Search />
+      <div className="hidden md:block">
+        <ToolBar />
       </div>
-      <NavigationToolbar />
+      <div className="relative block md:hidden">
+        <IoMenu
+          className="h-6 w-6"
+          onClick={() => setOpenMenu((prev) => !prev)}
+        />
+        {openMenu && (
+          <div
+            className="fixed right-0 top-0 z-50 h-[100vh] w-full bg-white shadow-xl xs:w-[250px]"
+            ref={sideBarRef}
+          >
+            <div className="mb-2 flex justify-start p-5">
+              <IoMdClose className="h-5 w-5" onClick={closeMenu} />
+            </div>
+            <ToolBar isSideMenu closeMenu={closeMenu} />
+          </div>
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

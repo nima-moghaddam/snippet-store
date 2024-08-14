@@ -27,14 +27,14 @@ const Toolbar = ({ snippet, isForCard }: Props) => {
   return (
     <div className="flex items-center">
       <IoCameraOutline
-        className={`w-5 h-5 text-black z-30 hover:text-pink cursor-pointer me-2 ${
-          isForCard && "text-white hidden group-hover:block"
+        className={`w-6 h-6 sm:w-5 sm:h-5 text-black z-30 hover:text-pink cursor-pointer me-3 sm:me-2 ${
+          isForCard && "text-white block md:hidden group-hover:block"
         }`}
         onClick={handleDownloadImage}
       />
       <MdContentCopy
-        className={`w-4 h-4 text-black z-30 hover:text-pink cursor-pointer ${
-          isForCard && "text-white hidden group-hover:block"
+        className={`w-6 h-6 sm:w-5 sm:h-5 text-black z-30 hover:text-pink cursor-pointer ${
+          isForCard && "text-white block md:hidden group-hover:block"
         }`}
         onClick={handleCodeCopy}
       />
