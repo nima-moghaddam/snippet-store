@@ -88,12 +88,10 @@ const SnippetDetailPage = () => {
         </div>
       )}
       {snippet?.description && (
-        <div className="relative rounded-lg border border-gray px-3 py-5">
-          <span className="absolute right-3 top-[-10px] rounded-md bg-blue px-3 text-white">
-            Description
-          </span>
-          {snippet?.description}
-        </div>
+        <>
+          <div className="underline underline-offset-2 mb-1">Description</div>
+          <p className="ps-3 font-light">{snippet?.description}</p>
+        </>
       )}
     </section>
   );
