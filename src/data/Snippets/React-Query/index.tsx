@@ -1,5 +1,5 @@
-import { Category } from "../../../constants/Category"
-import { Tags } from "../../../constants/Tags"
+import { Category } from "../../../constants/Category";
+import { Tags } from "../../../constants/Tags";
 
 export const ReactQuery = [
   {
@@ -7,6 +7,7 @@ export const ReactQuery = [
     tags: [Tags.React, Tags.ReactQuery],
     category: Category.ReactQuery,
     description: "custom hook for coupling useQuery with axios or fetch api's",
+    link: "https://tanstack.com/query/latest/docs/framework/react/overview",
     code: `const useRequest = ({
             queryKey,
             url,
@@ -64,24 +65,26 @@ export const ReactQuery = [
       refetchOnWindowFocus?: boolean | "always"
       header?: Record<string, string>
       customBaseUrl?: string
-    }`
+    }`,
   },
   {
     title: "Key handler",
     tags: [Tags.React, Tags.ReactQuery],
     category: Category.ReactQuery,
     description: "",
+    link: "https://tanstack.com/query/latest/docs/framework/react/overview",
     code: `const keyHandler = (key: string) => {
           return {
             predicate: (query: any) => query.queryKey.includes(key)
           }
-        }`
+        }`,
   },
   {
     title: "useMutation",
     tags: [Tags.React, Tags.ReactQuery],
     category: Category.ReactQuery,
     description: "custom hook for coupling useMutate with axios or fetch api's",
+    link: "https://tanstack.com/query/latest/docs/framework/react/overview",
     code: `const useMutate = ({
           method,
           url,
@@ -148,6 +151,6 @@ export const ReactQuery = [
       query?: any
       id?: string
       requestUrl?: string
-    }`
-  }
-]
+    }`,
+  },
+];

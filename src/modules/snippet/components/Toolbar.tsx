@@ -1,45 +1,54 @@
-import { MdContentCopy } from "react-icons/md"
-import { toastFire } from "../../../components/toast/Toast"
-import { ISnippet } from "../../../types/SnippetModels"
-import copy from "copy-to-clipboard"
-import { IoCameraOutline } from "react-icons/io5"
-import { RouteEnum } from "../../../types/RouteModels"
+import { MdContentCopy } from "react-icons/md";
+import { toastFire } from "../../../components/toast/Toast";
+import { ISnippet } from "../../../types/SnippetModels";
+import copy from "copy-to-clipboard";
+import { IoCameraOutline } from "react-icons/io5";
+import { RouteEnum } from "../../../types/RouteModels";
+import { ImLink } from "react-icons/im";
 
 interface Props {
-  snippet: ISnippet
-  isForCard?: boolean
+  snippet: ISnippet;
+  isForCard?: boolean;
 }
 
 const Toolbar = ({ snippet, isForCard }: Props) => {
-  const { code, type, title } = snippet
+  const { code, type, title, link } = snippet;
 
   const handleCodeCopy = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    copy(code + (`\n${type}` || ""))
-    toastFire("success", "Code copied")
-  }
+    e.stopPropagation();
+    copy(code + (`\n${type}` || ""));
+    toastFire("success", "Code copied");
+  };
 
   const handleDownloadImage = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    window.open(`${RouteEnum.Snippet}/preview/${title}`)
-  }
+    e.stopPropagation();
+    window.open(`${RouteEnum.Snippet}/preview/${title}`);
+  };
 
   return (
     <div className="flex items-center">
+      {link && (
+        <ImLink
+          className={`z-30 me-3 h-4 w-4 cursor-pointer text-black hover:text-pink ${
+            isForCard && "block text-white group-hover:block md:hidden"
+          }`}
+          onClick={() => window.open(link)}
+        />
+      )}
       <IoCameraOutline
-        className={`w-6 h-6 sm:w-5 sm:h-5 text-black z-30 hover:text-pink cursor-pointer me-3 sm:me-3 ${
-          isForCard && "text-white block md:hidden group-hover:block"
+        className={`z-30 me-3 h-6 w-6 cursor-pointer text-black hover:text-pink sm:me-3 sm:h-5 sm:w-5 ${
+          isForCard && "block text-white group-hover:block md:hidden"
         }`}
         onClick={handleDownloadImage}
       />
       <MdContentCopy
-        className={`w-5 h-5 text-black z-30 hover:text-pink cursor-pointer ${
-          isForCard && "text-white block md:hidden group-hover:block"
+        className={`z-30 h-4 w-4 cursor-pointer text-black hover:text-pink ${
+          isForCard && "block text-white group-hover:block md:hidden"
         }`}
         onClick={handleCodeCopy}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Toolbar
+export default Toolbar;

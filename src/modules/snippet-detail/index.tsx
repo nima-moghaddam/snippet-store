@@ -10,6 +10,7 @@ import { toastFire } from "../../components/toast/Toast";
 import { IoCameraOutline } from "react-icons/io5";
 import { RouteEnum } from "../../types/RouteModels";
 import useAnimation from "../../utils/useAnimation";
+import { ImLink } from "react-icons/im";
 
 const SnippetDetailPage = () => {
   const { pathname } = useLocation();
@@ -56,6 +57,15 @@ const SnippetDetailPage = () => {
           ))}
         </div>
         <div className="flex items-center">
+          {snippet?.link && (
+            <button
+              onClick={() => window.open(snippet?.link)}
+              className="flex cursor-pointer items-center justify-center px-2 py-1 hover:text-pink"
+            >
+              <ImLink className="me-2 h-4 w-4" />
+              <span>Link</span>
+            </button>
+          )}
           <button
             onClick={() => window.open(`preview/${snippet?.title}`)}
             className="flex cursor-pointer items-center justify-center px-2 py-1 hover:text-pink"
@@ -89,7 +99,7 @@ const SnippetDetailPage = () => {
       )}
       {snippet?.description && (
         <>
-          <div className="underline underline-offset-2 mb-1">Description</div>
+          <div className="mb-1 underline underline-offset-2">Description</div>
           <p className="ps-3 font-light">{snippet?.description}</p>
         </>
       )}

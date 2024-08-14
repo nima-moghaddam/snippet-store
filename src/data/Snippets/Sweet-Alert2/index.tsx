@@ -1,5 +1,5 @@
-import { Category } from "../../../constants/Category"
-import { Tags } from "../../../constants/Tags"
+import { Category } from "../../../constants/Category";
+import { Tags } from "../../../constants/Tags";
 
 export const SweetAlert2 = [
   {
@@ -7,6 +7,7 @@ export const SweetAlert2 = [
     tags: [Tags.React, Tags.SweetAlert2],
     category: Category.SweetAlert2,
     description: "",
+    link: "https://sweetalert2.github.io/",
     code: `export const toastFire = (
           icon: "warning" | "error" | "success" | "info" | "question",
           title: string,
@@ -27,6 +28,6 @@ export const SweetAlert2 = [
             icon: icon,
             title: title
           })
-        }`
-  }
-]
+        }`,
+  },
+];
