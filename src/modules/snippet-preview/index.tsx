@@ -16,7 +16,7 @@ const SnippetPreviewPage = () => {
 
   return (
     <div
-      className={`mt-8 flex flex-col items-center justify-center ${animateClass}`}
+      className={`mt-4 md:mt-8 flex flex-col items-center justify-center ${animateClass}`}
     >
       <div className="mb-2 text-[1.5rem] font-semibold">Preview:</div>
       <div
@@ -31,7 +31,7 @@ const SnippetPreviewPage = () => {
           )}
         </div>
       </div>
-      <div className="mb-20 flex flex-col items-center sm:flex-row">
+      <div className="mb-10 flex flex-col items-center sm:flex-row md:mb-20">
         <DownloadImageBtn
           name="DOWNLOAD PNG"
           onClick={() => downloadImage("png", codeRef)}
