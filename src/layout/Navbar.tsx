@@ -19,12 +19,12 @@ const Navbar = () => {
   });
 
   return (
-    <div className="flex min-h-[80px] w-full items-center justify-between px-14">
+    <div className="flex min-h-[80px] w-full items-center justify-between px-5 md:px-14">
       <Search />
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <ToolBar />
       </div>
-      <div className="relative block md:hidden">
+      <div className="relative block lg:hidden">
         <IoMenu
           className="h-6 w-6"
           onClick={() => setOpenMenu((prev) => !prev)}

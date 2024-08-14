@@ -55,7 +55,7 @@ const Search = () => {
         />
       </div>
       <div
-        className={`relative flex h-10 w-20 cursor-pointer items-center justify-between rounded-lg border border-gray px-[10px] transition-colors duration-300`}
+        className={`relative hidden h-10 w-20 cursor-pointer items-center justify-between rounded-lg border border-gray px-[10px] transition-colors duration-300 sm:flex`}
         onClick={handleSearhByOnclick}
       >
         <IoCodeSlashOutline className="z-20 text-black" />
