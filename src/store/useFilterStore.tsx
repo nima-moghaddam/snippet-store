@@ -17,7 +17,7 @@ interface IStoreState {
   resetFilters: () => void
 }
 
-const useFilterStore = create<IStoreState>((set, get) => ({
+const useFilterStore = create<IStoreState>((set) => ({
   snippets: SnippetList,
   links: LinkList,
   setMenuFilter: (category, route) => {

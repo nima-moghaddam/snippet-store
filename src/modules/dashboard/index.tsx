@@ -1,5 +1,4 @@
 import Chart from "../../components/chart"
-import { Category } from "../../constants/Category"
 import { Tags } from "../../constants/Tags"
 import { SnippetList } from "../../data"
 import { RouteEnum } from "../../types/RouteModels"
