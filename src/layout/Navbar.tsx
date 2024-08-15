@@ -31,8 +31,10 @@ const Navbar = () => {
         />
 
         <div
-          className={`fixed right-0 top-0 z-50 h-[100vh] w-full bg-white shadow-xl transition-transform duration-300 ease-in-out xs:w-[250px] ${
-            openMenu ? "translate-x-0" : "translate-x-full"
+          className={`fixed right-0 top-0 z-50 h-[100vh] w-full bg-white transition-transform duration-300 ease-in-out xs:w-[250px] ${
+            openMenu
+              ? "translate-x-0 shadow-xl shadow-slate-300"
+              : "translate-x-full"
           }`}
           ref={sideBarRef}
         >

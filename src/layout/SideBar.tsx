@@ -4,10 +4,8 @@ import { FaCode } from "react-icons/fa";
 import { PiLinkSimpleBold } from "react-icons/pi";
 import Menu from "./components/Menu";
 import { RouteEnum } from "../types/RouteModels";
-import { IoChevronForward } from "react-icons/io5";
-import { useRef, useState } from "react";
-import { IoChevronBackSharp } from "react-icons/io5";
-import { useOutsideAlerter } from "../utils/useOutsideAlerter";
+import { useState } from "react";
+import ToggleMenuBtn from "./components/ToggleMenuBtn";
 
 const snippetsMenu = Object.entries(Snippets).map(([key, values]) => {
   return { categoryName: key as Category, subCategories: values };
@@ -18,30 +16,13 @@ const linksMenu = Object.entries(Links).map(([key, values]) => {
 });
 
 const SideBar = () => {
-  const [openMenu, setOpenMenu] = useState(false);
-  const menuRef = useRef(null);
-
-  useOutsideAlerter({
-    ref: menuRef,
-    handleOutsidClick() {
-      setOpenMenu(false);
-    },
-  });
+  const [openMenu, setOpenMenu] = useState(true);
 
   return (
     <>
-      <div
-        onClick={() => setOpenMenu((prev) => !prev)}
-        className={`absolute top-[40%] z-[70] flex cursor-pointer items-center rounded-xl rounded-l bg-white py-8 pr-2 opacity-80 shadow-sm shadow-slate-800 transition-all duration-300 ease-in-out md:hidden ${openMenu ? "left-[20rem]" : "left-0"}`}
-      >
-        {openMenu && <IoChevronBackSharp className="ms-1 mt-1" />}
-        <span className="ms-1 font-bold">Menu</span>
-        {!openMenu && <IoChevronForward className="ms-1 mt-1" />}
-      </div>
       <aside
-        ref={menuRef}
-        className={`hide-scrollbar fixed left-0 top-0 z-[60] h-[100vh] w-[20rem] overflow-y-scroll bg-dark px-3 py-5 opacity-90 transition-transform duration-300 ease-in-out md:static md:block md:opacity-100 ${
-          openMenu ? "translate-x-0" : "-translate-x-full"
+        className={`hide-scrollbar fixed left-0 top-0 z-[60] h-[100vh] w-[20rem] overflow-y-scroll bg-dark px-3 py-5 opacity-90 shadow-md shadow-dark_lighter transition-transform duration-300 ease-in-out md:static md:block md:opacity-100 md:shadow-none ${
+          openMenu ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         }`}
       >
         <div className="mb-8 me-5 flex items-center justify-center text-[1.5rem] font-bold text-pink">
@@ -71,6 +52,7 @@ const SideBar = () => {
           />
         ))}
       </aside>
+      <ToggleMenuBtn openMenu={openMenu} setOpenMenu={setOpenMenu} />
     </>
   );
 };
