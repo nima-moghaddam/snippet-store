@@ -8,5 +8,6 @@ export enum Category {
 
   // links
   WebTools = "Web Tools",
-  Blogs = "Blogs"
+  Blogs = "Blogs",
+  Templates = 'Templates'
 }
