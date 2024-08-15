@@ -21,7 +21,7 @@ const SideBar = () => {
   return (
     <>
       <aside
-        className={`hide-scrollbar fixed left-0 top-0 z-[60] h-[100vh] w-[20rem] overflow-y-scroll bg-dark px-3 py-5 opacity-90 shadow-md shadow-dark_lighter transition-transform duration-300 ease-in-out md:static md:block md:opacity-100 md:shadow-none ${
+        className={`hide-scrollbar fixed left-0 top-0 z-[60] h-[100vh] w-full overflow-y-scroll bg-dark px-3 py-5 opacity-90 shadow-md shadow-dark_lighter transition-transform duration-300 ease-in-out sm:w-[20rem] md:static md:block md:opacity-100 md:shadow-none ${
           openMenu ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         }`}
       >
