@@ -26,20 +26,21 @@ const Navbar = () => {
       </div>
       <div className="relative block lg:hidden">
         <IoMenu
-          className="h-6 w-6"
+          className="h-6 w-6 cursor-pointer"
           onClick={() => setOpenMenu((prev) => !prev)}
         />
-        {openMenu && (
-          <div
-            className="fixed right-0 top-0 z-50 h-[100vh] w-full bg-white shadow-xl xs:w-[250px]"
-            ref={sideBarRef}
-          >
-            <div className="mb-2 flex justify-start p-5">
-              <IoMdClose className="h-5 w-5" onClick={closeMenu} />
-            </div>
-            <ToolBar isSideMenu closeMenu={closeMenu} />
+
+        <div
+          className={`fixed right-0 top-0 z-50 h-[100vh] w-full bg-white shadow-xl transition-transform duration-300 ease-in-out xs:w-[250px] ${
+            openMenu ? "translate-x-0" : "translate-x-full"
+          }`}
+          ref={sideBarRef}
+        >
+          <div className="mb-2 flex justify-start p-5">
+            <IoMdClose className="h-5 w-5 cursor-pointer" onClick={closeMenu} />
           </div>
-        )}
+          <ToolBar isSideMenu closeMenu={closeMenu} />
+        </div>
       </div>
     </div>
   );
