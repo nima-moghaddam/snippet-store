@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { ReactElement, useEffect } from "react";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router";
 import { Category } from "../../constants/Category";
@@ -12,12 +12,19 @@ import Card from "../../components/card/Card";
 
 interface Props {
   menuTitle: Category;
+  menuIcon: ReactElement;
   subMenus: ISnippet[];
   route: RouteEnum;
   classes?: string;
 }
 
-const Menu = ({ menuTitle, subMenus, route, classes }: Props) => {
+const Menu = ({
+  menuTitle,
+  subMenus,
+  route,
+  classes = "",
+  menuIcon,
+}: Props) => {
   const { setSubMenuFilter, setMenuFilter } = useFilterStore((state) => state);
   const { activeMenu, setActiveMenu } = useMenuStore((state) => state);
 
@@ -55,14 +62,13 @@ const Menu = ({ menuTitle, subMenus, route, classes }: Props) => {
         onClick={handleMenuClick}
         isActive={isMenuActive}
         title={menuTitle}
-        icon={<MdHome />}
-        // classes="mb-2"
+        icon={menuIcon}
       />
       <Card
         transparent={!isMenuActive}
         classes={`transition-all overflow-hidden duration-300 ease-in-out ${
           isMenuActive
-            ? "max-h-96 mt-2 opacity-100"
+            ? "max-h-[500px] mt-2 opacity-100"
             : "max-h-0 py-0 px-0 opacity-0"
         }`}
       >

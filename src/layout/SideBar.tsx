@@ -1,7 +1,5 @@
 import { Category } from "../constants/Category";
 import { Links, Snippets } from "../data";
-import { FaCode } from "react-icons/fa";
-import { PiLinkSimpleBold } from "react-icons/pi";
 import Menu from "./components/Menu";
 import { RouteEnum } from "../types/RouteModels";
 import { useState } from "react";
@@ -11,13 +9,22 @@ import MenuItem from "./components/MenuItem";
 import { useLocation, useNavigate } from "react-router";
 import { MdHome } from "react-icons/md";
 import useMenuStore from "../store/useMenuStore";
+import { categoryIconPicker } from "../utils/categoryIconPicker";
 
 const snippetsMenu = Object.entries(Snippets).map(([key, values]) => {
-  return { categoryName: key as Category, subCategories: values };
+  return {
+    categoryName: key as Category,
+    subCategories: values,
+    icon: categoryIconPicker(key as Category),
+  };
 });
 
 const linksMenu = Object.entries(Links).map(([key, values]) => {
-  return { categoryName: key as Category, subCategories: values };
+  return {
+    categoryName: key as Category,
+    subCategories: values,
+    icon: categoryIconPicker(key as Category),
+  };
 });
 
 const SideBar = () => {
@@ -62,6 +69,7 @@ const SideBar = () => {
             menuTitle={menu.categoryName}
             subMenus={menu.subCategories}
             route={RouteEnum.Snippet}
+            menuIcon={menu.icon}
             classes="mb-2"
           />
         ))}
@@ -77,6 +85,7 @@ const SideBar = () => {
             menuTitle={menu.categoryName}
             subMenus={menu.subCategories}
             route={RouteEnum.Links}
+            menuIcon={menu.icon}
             classes="mb-2"
           />
         ))}
