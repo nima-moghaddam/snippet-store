@@ -100,7 +100,7 @@ const SnippetDetailPage = () => {
       {snippet?.description && (
         <>
           <div className="mb-1 underline underline-offset-2">Description</div>
-          <p className="ps-3 font-light">{snippet?.description}</p>
+          <p className="ps-3 gray-light">{snippet?.description}</p>
         </>
       )}
     </section>

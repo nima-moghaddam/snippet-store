@@ -42,11 +42,11 @@ const SideBar = () => {
       >
         <div className="my-5 flex items-center justify-center">
           <RiDashboardLine className="me-2 h-6 w-6 text-black" />
-          <span className="text-normal text-font-dark font-bold">
+          <span className="text-base text-gray-dark font-bold">
             Snippet Dashboard
           </span>
         </div>
-        <div className="bg-border-gradient mb-5 h-[1px] opacity-70" />
+        <div className="bg-border-gradient mb-5 h-[1px] opacity-50" />
         <MenuItem
           onClick={() => {
             navigate("/");
@@ -59,7 +59,7 @@ const SideBar = () => {
         />
         <div
           onClick={() => navigate(`/${RouteEnum.Snippet}`)}
-          className="text-normal text-font-normal hover:text-font-dark mb-3 ms-5 flex cursor-pointer items-center justify-start font-bold"
+          className="text-base text-gray hover:text-gray-dark mb-3 ms-5 flex cursor-pointer items-center justify-start font-bold"
         >
           Snippets
         </div>
@@ -75,7 +75,7 @@ const SideBar = () => {
         ))}
         <div
           onClick={() => navigate(`/${RouteEnum.Links}`)}
-          className="text-normal hover:text-font-dark text-font-normal mb-3 ms-5 flex cursor-pointer items-center justify-start font-bold"
+          className="text-base hover:text-gray-dark text-gray mb-3 ms-5 flex cursor-pointer items-center justify-start font-bold"
         >
           Links
         </div>

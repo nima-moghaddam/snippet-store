@@ -45,16 +45,16 @@ const Search = () => {
   return (
     <div className="flex items-center">
       <div className="relative me-4">
-        <LuSearch className="absolute bottom-[10px] left-2 h-5 w-5" />
+        <LuSearch className="text-gray-light absolute bottom-[10px] left-2 h-5 w-5" />
         <input
-          placeholder={`Search snippet ${searchBy === "code" ? "code" : "title"}`}
-          className="min-w-12 rounded-md border border-gray py-2 ps-10 outline-none focus:border-slate-400 md:min-w-[300px]"
+          placeholder={`Search snippet ${searchBy === "code" ? "code" : "title"}...`}
+          className="border-gray-lighter text-gray-light focus:border-gray-light min-w-12 rounded-md border py-2 ps-10 gray-light outline-none md:min-w-[300px]"
           onChange={handleSearch}
           value={term}
           onKeyDown={handleSearchOnEnter}
         />
       </div>
-      <div
+      {/* <div
         className={`relative hidden h-10 w-20 cursor-pointer items-center justify-between rounded-lg border border-gray px-[10px] transition-colors duration-300 sm:flex`}
         onClick={handleSearhByOnclick}
       >
@@ -66,7 +66,7 @@ const Search = () => {
             searchBy === "title" ? "translate-x-10" : ""
           }`}
         ></span>
-      </div>
+      </div> */}
     </div>
   );
 };

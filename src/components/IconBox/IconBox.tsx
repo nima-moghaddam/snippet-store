@@ -11,7 +11,7 @@ const IconBox = ({ icon, isActive }: Props) => {
       className={`shadow-icon rounded-icon flex h-9 w-9 items-center justify-center ${isActive ? "bg-secondary" : "bg-white"}`}
     >
       {cloneElement(icon, {
-        className: `w-4 h-4 ${isActive ? "text-white" : "text-font-dark"}`,
+        className: `w-4 h-4 ${isActive ? "text-white" : "text-gray-dark"}`,
       })}
     </div>
   );

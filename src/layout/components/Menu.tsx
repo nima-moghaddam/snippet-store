@@ -69,7 +69,7 @@ const Menu = ({
         classes={`transition-all overflow-hidden duration-300 ease-in-out ${
           isMenuActive
             ? "max-h-[500px] mt-2 opacity-100"
-            : "max-h-0 py-0 px-0 opacity-0"
+            : "max-h-0 !py-0 !px-0 opacity-0"
         }`}
       >
         <ul className="flex flex-col">
@@ -77,7 +77,7 @@ const Menu = ({
             <li
               onClick={() => handleSubMenuClick(i.title)}
               key={i.title}
-              className={`hover:text-font-dark text-small flex ${activeSubmenuTitle === i.title ? "text-font-dark" : "text-font-normal"} ${index !== subMenus.length - 1 && "mb-2"}`}
+              className={`hover:text-gray-dark flex text-sm hover:font-bold ${activeSubmenuTitle === i.title ? "text-gray-dark font-bold" : "font-light text-gray"} ${index !== subMenus.length - 1 && "mb-2"}`}
             >
               -<span className="ms-1">{i.title}</span>
             </li>
