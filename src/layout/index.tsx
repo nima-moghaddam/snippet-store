@@ -17,7 +17,7 @@ const AppLayout = () => {
   }, [pathname]);
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen bg-primary">
       {showSidebar && <SideBar />}
       <div className="flex h-full w-full flex-col overflow-y-auto">
         <Navbar />

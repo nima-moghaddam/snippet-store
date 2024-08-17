@@ -30,6 +30,23 @@ export default {
       },
       backgroundImage: {
         "primary-gradient": "linear-gradient(310deg, #7928ca, #ff0080)",
+        "border-gradient":
+          "linear-gradient(90deg, transparent, rgba(0, 0, 0, .4), transparent)",
+      },
+      fontSize: {
+        normal: ".875rem",
+        small: ".75rem",
+        h1: "1.25rem",
+        h2: "1rem",
+      },
+      fontWeight: {
+        bold: "600",
+        bolder: "700",
+        light: "400",
+      },
+      borderRadius: {
+        card: "1rem",
+        icon: ".5rem",
       },
     },
     screens: {

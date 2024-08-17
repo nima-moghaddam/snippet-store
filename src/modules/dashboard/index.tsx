@@ -30,14 +30,13 @@ const Dashboard = () => {
 
   return (
     <section>
-      <div className="flex mb-20">
+      {/* <div className="flex mb-20">
         <NavigateCard link={`/${RouteEnum.Snippet}`} title="Snippets" icon={RouteEnum.Snippet} classes="me-5" />
         <NavigateCard link={`/${RouteEnum.Links}`} title="Links" icon={RouteEnum.Links} />
       </div>
       <div className="flex flex-col justify-between items-center lg:flex-row">
         <Chart barColor="bg-pink" data={tagPercentsList} title="Tags Chart" />
-        {/* <Chart barColor="bg-blue" data={tagPercentsList} title="Category Chart" /> */}
-      </div>
+\      </div> */}
     </section>
   )
 }
