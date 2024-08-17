@@ -25,6 +25,11 @@ const Toolbar = ({ snippet, isForCard }: Props) => {
     window.open(`${RouteEnum.Snippet}/preview/${title}`);
   };
 
+  const handleOpenLink = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    window.open(link);
+  };
+
   return (
     <div className="flex items-center">
       {link && (
@@ -32,7 +37,7 @@ const Toolbar = ({ snippet, isForCard }: Props) => {
           className={`z-30 me-3 h-4 w-4 cursor-pointer text-black hover:text-pink ${
             isForCard && "block text-white group-hover:block md:hidden"
           }`}
-          onClick={() => window.open(link)}
+          onClick={handleOpenLink}
         />
       )}
       <IoCameraOutline
