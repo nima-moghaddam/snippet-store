@@ -3,12 +3,13 @@ import { Links, Snippets } from "../data";
 import Menu from "./components/Menu";
 import { RouteEnum } from "../types/RouteModels";
 import { RiDashboardLine } from "react-icons/ri";
-import MenuItem from "./components/MenuItem";
+import MenuCard from "./components/MenuCard";
 import { useLocation, useNavigate } from "react-router";
 import { MdHome } from "react-icons/md";
 import useMenuStore from "../store/useMenuStore";
 import { categoryIconPicker } from "../utils/categoryIconPicker";
 import useFilterStore from "../store/useFilterStore";
+import MenuTitle from "./components/MenuTitle";
 
 const snippetsMenu = Object.entries(Snippets).map(([key, values]) => {
   return {
@@ -48,7 +49,7 @@ const SideBar = () => {
         <div className="h-[1px] bg-border-gradient opacity-50" />
 
         <div className="hide-scrollbar mb-5 h-full overflow-y-scroll px-3 pt-5">
-          <MenuItem
+          <MenuCard
             onClick={() => {
               navigate("/");
               resetMenu();
@@ -58,15 +59,13 @@ const SideBar = () => {
             icon={<MdHome />}
             classes="mb-3"
           />
-          <div
+          <MenuTitle
+            title="Snippets"
             onClick={() => {
               navigate(`/${RouteEnum.Snippet}`);
               resetFilters();
             }}
-            className="mb-3 ms-5 flex cursor-pointer items-center justify-start text-base font-bold text-gray hover:text-gray-dark"
-          >
-            Snippets
-          </div>
+          />
           {snippetsMenu.map((menu) => (
             <Menu
               key={menu.categoryName}
@@ -77,15 +76,13 @@ const SideBar = () => {
               classes="mb-4"
             />
           ))}
-          <div
+          <MenuTitle
+            title="Links"
             onClick={() => {
               navigate(`/${RouteEnum.Links}`);
               resetFilters();
             }}
-            className="mb-3 ms-5 flex cursor-pointer items-center justify-start text-base font-bold text-gray hover:text-gray-dark"
-          >
-            Links
-          </div>
+          />
           {linksMenu.map((menu) => (
             <Menu
               key={menu.categoryName}

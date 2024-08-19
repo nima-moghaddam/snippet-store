@@ -9,7 +9,7 @@ interface Props {
   classes?: string;
 }
 
-const MenuItem = ({ icon, classes = "", isActive, title, onClick }: Props) => {
+const MenuCard = ({ icon, classes = "", isActive, title, onClick }: Props) => {
   return (
     <div
       onClick={onClick}
@@ -27,4 +27,4 @@ const MenuItem = ({ icon, classes = "", isActive, title, onClick }: Props) => {
   );
 };
 
-export default MenuItem;
+export default MenuCard;

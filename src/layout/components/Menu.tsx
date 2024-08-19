@@ -5,7 +5,7 @@ import useFilterStore from "../../store/useFilterStore";
 import useMenuStore from "../../store/useMenuStore";
 import { RouteEnum } from "../../types/RouteModels";
 import { ISnippet } from "../../types/SnippetModels";
-import MenuItem from "./MenuItem";
+import MenuItem from "./MenuCard";
 import Card from "../../components/card/Card";
 
 interface Props {
