@@ -74,7 +74,7 @@ const SideBar = () => {
               subMenus={menu.subCategories}
               route={RouteEnum.Snippet}
               menuIcon={menu.icon}
-              classes="mb-2"
+              classes="mb-4"
             />
           ))}
           <div
@@ -93,7 +93,7 @@ const SideBar = () => {
               subMenus={menu.subCategories}
               route={RouteEnum.Links}
               menuIcon={menu.icon}
-              classes="mb-2"
+              classes="mb-4"
             />
           ))}
         </div>

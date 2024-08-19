@@ -62,12 +62,11 @@ const Menu = ({
         title={menuTitle}
         icon={menuIcon}
       />
-      <Card
-        transparent={!isMenuActive}
-        classes={`transition-all overflow-hidden duration-300 ease-in-out ${
+      <div
+        className={`overflow-hidden rounded-icon p-3 transition-all duration-300 ease-in-out ${
           isMenuActive
-            ? "max-h-[500px] mt-2 opacity-100"
-            : "max-h-0 !py-0 !px-0 opacity-0"
+            ? "mt-2 max-h-[500px] bg-white opacity-100 shadow-card"
+            : "max-h-0 bg-transparent !px-0 !py-0 opacity-0"
         }`}
       >
         <ul className="flex flex-col">
@@ -75,13 +74,13 @@ const Menu = ({
             <li
               onClick={() => handleSubMenuClick(i.title)}
               key={i.title}
-              className={`hover:text-gray-dark flex text-sm hover:font-bold ${activeSubmenuTitle === i.title ? "text-gray-dark font-bold" : "font-light text-gray"} ${index !== subMenus.length - 1 && "mb-2"}`}
+              className={`flex text-sm hover:font-bold hover:text-gray-dark ${activeSubmenuTitle === i.title ? "font-bold text-gray-dark" : "font-light text-gray"} ${index !== subMenus.length - 1 && "mb-2"}`}
             >
               -<span className="ms-1">{i.title}</span>
             </li>
           ))}
         </ul>
-      </Card>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import { ReactElement } from "react";
-import Card from "../../components/card/Card";
 import IconBox from "../../components/IconBox/IconBox";
 
 interface Props {
@@ -12,10 +11,9 @@ interface Props {
 
 const MenuItem = ({ icon, classes = "", isActive, title, onClick }: Props) => {
   return (
-    <Card
+    <div
       onClick={onClick}
-      transparent={!isActive}
-      classes={classes + " cursor-pointer"}
+      className={`cursor-pointer rounded-icon px-3 ${!isActive ? "bg-transparent" : "bg-white py-3 shadow-card"} ${classes}`}
     >
       <div className="flex items-center">
         <IconBox icon={icon} isActive={isActive} />
@@ -25,7 +23,7 @@ const MenuItem = ({ icon, classes = "", isActive, title, onClick }: Props) => {
           {title}
         </span>
       </div>
-    </Card>
+    </div>
   );
 };
 
