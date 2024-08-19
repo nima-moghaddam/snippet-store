@@ -1,22 +1,26 @@
-import { create } from "zustand"
-import { Category } from "../constants/Category"
+import { create } from "zustand";
+import { Category } from "../constants/Category";
 
 interface IStoreState {
-  activeMenu: null | Category
-  showSidebar: boolean
-  setActiveMenu: (category: Category) => void
-  resetMenu: () => void
-  setHideSidebar: () => void
-  setShowSidebar: () => void
+  activeMenu: null | Category;
+  showSidebar: boolean;
+  setActiveMenu: (category: Category) => void;
+  resetMenu: () => void;
+  setHideSidebar: () => void;
+  setShowSidebar: () => void;
+  toggleMenu: () => void;
 }
 
 const useMenuStore = create<IStoreState>((set) => ({
   activeMenu: null,
   showSidebar: true,
-  setActiveMenu: (category) => set((state) => ({ ...state, activeMenu: category })),
+  setActiveMenu: (category) =>
+    set((state) => ({ ...state, activeMenu: category })),
   resetMenu: () => set((state) => ({ ...state, activeMenu: null })),
   setHideSidebar: () => set((state) => ({ ...state, showSidebar: false })),
-  setShowSidebar: () => set((state) => ({ ...state, showSidebar: true }))
-}))
+  setShowSidebar: () => set((state) => ({ ...state, showSidebar: true })),
+  toggleMenu: () =>
+    set((state) => ({ ...state, showSidebar: !state.showSidebar })),
+}));
 
-export default useMenuStore
+export default useMenuStore;

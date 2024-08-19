@@ -20,12 +20,15 @@ export default {
         green: "#acdc3c",
         red: "#b81f36",
         blue: "#1f9cfe",
+        "semi-transparent-white": "hsla(0, 0%, 100%, 0.8)",
       },
       boxShadow: {
         "3xl":
           "0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);",
         card: "0 20px 27px 0 rgba(0, 0, 0, .05)",
         icon: "0 .3125rem .625rem 0 rgba(0,0,0,.12)",
+        navbar:
+          "inset 0 0 1px 1px hsla(0, 0%, 100%, .9), 0 20px 27px 0 rgba(0, 0, 0, .05)",
       },
       backgroundImage: {
         "primary-gradient": "linear-gradient(310deg, #7928ca, #ff0080)",

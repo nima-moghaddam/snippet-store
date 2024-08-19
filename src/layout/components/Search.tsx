@@ -47,7 +47,8 @@ const Search = () => {
       <div className="relative me-4">
         <LuSearch className="text-gray-light absolute bottom-[10px] left-2 h-5 w-5" />
         <input
-          placeholder={`Search snippet ${searchBy === "code" ? "code" : "title"}...`}
+          // placeholder={`Search snippet ${searchBy === "code" ? "code" : "title"}...`}
+          placeholder="Search snippets..."
           className="border-gray-lighter text-gray-light focus:border-gray-light min-w-12 rounded-md border py-2 ps-10 gray-light outline-none md:min-w-[300px]"
           onChange={handleSearch}
           value={term}

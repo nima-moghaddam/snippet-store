@@ -20,7 +20,7 @@ const MenuItem = ({ icon, classes = "", isActive, title, onClick }: Props) => {
       <div className="flex items-center">
         <IconBox icon={icon} isActive={isActive} />
         <span
-          className={`text-base ms-3 ${isActive ? "text-gray-dark font-bold" : "text-gray font-light"}`}
+          className={`ms-3 text-base ${isActive ? "bg-transparent font-bold text-gray-dark" : "font-light text-gray"}`}
         >
           {title}
         </span>

@@ -4,10 +4,17 @@ import Search from "./components/Search";
 import { useRef, useState } from "react";
 import { useOutsideAlerter } from "../utils/useOutsideAlerter";
 import { IoMdClose } from "react-icons/io";
+import useMenuStore from "../store/useMenuStore";
+import { CgMenuRight } from "react-icons/cg";
 
-const Navbar = () => {
+interface Props {
+  hasScrolled: boolean;
+}
+
+const Navbar = ({ hasScrolled }: Props) => {
   const [openMenu, setOpenMenu] = useState(false);
   const sideBarRef = useRef(null);
+  const { toggleMenu, showSidebar } = useMenuStore((state) => state);
 
   const closeMenu = () => setOpenMenu(false);
 
@@ -19,9 +26,24 @@ const Navbar = () => {
   });
 
   return (
-    <div className="flex min-h-[80px] w-full items-center justify-between px-5 md:px-14">
+    <nav
+      className={`shadow-navbar sticky top-2 z-50 mx-[55px] mt-5 flex min-h-[80px] items-center justify-between rounded-xl px-5 transition-all duration-300 ease-in-out md:px-5 ${hasScrolled ? "bg-semi-transparent-white backdrop-blur-sm backdrop-saturate-200" : "bg-white"}`}
+    >
       <Search />
-      <div className="hidden lg:block">
+      <div className="relative block md:hidden">
+        {showSidebar ? (
+          <CgMenuRight
+            className="h-6 w-6 cursor-pointer"
+            onClick={() => toggleMenu()}
+          />
+        ) : (
+          <IoMenu
+            className="h-6 w-6 cursor-pointer"
+            onClick={() => toggleMenu()}
+          />
+        )}
+      </div>
+      {/* <div className="hidden lg:block">
         <ToolBar />
       </div>
       <div className="relative block lg:hidden">
@@ -43,8 +65,8 @@ const Navbar = () => {
           </div>
           <ToolBar isSideMenu closeMenu={closeMenu} />
         </div>
-      </div>
-    </div>
+      </div> */}
+    </nav>
   );
 };
 
