@@ -8,6 +8,7 @@ import { useLocation, useNavigate } from "react-router";
 import { MdHome } from "react-icons/md";
 import useMenuStore from "../store/useMenuStore";
 import { categoryIconPicker } from "../utils/categoryIconPicker";
+import useFilterStore from "../store/useFilterStore";
 
 const snippetsMenu = Object.entries(Snippets).map(([key, values]) => {
   return {
@@ -27,14 +28,15 @@ const linksMenu = Object.entries(Links).map(([key, values]) => {
 
 const SideBar = () => {
   const { resetMenu, showSidebar } = useMenuStore();
+  const { resetFilters } = useFilterStore();
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
   return (
     <>
       <aside
-        className={`fixed left-5 top-5 z-[60] h-[95vh] w-[15rem] overflow-y-hidden rounded-card bg-white px-3 py-5 shadow-card transition-transform duration-300 ease-in-out md:static md:block md:w-[20rem] md:rounded-none md:bg-transparent md:shadow-none ${
-          showSidebar ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        className={`fixed left-5 top-5 z-[60] h-[95vh] w-[15rem] overflow-y-hidden rounded-card bg-white px-3 py-5 shadow-card transition-transform duration-500 ease-in-out md:static md:block md:w-[20rem] md:rounded-none md:bg-transparent md:shadow-none ${
+          showSidebar ? "translate-x-0" : "-translate-x-[120%] md:translate-x-0"
         }`}
       >
         <div className="mb-4 mt-0 flex items-center justify-center px-3 md:mt-4">
@@ -57,7 +59,10 @@ const SideBar = () => {
             classes="mb-3"
           />
           <div
-            onClick={() => navigate(`/${RouteEnum.Snippet}`)}
+            onClick={() => {
+              navigate(`/${RouteEnum.Snippet}`);
+              resetFilters();
+            }}
             className="mb-3 ms-5 flex cursor-pointer items-center justify-start text-base font-bold text-gray hover:text-gray-dark"
           >
             Snippets
@@ -73,7 +78,10 @@ const SideBar = () => {
             />
           ))}
           <div
-            onClick={() => navigate(`/${RouteEnum.Links}`)}
+            onClick={() => {
+              navigate(`/${RouteEnum.Links}`);
+              resetFilters();
+            }}
             className="mb-3 ms-5 flex cursor-pointer items-center justify-start text-base font-bold text-gray hover:text-gray-dark"
           >
             Links
@@ -90,7 +98,6 @@ const SideBar = () => {
           ))}
         </div>
       </aside>
-      {/* <ToggleMenuBtn openMenu={openMenu} setOpenMenu={setOpenMenu} /> */}
     </>
   );
 };

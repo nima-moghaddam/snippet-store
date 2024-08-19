@@ -1,5 +1,4 @@
 import { ReactElement, useEffect } from "react";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router";
 import { Category } from "../../constants/Category";
 import useFilterStore from "../../store/useFilterStore";
@@ -7,7 +6,6 @@ import useMenuStore from "../../store/useMenuStore";
 import { RouteEnum } from "../../types/RouteModels";
 import { ISnippet } from "../../types/SnippetModels";
 import MenuItem from "./MenuItem";
-import { MdHome } from "react-icons/md";
 import Card from "../../components/card/Card";
 
 interface Props {

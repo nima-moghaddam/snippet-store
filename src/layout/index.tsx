@@ -30,14 +30,14 @@ const AppLayout = () => {
 
   return (
     <div className="flex h-screen bg-primary">
-      {showSidebar && <SideBar />}
+      <SideBar />
       <div
         className="flex h-full w-full flex-col overflow-y-auto"
         ref={scrollRef}
         onScroll={handleScroll}
       >
         <Navbar hasScrolled={hasScrolled} />
-        <main className="z-10 px-5 py-5 md:px-14">
+        <main className="z-10 px-5 py-5">
           <Outlet />
         </main>
       </div>
