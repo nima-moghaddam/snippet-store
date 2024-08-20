@@ -13,7 +13,7 @@ const Navbar = ({ hasScrolled }: Props) => {
 
   return (
     <nav
-      className={`shadow-navbar sticky top-2 z-50 mx-[20px] mt-5 flex min-h-[80px] items-center justify-between rounded-xl px-3 text-base transition-all duration-300 ease-in-out md:px-5 md:text-lg ${hasScrolled ? "bg-semi-transparent-white backdrop-blur-sm backdrop-saturate-200" : "bg-white"}`}
+      className={`sticky top-2 z-50 mx-[20px] mt-5 flex min-h-[80px] items-center justify-between rounded-xl text-base transition-all duration-300 ease-in-out md:text-lg ${hasScrolled ? "bg-semi-transparent-white px-3 shadow-navbar backdrop-blur-sm backdrop-saturate-200 md:px-5" : "bg-transparent"}`}
     >
       <div>
         <BreadCrumb />

@@ -36,7 +36,7 @@ const SideBar = () => {
   return (
     <>
       <aside
-        className={`fixed left-5 top-5 z-[60] h-[95vh] w-[15rem] overflow-y-hidden rounded-card bg-white px-3 py-5 shadow-card transition-transform duration-500 ease-in-out md:static md:block md:w-[20rem] md:rounded-none md:bg-transparent md:shadow-none ${
+        className={`fixed left-5 top-5 z-[60] h-[95vh] w-[15rem] overflow-y-hidden rounded-card bg-white px-3 py-5 shadow-card transition-transform duration-500 ease-in-out md:static md:block md:h-[100vh] md:w-[20rem] md:rounded-none md:bg-transparent md:shadow-none ${
           showSidebar ? "translate-x-0" : "-translate-x-[120%] md:translate-x-0"
         }`}
       >
@@ -48,7 +48,7 @@ const SideBar = () => {
         </div>
         <div className="h-[1px] bg-border-gradient opacity-50" />
 
-        <div className="hide-scrollbar mb-5 h-full overflow-y-scroll px-3 pt-5">
+        <div className="hide-scrollbar mb-5 h-full overflow-y-scroll px-3 pt-5 pb-10">
           <MenuCard
             onClick={() => {
               navigate("/");
