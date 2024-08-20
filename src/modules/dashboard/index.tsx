@@ -2,6 +2,7 @@ import Chart from "../../components/chart"
 import { Tags } from "../../constants/Tags"
 import { SnippetList } from "../../data"
 import { RouteEnum } from "../../types/RouteModels"
+import CodeAnimation from "../../ui/CodeAnimation"
 import NavigateCard from "./NavigateCard"
 
 const Dashboard = () => {
@@ -30,6 +31,7 @@ const Dashboard = () => {
 
   return (
     <section>
+      <CodeAnimation />
       {/* <div className="flex mb-20">
         <NavigateCard link={`/${RouteEnum.Snippet}`} title="Snippets" icon={RouteEnum.Snippet} classes="me-5" />
         <NavigateCard link={`/${RouteEnum.Links}`} title="Links" icon={RouteEnum.Links} />
