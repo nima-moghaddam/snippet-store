@@ -6,7 +6,6 @@ import useMenuStore from "../../store/useMenuStore";
 import { RouteEnum } from "../../types/RouteModels";
 import { ISnippet } from "../../types/SnippetModels";
 import MenuItem from "./MenuCard";
-import Card from "../../components/card/Card";
 
 interface Props {
   menuTitle: Category;
@@ -24,7 +23,9 @@ const Menu = ({
   menuIcon,
 }: Props) => {
   const { setSubMenuFilter, setMenuFilter } = useFilterStore((state) => state);
-  const { activeMenu, setActiveMenu } = useMenuStore((state) => state);
+  const { activeMenu, setActiveMenu, toggleMenu } = useMenuStore(
+    (state) => state,
+  );
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -33,14 +34,15 @@ const Menu = ({
   );
   const isMenuActive = activeMenu === menuTitle;
 
-  const handleMenuClick = () => {
+  const onMenuClick = () => {
     navigate(`/${route}`);
     setActiveMenu(menuTitle);
     setMenuFilter(menuTitle, route);
   };
 
-  const handleSubMenuClick = (subMenuTitle: string) => {
+  const onSubMenuClick = (subMenuTitle: string) => {
     setSubMenuFilter(subMenuTitle, route);
+    toggleMenu();
     if (route === RouteEnum.Snippet) navigate(`/${route}/${subMenuTitle}`);
   };
 
@@ -57,7 +59,7 @@ const Menu = ({
   return (
     <div className={`group cursor-pointer font-bold text-black ${classes}`}>
       <MenuItem
-        onClick={handleMenuClick}
+        onClick={onMenuClick}
         isActive={isMenuActive}
         title={menuTitle}
         icon={menuIcon}
@@ -72,7 +74,7 @@ const Menu = ({
         <ul className="flex flex-col">
           {subMenus.map((i, index) => (
             <li
-              onClick={() => handleSubMenuClick(i.title)}
+              onClick={() => onSubMenuClick(i.title)}
               key={i.title}
               className={`flex text-sm hover:font-bold hover:text-gray-dark ${activeSubmenuTitle === i.title ? "font-bold text-gray-dark" : "font-light text-gray"} ${index !== subMenus.length - 1 && "mb-2"}`}
             >

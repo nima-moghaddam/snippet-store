@@ -8,7 +8,6 @@ const BreadCrumb = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const pathList = pathname.split("/")[1] === "" ? [""] : pathname.split("/");
-
   const pathLength = pathList.length;
 
   const headerCreator = () => {
@@ -48,7 +47,7 @@ const BreadCrumb = () => {
           <span className="mx-2 mb-2 text-sm">/</span>
         </div>
         {breadcrumbs.map((item, index) => (
-          <div>
+          <div className="text-nowrap">
             <span
               onClick={() => {
                 navigate(item.route);

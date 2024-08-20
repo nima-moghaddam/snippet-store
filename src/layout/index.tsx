@@ -1,15 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import useMenuStore from "../store/useMenuStore";
 import Navbar from "./Navbar";
 import SideBar from "./SideBar";
 
 const AppLayout = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const { showSidebar, setShowSidebar, setHideSidebar } = useMenuStore(
-    (state) => state,
-  );
   const { pathname } = useLocation();
   const pathList = pathname.split("/");
   const scrollRef = useRef(null);
@@ -22,11 +18,6 @@ const AppLayout = () => {
   };
 
   const hasScrolled = scrollPosition > 1;
-
-  useEffect(() => {
-    if (pathList[2] === "preview") setHideSidebar();
-    else setShowSidebar();
-  }, [pathname]);
 
   return (
     <div className="flex h-screen bg-primary">

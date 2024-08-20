@@ -28,7 +28,7 @@ const linksMenu = Object.entries(Links).map(([key, values]) => {
 });
 
 const SideBar = () => {
-  const { resetMenu, showSidebar } = useMenuStore();
+  const { resetMenu, showSidebar, toggleMenu } = useMenuStore();
   const { resetFilters } = useFilterStore();
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -48,7 +48,7 @@ const SideBar = () => {
         </div>
         <div className="h-[1px] bg-border-gradient opacity-50" />
 
-        <div className="hide-scrollbar mb-5 h-full overflow-y-scroll px-3 pt-5 pb-10">
+        <div className="hide-scrollbar mb-5 h-full overflow-y-scroll px-3 pb-10 pt-5">
           <MenuCard
             onClick={() => {
               navigate("/");
@@ -64,6 +64,7 @@ const SideBar = () => {
             onClick={() => {
               navigate(`/${RouteEnum.Snippet}`);
               resetFilters();
+              toggleMenu();
             }}
           />
           {snippetsMenu.map((menu) => (
@@ -81,6 +82,7 @@ const SideBar = () => {
             onClick={() => {
               navigate(`/${RouteEnum.Links}`);
               resetFilters();
+              toggleMenu();
             }}
           />
           {linksMenu.map((menu) => (

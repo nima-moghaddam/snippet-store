@@ -49,7 +49,7 @@ const Search = () => {
         <input
           // placeholder={`Search snippet ${searchBy === "code" ? "code" : "title"}...`}
           placeholder="Search snippets..."
-          className="gray-light min-w-12 rounded-lg border border-gray-lighter py-2 ps-10 text-gray-light outline-none focus:border-gray-light md:min-w-[300px]"
+          className="gray-light min-w-8 rounded-lg border border-gray-lighter py-2 ps-10 text-gray-light outline-none focus:border-gray-light sm:min-w-[100px] lg:min-w-[300px]"
           onChange={handleSearch}
           value={term}
           onKeyDown={handleSearchOnEnter}
