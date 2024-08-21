@@ -4,6 +4,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import SocialDetail from "./components/SocialDetail";
+import EmailAnimation from "../../lotties/EmailAnimation";
 
 const socialList = [
   {
@@ -32,13 +33,21 @@ const socialList = [
   },
 ];
 
-const ContactMe = () => {
+const SocialLinks = () => {
   return (
-    <Card>
-      <div className="font-bolder text-gray-dark">Contact Me</div>
-      <p className="mb-3 text-base text-gray">
-        For more info connect me throw bellow links.
-      </p>
+    <Card classes="w-full lg:w-1/3">
+      <div className="flex items-center justify-between">
+        <div>
+          <div className="font-bolder text-gray-dark">Contact Me</div>
+          <p className="mb-3 text-base text-gray">
+            For more info connect me throw bellow links.
+          </p>
+        </div>
+        <div className="">
+          <EmailAnimation height={80} width={80} />
+        </div>
+      </div>
+
       <div className="flex flex-col">
         {socialList.map((social, index) => (
           <SocialDetail
@@ -55,4 +64,4 @@ const ContactMe = () => {
   );
 };
 
-export default ContactMe;
+export default SocialLinks;

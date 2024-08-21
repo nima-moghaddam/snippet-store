@@ -1,12 +1,12 @@
 import Lottie from "react-lottie";
-import animation from "./json/code-animate.json";
+import animation from "./json/email-animate.json";
 
 interface Props {
   width?: number;
   height?: number;
 }
 
-const CodeAnimation = ({ width = 200, height = 200 }: Props) => {
+const EmailAnimation = ({ width = 100, height = 100 }: Props) => {
   const animationData = JSON.stringify(animation);
 
   const defaultOptions = {
@@ -17,9 +17,7 @@ const CodeAnimation = ({ width = 200, height = 200 }: Props) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  return (
-    <Lottie options={defaultOptions}  height={height} width={width} />
-  );
+  return <Lottie options={defaultOptions} height={height} width={width} />;
 };
 
-export default CodeAnimation;
+export default EmailAnimation;

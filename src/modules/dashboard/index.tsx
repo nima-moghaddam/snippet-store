@@ -8,7 +8,7 @@ import DocumentAnimation from "../../lotties/DocumentAnimation";
 import { useWindowWidth } from "../../utils/useWindowWidth";
 import IntroCard from "./components/IntroCard";
 import CountList from "./CountList";
-import ContactMe from "./ContactMe";
+import SocialLinks from "./SocialLinks";
 import CategoryList from "./CategoryList";
 
 const Dashboard = () => {
@@ -42,7 +42,7 @@ const Dashboard = () => {
   return (
     <section>
       <CountList />
-      <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-2">
         <IntroCard
           description="This is for all stored legacy codes from diffrent project. Click on card for more info."
           title="Snippets"
@@ -59,7 +59,7 @@ const Dashboard = () => {
       </div>
       <div className="flex flex-col gap-4 lg:flex-row">
         <CategoryList />
-        <ContactMe />
+        <SocialLinks />
       </div>
 
       {/* <div className="flex mb-20">
