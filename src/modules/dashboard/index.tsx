@@ -4,24 +4,16 @@ import { Tags } from "../../constants/Tags";
 import { SnippetList } from "../../data";
 import { RouteEnum } from "../../types/RouteModels";
 import CodeAnimation from "../../lotties/CodeAnimation";
-import NavigateCard from "./NavigateCard";
 import DocumentAnimation from "../../lotties/DocumentAnimation";
 import { useWindowWidth } from "../../utils/useWindowWidth";
 import IntroCard from "./components/IntroCard";
-import {
-  Category,
-  LinksCategory,
-  SnippetCategory,
-} from "../../constants/Category";
-import CategoryPill from "./components/CategoryPill";
-import { categoryIconPicker } from "../../utils/categoryIconPicker";
+import CountList from "./CountList";
+import ContactMe from "./ContactMe";
+import CategoryList from "./CategoryList";
 
 const Dashboard = () => {
   const windowWidth = useWindowWidth();
   const lottieSize = windowWidth < 480 ? 150 : 200;
-
-  const snippetCategories = Object.values(SnippetCategory);
-  const linkCategories = Object.values(LinksCategory);
 
   const tagList = Object.values(Tags).map((tag) => {
     const tagCount = SnippetList.filter((item) =>
@@ -49,6 +41,7 @@ const Dashboard = () => {
 
   return (
     <section>
+      <CountList />
       <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
         <IntroCard
           description="This is for all stored legacy codes from diffrent project. Click on card for more info."
@@ -64,34 +57,9 @@ const Dashboard = () => {
           route={RouteEnum.Links}
         />
       </div>
-      <div className="flex flex-row lg:flex-col">
-        <Card classes="w-full lg:w-2/3">
-          <div className="flex flex-col">
-            <div className="mb-3 font-bolder text-gray-dark">Category List</div>
-            <p className="mb-3 text-base text-gray">
-              This is the list of all active categories. for more info click on
-              each pill.
-            </p>
-            <div className="flex flex-wrap">
-              {snippetCategories.map((category) => (
-                <CategoryPill
-                  key={category}
-                  name={category}
-                  icon={categoryIconPicker(category)}
-                  route={RouteEnum.Snippet}
-                />
-              ))}
-              {linkCategories.map((category) => (
-                <CategoryPill
-                  key={category}
-                  name={category}
-                  icon={categoryIconPicker(category)}
-                  route={RouteEnum.Links}
-                />
-              ))}
-            </div>
-          </div>
-        </Card>
+      <div className="flex flex-col gap-4 lg:flex-row">
+        <CategoryList />
+        <ContactMe />
       </div>
 
       {/* <div className="flex mb-20">
