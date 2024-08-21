@@ -1,10 +1,10 @@
 import { create } from "zustand";
-import { Category } from "../constants/Category";
+import {  CategoryType } from "../constants/Category";
 
 interface IStoreState {
-  activeMenu: null | Category;
+  activeMenu: null | CategoryType;
   showSidebar: boolean;
-  setActiveMenu: (category: Category) => void;
+  setActiveMenu: (category: CategoryType) => void;
   resetMenu: () => void;
   setHideSidebar: () => void;
   setShowSidebar: () => void;
@@ -13,7 +13,7 @@ interface IStoreState {
 
 const useMenuStore = create<IStoreState>((set) => ({
   activeMenu: null,
-  showSidebar: true,
+  showSidebar: false,
   setActiveMenu: (category) =>
     set((state) => ({ ...state, activeMenu: category })),
   resetMenu: () => set((state) => ({ ...state, activeMenu: null })),

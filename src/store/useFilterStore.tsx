@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { Category } from "../constants/Category"
+import { Category, CategoryType } from "../constants/Category"
 import { Tags } from "../constants/Tags"
 import { LinkList, SnippetList } from "../data"
 import { ISnippet } from "../types/SnippetModels"
@@ -10,7 +10,7 @@ import { ILink } from "../types/LinkModels"
 interface IStoreState {
   snippets: ISnippet[]
   links: ILink[]
-  setMenuFilter: (category: Category, route: RouteEnum) => void
+  setMenuFilter: (category: CategoryType, route: RouteEnum) => void
   setSubMenuFilter: (name: string, route: RouteEnum) => void
   setTagFilter: (tag: Tags) => void
   setSearchFilter: (term: string, searchBy: SearchByStatusType) => void

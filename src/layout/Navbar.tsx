@@ -13,7 +13,7 @@ const Navbar = ({ hasScrolled }: Props) => {
 
   return (
     <nav
-      className={`sticky top-2 z-50 mx-[20px] mt-5 flex min-h-[120px] flex-col-reverse items-start justify-between rounded-xl py-3 text-base transition-all duration-300 ease-in-out md:min-h-[80px] md:flex-row md:items-center md:py-0 md:text-lg ${hasScrolled ? "bg-semi-transparent-white px-3 shadow-navbar backdrop-blur-sm backdrop-saturate-200 md:px-5" : "bg-transparent"}`}
+      className={`sticky top-2 z-50 mx-[20px] mt-5 flex min-h-[120px] flex-col-reverse items-start justify-between rounded-xl py-3 text-base transition-all duration-300 ease-in-out md:mt-0 md:min-h-[80px] md:flex-row md:items-center md:py-0 md:text-lg ${hasScrolled ? "bg-semi-transparent-white px-3 shadow-navbar backdrop-blur-sm backdrop-saturate-200 md:px-5" : "bg-transparent"}`}
     >
       <BreadCrumb />
       <div className="flex w-full items-center justify-between md:justify-end">

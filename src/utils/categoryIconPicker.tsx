@@ -1,4 +1,4 @@
-import { Category } from "../constants/Category";
+import { Category, CategoryType } from "../constants/Category";
 import { GrDocumentText } from "react-icons/gr";
 import { TbBrandReact } from "react-icons/tb";
 import { FaQuora } from "react-icons/fa6";
@@ -8,7 +8,7 @@ import { CgTemplate } from "react-icons/cg";
 import { FaTools } from "react-icons/fa";
 import { GoTools } from "react-icons/go";
 
-export const categoryIconPicker = (category: Category) => {
+export const categoryIconPicker = (category: CategoryType) => {
   let icon = <></>;
   switch (category) {
     case Category.Blogs:

@@ -63,7 +63,7 @@ const BreadCrumb = () => {
           </div>
         ))}
       </div>
-      <div className="font-bolder">{headerCreator()}</div>
+      <div className="font-bolder text-gray-dark">{headerCreator()}</div>
     </div>
   );
 };
