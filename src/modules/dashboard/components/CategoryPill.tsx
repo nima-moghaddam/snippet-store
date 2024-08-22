@@ -24,7 +24,7 @@ const CategoryPill = ({ name, icon, route }: Props) => {
   return (
     <div
       onClick={onSelect}
-      className="mb-2 me-2 flex cursor-pointer items-center justify-center rounded-icon bg-primary-gradient px-2 py-1 hover:shadow-icon hover:shadow-gray-light"
+      className="mb-2 me-2 flex cursor-pointer items-center justify-center rounded-icon bg-primary-gradient px-2 py-1 transition-all duration-200 ease-in-out hover:scale-105 hover:shadow-icon hover:shadow-gray-light"
     >
       {cloneElement(icon, {
         className: `w-4 h-4 text-white`,

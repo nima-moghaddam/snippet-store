@@ -8,7 +8,7 @@ import { RiNumbersFill } from "react-icons/ri";
 
 const tagList = Object.values(Tags).map((tag) => {
   const tagCount = SnippetList.filter((item) => item.tags.includes(tag)).length;
-  return { [tag]: tagCount };
+  return { [tag]: +tagCount };
 });
 
 const totalTagCountSum = tagList.reduce((sum, item) => {

@@ -1,13 +1,10 @@
 import { useRef, useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import SideBar from "./SideBar";
 
 const AppLayout = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
-
-  const { pathname } = useLocation();
-  const pathList = pathname.split("/");
   const scrollRef = useRef(null);
 
   const handleScroll = () => {

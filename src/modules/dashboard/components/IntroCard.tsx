@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import Card from "../../../components/card/Card";
 import { RouteEnum } from "../../../types/RouteModels";
 

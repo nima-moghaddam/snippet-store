@@ -1,7 +1,6 @@
-import Card from "../../components/card/Card";
-import Chart from "../../components/chart";
-import { Tags } from "../../constants/Tags";
-import { SnippetList } from "../../data";
+// import Chart from "../../components/chart";
+// import { Tags } from "../../constants/Tags";
+// import { SnippetList } from "../../data";
 import { RouteEnum } from "../../types/RouteModels";
 import CodeAnimation from "../../lotties/CodeAnimation";
 import DocumentAnimation from "../../lotties/DocumentAnimation";
@@ -17,24 +16,24 @@ const Dashboard = () => {
   const windowWidth = useWindowWidth();
   const lottieSize = windowWidth < 480 ? 150 : 200;
 
-  const tagList = Object.values(Tags).map((tag) => {
-    const tagCount = SnippetList.filter((item) =>
-      item.tags.includes(tag),
-    ).length;
-    return { [tag]: tagCount };
-  });
+  // const tagList = Object.values(Tags).map((tag) => {
+  //   const tagCount = SnippetList.filter((item) =>
+  //     item.tags.includes(tag),
+  //   ).length;
+  //   return { [tag]: tagCount };
+  // });
 
-  const totalTagCountSum = tagList.reduce((sum, item) => {
-    const value = Object.values(item)[0];
-    return sum + value;
-  }, 0);
+  // const totalTagCountSum = tagList.reduce((sum, item) => {
+  //   const value = Object.values(item)[0];
+  //   return sum + value;
+  // }, 0);
 
-  const tagPercentsList = tagList.map((item) => {
-    const key = Object.keys(item)[0];
-    const value = Object.values(item)[0];
-    const percentage = (value / totalTagCountSum) * 100;
-    return { [key]: Math.round(percentage) };
-  });
+  // const tagPercentsList = tagList.map((item) => {
+  //   const key = Object.keys(item)[0];
+  //   const value = Object.values(item)[0];
+  //   const percentage = (value / totalTagCountSum) * 100;
+  //   return { [key]: Math.round(percentage) };
+  // });
 
   // const categoryList = Object.values(Category).map((category) => {
   //   const categoryCount = SnippetList.filter((item) => item.category === category).length

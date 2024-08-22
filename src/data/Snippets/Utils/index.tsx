@@ -1,5 +1,5 @@
-import { Category } from "../../../constants/Category"
-import { Tags } from "../../../constants/Tags"
+import { Category } from "../../../constants/Category";
+import { Tags } from "../../../constants/Tags";
 
 export const Utils = [
   {
@@ -14,7 +14,7 @@ export const Utils = [
             date.getMonth() === today.getMonth() &&
             date.getFullYear() === today.getFullYear()
           );
-        };`
+        };`,
   },
   {
     title: "Add Days",
@@ -25,7 +25,7 @@ export const Utils = [
           const newDate = new Date(date);
           newDate.setDate(date.getDate() + number);
           return newDate;
-      }`
+      }`,
   },
   {
     title: "scroll into position",
@@ -39,13 +39,22 @@ export const Utils = [
       }
       window.scrollTo({ top: position + offset, behavior: 'smooth' });
     };
-      }`
+      }`,
+  },
+  {
+    title: "Uppercase first letter",
+    tags: [Tags.Utility],
+    category: Category.Utils,
+    code: `export const uppercaseFirstLetter = (text: string) => {
+      return text.charAt(0).toUpperCase() + text.slice(1);
+    };`,
   },
   {
     title: "download image",
     tags: [Tags.Utility, Tags.React, Tags.Html2Canvas],
     category: Category.Utils,
-    description: "download image using html2canvas lib, formats can be jpeg or png",
+    description:
+      "download image using html2canvas lib, formats can be jpeg or png",
     code: ` const downloadImage = async (format: "png" | "jpeg" | "svg", ref: RefObject<HTMLDivElement>) => {
       if (!ref.current) return
       const canvas = await html2canvas(ref.current)
@@ -57,6 +66,6 @@ export const Utils = [
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
-    }`
-  }
-]
+    }`,
+  },
+];

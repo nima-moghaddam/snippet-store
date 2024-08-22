@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { IoCodeSlashOutline } from "react-icons/io5";
+// import { IoCodeSlashOutline } from "react-icons/io5";
 import { LuSearch } from "react-icons/lu";
-import { PiTextTBold } from "react-icons/pi";
+// import { PiTextTBold } from "react-icons/pi";
 import { useNavigate } from "react-router";
 import useFilterStore from "../../store/useFilterStore";
 import useMenuStore from "../../store/useMenuStore";
@@ -10,7 +10,7 @@ import { SearchByStatusType } from "../../types/SearchByModels";
 
 const Search = () => {
   const [term, setTerm] = useState("");
-  const [searchBy, setSearchBy] = useState<SearchByStatusType>("title");
+  const [searchBy] = useState<SearchByStatusType>("title");
 
   const navigate = useNavigate();
   const { resetFilters, setSearchFilter } = useFilterStore((state) => state);
@@ -29,14 +29,14 @@ const Search = () => {
     }
   };
 
-  const handleSearhByOnclick = () => {
-    resetFilters();
-    setTerm("");
-    setSearchBy((prev) => {
-      if (prev === "code") return "title";
-      else return "code";
-    });
-  };
+  // const handleSearhByOnclick = () => {
+  //   resetFilters();
+  //   setTerm("");
+  //   setSearchBy((prev) => {
+  //     if (prev === "code") return "title";
+  //     else return "code";
+  //   });
+  // };
 
   useEffect(() => {
     if (!term) resetFilters();
