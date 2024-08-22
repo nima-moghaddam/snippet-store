@@ -17,9 +17,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
-    "paths": {
-      "@constants/*": ["constants/*"]
-    },
 
     /* Linting */
     "strict": true,
