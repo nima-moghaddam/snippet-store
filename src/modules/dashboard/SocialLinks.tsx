@@ -40,10 +40,10 @@ const SocialLinks = () => {
         <div>
           <div className="font-bolder text-gray-dark">Contact Me</div>
           <p className="mb-3 text-base text-gray">
-            For more info connect me throw bellow links.
+            For more info connect me with bellow links.
           </p>
         </div>
-        <div className="">
+        <div>
           <EmailAnimation height={80} width={80} />
         </div>
       </div>

@@ -21,7 +21,7 @@ const SnippetPage = () => {
     <section>
       <div className="mb-3 flex justify-end">
         <span
-          className="flex cursor-pointer items-center hover:text-pink"
+          className="flex cursor-pointer items-center text-gray-dark hover:text-pink"
           onClick={onViewChange}
         >
           {view === "grid" ? <BsGrid3X3GapFill /> : <FaThList />}
