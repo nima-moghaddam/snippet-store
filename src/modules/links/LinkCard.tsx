@@ -1,5 +1,6 @@
 import copy from "copy-to-clipboard";
 import { MdContentCopy } from "react-icons/md";
+import Card from "../../components/card/Card";
 import { toastFire } from "../../components/toast/Toast";
 import useAnimation from "../../utils/useAnimation";
 
@@ -18,19 +19,19 @@ const LinkCard = ({ link, title }: Props) => {
   };
 
   return (
-    <div
-      className={`group relative flex cursor-pointer flex-col rounded-md bg-dark p-5 hover:shadow-3xl ${animateClass}`}
+    <Card
+      classes={`group relative flex cursor-pointer flex-col hover:shadow-gray-lighter ${animateClass}`}
       onClick={() => window.open(link)}
     >
       <MdContentCopy
-        className="absolute right-4 top-4 z-30 block h-4 w-4 cursor-pointer text-white hover:text-pink group-hover:block md:hidden"
+        className="absolute right-4 top-4 z-30 block h-4 w-4 cursor-pointer text-gray-dark hover:text-secondary"
         onClick={handleCodeCopy}
       />
-      <span className="mb-2 text-[1.3rem] font-semibold text-white group-hover:text-pink">
+      <span className="mb-2 text-lg font-bold text-gray-dark group-hover:text-secondary">
         {title}
       </span>
-      <div className="line-clamp-1 text-[.9rem] text-blue">{link}</div>
-    </div>
+      <div className="line-clamp-1 text-sm text-blue">{link}</div>
+    </Card>
   );
 };
 
