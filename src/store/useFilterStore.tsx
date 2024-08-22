@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { CategoryType } from "../constants/Category";
-import { Tags } from "../constants/Tags";
+import { Tags } from "../constants/tags";
 import { LinkList, SnippetList } from "../data";
 import { ISnippet } from "../types/SnippetModels";
 import { SearchByStatusType } from "../types/SearchByModels";

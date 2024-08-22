@@ -1,5 +1,5 @@
 import { FaTags } from "react-icons/fa6";
-import { Tags } from "../../constants/Tags";
+import { Tags } from "../../constants/tags";
 import { LinkList, SnippetList } from "../../data";
 import TotalCountCard from "./components/TotalCountCard";
 import { FaCode } from "react-icons/fa6";

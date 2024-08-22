@@ -1,4 +1,4 @@
-import { Tags } from "../../../constants/Tags"
+import { Tags } from "../../../constants/tags"
 import useFilterStore from "../../../store/useFilterStore"
 import useMenuStore from "../../../store/useMenuStore"
 

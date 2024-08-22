@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router";
 import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper";
-import { Tags } from "../../constants/Tags";
+import { Tags } from "../../constants/tags";
 import { SnippetList } from "../../data";
 import useFilterStore from "../../store/useFilterStore";
 import useMenuStore from "../../store/useMenuStore";
