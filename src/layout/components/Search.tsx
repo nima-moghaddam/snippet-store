@@ -13,7 +13,11 @@ const Search = () => {
   const [searchBy] = useState<SearchByStatusType>("title");
 
   const navigate = useNavigate();
-  const { resetFilters, setSearchFilter } = useFilterStore((state) => state);
+  const {
+    resetFilters,
+    setSearchFilter,
+    term: storeTermValue,
+  } = useFilterStore((state) => state);
   const { resetMenu } = useMenuStore((state) => state);
 
   const handleSearch = (e: any) => {
@@ -41,6 +45,10 @@ const Search = () => {
   useEffect(() => {
     if (!term) resetFilters();
   }, [term]);
+
+  useEffect(() => {
+    if (!storeTermValue) setTerm("");
+  }, [storeTermValue]);
 
   return (
     <div className="flex items-center">

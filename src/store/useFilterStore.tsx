@@ -58,11 +58,11 @@ const useFilterStore = create<IStoreState>((set) => ({
     let filteredSnippets: ISnippet[];
     if (searchBy === "title") {
       filteredSnippets = SnippetList?.filter((i) =>
-        i.title.trim().toLocaleLowerCase().includes(term),
+        i.title.trim().toLocaleLowerCase().includes(term.toLocaleLowerCase()),
       );
     } else
       filteredSnippets = SnippetList?.filter((i) =>
-        i.code.trim().toLocaleLowerCase().includes(term),
+        i.code.trim().toLocaleLowerCase().includes(term.toLocaleLowerCase()),
       );
     set(() => ({
       snippets: filteredSnippets,

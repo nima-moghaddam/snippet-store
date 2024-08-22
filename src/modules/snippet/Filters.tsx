@@ -16,7 +16,6 @@ const Filters = () => {
       <span className="me-2 text-gray-dark">Filters</span>
       {tag && <FilterPill icon={<FaHashtag />} name={tag} />}
       {term && <FilterPill icon={<IoSearchOutline />} name={term} />}
-      {/* {!term && !tag && <span className="text-base text-gray-dark">...</span>} */}
     </div>
   );
 };
