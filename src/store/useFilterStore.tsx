@@ -10,6 +10,8 @@ import { ILink } from "../types/LinkModels";
 interface IStoreState {
   snippets: ISnippet[];
   links: ILink[];
+  term: string | null;
+  tag: Tags | null;
   setMenuFilter: (category: CategoryType, route: RouteEnum) => void;
   setSubMenuFilter: (name: string, route: RouteEnum) => void;
   setTagFilter: (tag: Tags) => void;
@@ -20,6 +22,8 @@ interface IStoreState {
 const useFilterStore = create<IStoreState>((set) => ({
   snippets: SnippetList,
   links: LinkList,
+  term: null,
+  tag: null,
   setMenuFilter: (category, route) => {
     if (route === RouteEnum.Snippet) {
       const filteredSnippets = SnippetList?.filter(
@@ -47,6 +51,7 @@ const useFilterStore = create<IStoreState>((set) => ({
     });
     set(() => ({
       snippets: filteredSnippets,
+      tag,
     }));
   },
   setSearchFilter: (term, searchBy) => {
@@ -61,9 +66,16 @@ const useFilterStore = create<IStoreState>((set) => ({
       );
     set(() => ({
       snippets: filteredSnippets,
+      term,
     }));
   },
-  resetFilters: () => set(() => ({ snippets: SnippetList, links: LinkList })),
+  resetFilters: () =>
+    set(() => ({
+      snippets: SnippetList,
+      links: LinkList,
+      tag: null,
+      term: null,
+    })),
 }));
 
 export default useFilterStore;

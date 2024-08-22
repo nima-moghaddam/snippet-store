@@ -6,6 +6,7 @@ import useFilterStore from "../../store/useFilterStore";
 import SnippetCard from "./SnippetCard";
 import Card from "../../components/card/Card";
 import useAnimation from "../../utils/useAnimation";
+import Filters from "./Filters";
 
 const SnippetPage = () => {
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -19,7 +20,8 @@ const SnippetPage = () => {
 
   return (
     <section>
-      <div className="mb-3 flex justify-end">
+      <div className="mb-3 flex justify-between">
+        <Filters />
         <span
           className="flex cursor-pointer items-center text-gray-dark hover:text-pink"
           onClick={onViewChange}

@@ -52,6 +52,7 @@ const SideBar = () => {
           <MenuCard
             onClick={() => {
               navigate("/");
+              toggleMenu();
               resetMenu();
             }}
             isActive={pathname === "/"}
