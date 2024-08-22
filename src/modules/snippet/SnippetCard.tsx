@@ -1,37 +1,43 @@
-import { ISnippet } from "../../types/SnippetModels"
-import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper"
-import { useNavigate } from "react-router"
-import TagList from "./components/TagList"
-import Toolbar from "./components/Toolbar"
-import { RouteEnum } from "../../types/RouteModels"
-import useAnimation from "../../utils/useAnimation"
+import { ISnippet } from "../../types/SnippetModels";
+import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper";
+import { useNavigate } from "react-router";
+import TagList from "./components/TagList";
+import Toolbar from "./components/Toolbar";
+import { RouteEnum } from "../../types/RouteModels";
+import useAnimation from "../../utils/useAnimation";
 
 interface Props {
-  snippet: ISnippet
+  snippet: ISnippet;
 }
 
 const SnippetCard = ({ snippet }: Props) => {
-  const navigate = useNavigate()
-  const { title, code, tags } = snippet
-  const { animateClass } = useAnimation()
+  const navigate = useNavigate();
+  const { title, code, tags } = snippet;
+  const { animateClass } = useAnimation();
 
   return (
     <div
       onClick={() => navigate(`/${RouteEnum.Snippet}/${title}`)}
-      className={`rounded-lg max-h-[700px] overflow-hidden cursor-pointer hover:shadow-3xl group z-20 ${animateClass}`}
+      className={`group z-20 max-h-[700px] cursor-pointer overflow-hidden rounded-lg shadow-card hover:shadow-gray-light ${animateClass}`}
     >
-      <div className="bg-dark pb-5 pt-4 px-3 border-b-2 border-gray shadow-lg shadow-black">
-        <div className="flex justify-end h-3">
+      <div className="bg-white px-3 pb-5 pt-4">
+        <div className="flex h-3 justify-end">
           <Toolbar snippet={snippet} isForCard />
         </div>
-        <span className="text-white mb-2 line-clamp-1 group-hover:text-pink">{title}</span>
+        <span className="mb-2 line-clamp-1 text-lg font-bold text-gray-dark group-hover:text-secondary">
+          {title}
+        </span>
         <TagList tags={tags} />
       </div>
-      <SyntaxHighlighterWrapper styles={{ scrollbarWidth: "none", paddingBottom: "1rem" }}>
+      <div className="h-[1px] bg-border-gradient opacity-50" />
+
+      <SyntaxHighlighterWrapper
+        styles={{ scrollbarWidth: "none", paddingBottom: "1rem" }}
+      >
         {code}
       </SyntaxHighlighterWrapper>
     </div>
-  )
-}
+  );
+};
 
-export default SnippetCard
+export default SnippetCard;

@@ -1,52 +1,62 @@
-import { useState } from "react"
-import { useNavigate } from "react-router"
-import { ISnippet } from "../../types/SnippetModels"
-import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper"
-import TagList from "./components/TagList"
-import { FiChevronRight } from "react-icons/fi"
-import { FiChevronDown } from "react-icons/fi"
-import Toolbar from "./components/Toolbar"
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { ISnippet } from "../../types/SnippetModels";
+import SyntaxHighlighterWrapper from "../../components/syntax-highlighter/SyntaxHighlighterWrapper";
+import TagList from "./components/TagList";
+import { FiChevronRight } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi";
+import Toolbar from "./components/Toolbar";
+import { RouteEnum } from "../../types/RouteModels";
 
 interface Props {
-  snippet: ISnippet
-  hasBorder?: boolean
+  snippet: ISnippet;
+  hasBorder?: boolean;
 }
 
 const SnippetList = ({ snippet, hasBorder = false }: Props) => {
-  const [openList, setOpenList] = useState(false)
-  const navigate = useNavigate()
-  const { title, code, tags } = snippet
+  const [openList, setOpenList] = useState(false);
+  const navigate = useNavigate();
+  const { title, code, tags } = snippet;
 
   return (
-    <div className="flex flex-col mb-4">
+    <div className="mb-4 flex flex-col">
       <TagList tags={tags} />
-      <div className="flex items-center mt-1">
+      <div className="mt-1 flex items-center">
         {openList ? (
-          <span className="rounded-full bg-sky-50 p-1 cursor-pointer" onClick={() => setOpenList(false)}>
-            <FiChevronDown className="w-5 h-5" />
+          <span
+            className="cursor-pointer rounded-full bg-primary-gradient p-1"
+            onClick={() => setOpenList(false)}
+          >
+            <FiChevronDown className="h-5 w-5 text-white" />
           </span>
         ) : (
-          <span className="rounded-full bg-sky-50 p-1 cursor-pointer" onClick={() => setOpenList(true)}>
-            <FiChevronRight className="w-5 h-5" />
+          <span
+            className="cursor-pointer rounded-full bg-primary-gradient p-1"
+            onClick={() => setOpenList(true)}
+          >
+            <FiChevronRight className="h-5 w-5 text-white" />
           </span>
         )}
         <div
-          className="font-semibold hover:text-pink ms-3 cursor-pointer text-[1.3rem]"
-          onClick={() => navigate(`snippet/${title}`)}
+          className="ms-3 cursor-pointer text-lg font-bold text-gray-dark hover:text-secondary"
+          onClick={() => navigate(`/${RouteEnum.Snippet}/${title}`)}
         >
           {title}
         </div>
       </div>
       {openList && (
-        <div className="rounded-xl mt-4 mb-2 overflow-hidden">
+        <div className="mb-2 mt-4 overflow-hidden rounded-xl">
           <SyntaxHighlighterWrapper>{code}</SyntaxHighlighterWrapper>
         </div>
       )}
-      <div className={`flex justify-end items-center pb-2 ${hasBorder && "border-b border-gray "}`}>
+      <div
+        className={`flex items-center justify-end pb-2 ${hasBorder && "border-b border-gray-light"}`}
+      >
         <Toolbar snippet={snippet} />
       </div>
+      {/* {hasBorder && <div className="h-[1px] bg-border-gradient opacity-50" />} */}
     </div>
-  )
-}
+  );
+};
 
-export default SnippetList
+export default SnippetList;

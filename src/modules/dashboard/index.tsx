@@ -10,8 +10,10 @@ import IntroCard from "./components/IntroCard";
 import CountList from "./CountList";
 import SocialLinks from "./SocialLinks";
 import CategoryList from "./CategoryList";
+import useAnimation from "../../utils/useAnimation";
 
 const Dashboard = () => {
+  const { animateClass } = useAnimation();
   const windowWidth = useWindowWidth();
   const lottieSize = windowWidth < 480 ? 150 : 200;
 
@@ -40,7 +42,7 @@ const Dashboard = () => {
   // })
 
   return (
-    <section>
+    <section className={animateClass}>
       <CountList />
       <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-2">
         <IntroCard

@@ -11,7 +11,7 @@ const CategoryList = () => {
     <Card classes="w-full lg:w-2/3">
       <div className="flex flex-col">
         <div className="mb-3 font-bolder text-gray-dark">Category List</div>
-        <p className="mb-3 text-base text-gray">
+        <p className="mb-8 text-base text-gray">
           This is the list of all active categories. for more info click on each
           pill.
         </p>

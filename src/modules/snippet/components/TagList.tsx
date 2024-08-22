@@ -14,7 +14,7 @@ const TagList = ({ tags }: { tags: Tags[] }) => {
   return (
     <div className="flex flex-wrap">
       {tags?.map((i) => (
-        <span className="text-blue me-1 cursor-pointer hover:text-pink" onClick={(e) => handleTagClick(e, i)}>
+        <span className="text-blue text-sm me-1 cursor-pointer hover:text-secondary" onClick={(e) => handleTagClick(e, i)}>
           #{i}
         </span>
       ))}

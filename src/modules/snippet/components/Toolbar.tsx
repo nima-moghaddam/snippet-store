@@ -34,21 +34,21 @@ const Toolbar = ({ snippet, isForCard }: Props) => {
     <div className="flex items-center">
       {link && (
         <ImLink
-          className={`z-30 me-3 h-4 w-4 cursor-pointer text-black hover:text-pink ${
-            isForCard && "block text-white group-hover:block md:hidden"
+          className={`z-30 me-3 h-4 w-4 cursor-pointer text-gray-dark hover:text-secondary ${
+            isForCard && "block text-gray-dark"
           }`}
           onClick={handleOpenLink}
         />
       )}
       <IoCameraOutline
-        className={`z-30 me-3 h-6 w-6 cursor-pointer text-black hover:text-pink sm:me-3 sm:h-5 sm:w-5 ${
-          isForCard && "block text-white group-hover:block md:hidden"
+        className={`z-30 me-3 h-6 w-6 cursor-pointer text-gray-dark hover:text-secondary sm:me-3 sm:h-5 sm:w-5 ${
+          isForCard && "block text-gray-dark"
         }`}
         onClick={handleDownloadImage}
       />
       <MdContentCopy
-        className={`z-30 h-4 w-4 cursor-pointer text-black hover:text-pink ${
-          isForCard && "block text-white group-hover:block md:hidden"
+        className={`z-30 h-4 w-4 cursor-pointer text-gray-dark hover:text-secondary ${
+          isForCard && "block text-gray-dark"
         }`}
         onClick={handleCodeCopy}
       />
