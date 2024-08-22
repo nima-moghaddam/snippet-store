@@ -1,6 +1,6 @@
 import SyntaxHighlighter from "react-syntax-highlighter";
 import {
-  nightOwl,
+  // nightOwl,
   a11yLight,
 } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { CSSProperties } from "react";

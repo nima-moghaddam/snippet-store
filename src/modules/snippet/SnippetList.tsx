@@ -14,7 +14,7 @@ interface Props {
   hasBorder?: boolean;
 }
 
-const SnippetList = ({ snippet, hasBorder = false }: Props) => {
+const SnippetList = ({ snippet }: Props) => {
   const [openList, setOpenList] = useState(false);
   const navigate = useNavigate();
   const { animateClass } = useAnimation();

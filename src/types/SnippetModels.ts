@@ -3,7 +3,7 @@ import { Tags } from "../constants/Tags";
 
 export interface ISnippet {
   title: string;
-  description: string;
+  description?: string;
   tags: Tags[];
   code: string;
   category: Category;
