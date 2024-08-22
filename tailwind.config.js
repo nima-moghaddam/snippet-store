@@ -5,12 +5,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: "#0e2432",
-        dark_lighter: "#373c42",
-        ivory: "#fefefe",
-        pink: "#ff4181",
-        orange: "#f9cd61",
-        //------------------
         primary: "#f8f9fb",
         secondary: "#c80fa0",
         gray: "#65758c",

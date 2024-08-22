@@ -1,20 +1,20 @@
-import { MdDownload } from "react-icons/md"
+import { MdDownload } from "react-icons/md";
 
 interface Props {
-  name: string
-  onClick: () => void
+  name: string;
+  onClick: () => void;
 }
 
 const DownloadImageBtn = ({ name, onClick }: Props) => {
   return (
     <button
       onClick={onClick}
-      className="text-white bg-blue shadow-md shadow-slate-400 hover:bg-black transition-all mx-2 duration-300 px-3 py-2 cursor-pointer rounded-md flex items-center mb-3"
+      className="mx-2 mb-3 flex cursor-pointer items-center rounded-md bg-primary-gradient px-3 py-2 text-white shadow-md shadow-slate-400 transition-all duration-300 hover:scale-105"
     >
       <span className="me-3">{name}</span>
-      <MdDownload className="w-5 h-5" />
+      <MdDownload className="h-5 w-5" />
     </button>
-  )
-}
+  );
+};
 
-export default DownloadImageBtn
+export default DownloadImageBtn;
