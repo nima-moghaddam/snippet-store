@@ -7,6 +7,7 @@ import { FiChevronRight } from "react-icons/fi";
 import { FiChevronDown } from "react-icons/fi";
 import Toolbar from "./components/Toolbar";
 import { RouteEnum } from "../../types/RouteModels";
+import useAnimation from "../../utils/useAnimation";
 
 interface Props {
   snippet: ISnippet;
@@ -16,10 +17,12 @@ interface Props {
 const SnippetList = ({ snippet, hasBorder = false }: Props) => {
   const [openList, setOpenList] = useState(false);
   const navigate = useNavigate();
+  const { animateClass } = useAnimation();
+
   const { title, code, tags } = snippet;
 
   return (
-    <div className="mb-4 flex flex-col">
+    <div className={`mb-4 flex flex-col ${animateClass}`}>
       <TagList tags={tags} />
       <div className="mt-1 flex items-center">
         {openList ? (
@@ -50,7 +53,7 @@ const SnippetList = ({ snippet, hasBorder = false }: Props) => {
         </div>
       )}
       <div
-        className={`flex items-center justify-end pb-2 ${hasBorder && "border-b border-gray-light"}`}
+        className={`flex items-center justify-end border-b border-gray-lighter pb-2`}
       >
         <Toolbar snippet={snippet} />
       </div>

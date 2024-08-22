@@ -5,10 +5,12 @@ import SnippetList from "./SnippetList";
 import useFilterStore from "../../store/useFilterStore";
 import SnippetCard from "./SnippetCard";
 import Card from "../../components/card/Card";
+import useAnimation from "../../utils/useAnimation";
 
 const SnippetPage = () => {
   const [view, setView] = useState<"grid" | "list">("grid");
   const { snippets } = useFilterStore((state) => state);
+  const { animateClass } = useAnimation();
 
   const onViewChange = () => {
     if (view === "grid") setView("list");
@@ -35,7 +37,7 @@ const SnippetPage = () => {
           ))}
         </div>
       ) : (
-        <Card classes="flex flex-col rounded-xl px-5 pt-5">
+        <Card classes={`flex flex-col rounded-xl px-5 py-5 ${animateClass}`}>
           {snippets.map((code, index) => (
             <SnippetList
               key={code.title}
