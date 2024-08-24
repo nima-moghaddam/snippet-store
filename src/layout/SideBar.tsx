@@ -10,6 +10,7 @@ import useMenuStore from "../store/useMenuStore";
 import { categoryIconPicker } from "../utils/categoryIconPicker";
 import useFilterStore from "../store/useFilterStore";
 import MenuTitle from "./components/MenuTitle";
+import { HiDocumentText } from "react-icons/hi2";
 
 const snippetsMenu = Object.entries(Snippets).map(([key, values]) => {
   return {
@@ -58,6 +59,17 @@ const SideBar = () => {
             isActive={pathname === "/"}
             title={"Dashboard"}
             icon={<MdHome />}
+            classes="mb-3"
+          />
+          <MenuCard
+            onClick={() => {
+              navigate("/documents");
+              toggleMenu();
+              resetMenu();
+            }}
+            isActive={pathname === "/documents"}
+            title={"Documents"}
+            icon={<HiDocumentText />}
             classes="mb-3"
           />
           <MenuTitle

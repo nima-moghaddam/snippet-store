@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "../layout";
 import Dashboard from "../modules/dashboard";
+import Documents from "../modules/documents";
 import LinksPage from "../modules/links";
 import SnippetPage from "../modules/snippet";
 import SnippetDetailPage from "../modules/snippet-detail";
@@ -13,6 +14,7 @@ const AppRoutes = () => {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/documents" element={<Documents />} />
           <Route path={RouteEnum.Links} element={<LinksPage />} />
           <Route path={RouteEnum.Snippet}>
             <Route index element={<SnippetPage />} />
