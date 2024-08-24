@@ -14,8 +14,8 @@ const Card = ({ children, classes = "", title, subTitle, onClick }: Props) => {
       className={`rounded-card bg-white px-4 py-3 shadow-card ${classes}`}
       onClick={onClick}
     >
-      {title && <div className="mb-2 font-bolder text-gray-dark">{title}</div>}
-      {subTitle && <p className="mb-3 text-base text-gray">{subTitle}</p>}
+      {title && <div className="mb-1 font-bolder text-gray-dark">{title}</div>}
+      {subTitle && <p className="mb-3 text-sm text-gray">{subTitle}</p>}
       {children}
     </div>
   );

@@ -18,7 +18,12 @@ const CodeAnimation = ({ width = 200, height = 200 }: Props) => {
     },
   };
   return (
-    <Lottie options={defaultOptions}  height={height} width={width} />
+    <Lottie
+      options={defaultOptions}
+      height={height}
+      width={width}
+      style={{ margin: "0 0 0 auto" }}
+    />
   );
 };
 

@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <section className={animateClass}>
       <CountList />
-      <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-2">
+      <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <IntroCard
           title="Snippets"
           description="This is for all stored legacy codes from diffrent project. Click on card for more info."
@@ -34,7 +34,7 @@ const Dashboard = () => {
         <CategoryList classes="w-full lg:w-2/3" />
         <SocialLinks classes="w-full lg:w-1/3" />
       </div>
-      <div  className="mb-4 flex flex-col gap-4 xl:flex-row">
+      <div className="mb-4 flex flex-col gap-4 xl:flex-row">
         <TagsChart classes="w-full " />
         <CategoryChart classes="w-full " />
       </div>

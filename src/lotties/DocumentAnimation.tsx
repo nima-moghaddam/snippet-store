@@ -17,7 +17,14 @@ const DocumentAnimation = ({ width = 200, height = 200 }: Props) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  return <Lottie options={defaultOptions} height={height} width={width} />;
+  return (
+    <Lottie
+      options={defaultOptions}
+      height={height}
+      width={width}
+      style={{ margin: "0 0 0 auto" }}
+    />
+  );
 };
 
 export default DocumentAnimation;

@@ -1,6 +1,5 @@
 import Card from "../../components/card/Card";
 import Chart from "../../components/chart";
-import { Category } from "../../constants/Category";
 import { Tags } from "../../constants/tags";
 import { SnippetList } from "../../data";
 

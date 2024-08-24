@@ -2,7 +2,7 @@ import { cloneElement, ReactElement } from "react";
 import { useNavigate } from "react-router";
 import Card from "../../../components/card/Card";
 import { RouteEnum } from "../../../types/RouteModels";
-import { useWindowWidth } from "../../../utils/useWindowWidth";
+// import { useWindowWidth } from "../../../utils/useWindowWidth";
 
 interface Props {
   title: string;
@@ -13,9 +13,9 @@ interface Props {
 
 const IntroCard = ({ description, lottie, title, route }: Props) => {
   const navigate = useNavigate();
-  const windowWidth = useWindowWidth();
-  const lottieSize = windowWidth < 480 ? 150 : 200;
-
+  // const windowWidth = useWindowWidth();
+  // const lottieSize = windowWidth < 480 ? 150 : 200;
+  const lottieSize = 200
   return (
     <Card
       classes="cursor-pointer h-[230px] group"
@@ -24,7 +24,7 @@ const IntroCard = ({ description, lottie, title, route }: Props) => {
       <div className="flex h-full items-center">
         <div className="me-3 flex h-full w-1/2 flex-col justify-between">
           <div>
-            <div className="mb-2 font-bolder text-gray-dark">{title}</div>
+            <div className="mb-1 font-bolder text-gray-dark">{title}</div>
             <p className="text-base text-gray">{description}</p>
           </div>
           <div className="ease-in-outtext-nowrap text-base text-gray transition-all duration-150 group-hover:text-[0.9rem] group-hover:font-bolder group-hover:text-secondary">
@@ -36,7 +36,6 @@ const IntroCard = ({ description, lottie, title, route }: Props) => {
             height: lottieSize,
             width: lottieSize,
           })}
-          {/* {lottie} */}
         </div>
       </div>
     </Card>
