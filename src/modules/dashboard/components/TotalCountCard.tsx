@@ -18,7 +18,7 @@ const TotalCountCard = ({ count, icon, title }: Props) => {
           <div className="flex items-center">
             <CountUp
               duration={5}
-              className="text-xl font-bold"
+              className="text-xl font-bold text-gray-dark"
               start={0}
               end={count}
             />

@@ -1,24 +1,24 @@
-import { IoChevronForwardOutline, IoChevronUpSharp } from "react-icons/io5"
-import { Bar } from "./Bar"
+import { IoChevronForwardOutline, IoChevronUpSharp } from "react-icons/io5";
+import { Bar } from "./Bar";
 
 interface Props {
-  data: Record<string, number>[]
-  title: string
-  barColor: "bg-blue" | "bg-pink"
+  data: Record<string, number>[];
 }
 
-const Chart = ({ data, title, barColor }: Props) => {
+const Chart = ({ data }: Props) => {
   return (
-    <div className="relative flex items-end border-s border-b w-[600px] h-[300px] ps-10">
-      <span className="absolute left-[-55px] top-[50%] rotate-[-90deg] font-bold">{title}</span>
-      <IoChevronUpSharp className="absolute top-[-10px] left-[-9px]" />
-      <IoChevronForwardOutline className="absolute bottom-[-9px] right-[-9px]" />
+    <>
+      <div className="flex h-[400px] w-[200px] rotate-0 flex-col items-center justify-center sm:h-[200px] sm:rotate-[-90deg]">
+        {data.map((item) => (
+          <Bar
+            key={Object.keys(item)[0]}
+            name={Object.keys(item)[0]}
+            percent={Object.values(item)[0]}
+          />
+        ))}
+      </div>
+    </>
+  );
+};
 
-      {data.map((item) => (
-        <Bar key={Object.keys(item)[0]} name={Object.keys(item)[0]} percent={Object.values(item)[0]} barColor={barColor} />
-      ))}
-    </div>
-  )
-}
-
-export default Chart
+export default Chart;

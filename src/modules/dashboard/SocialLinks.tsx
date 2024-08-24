@@ -33,19 +33,15 @@ const socialList = [
   },
 ];
 
-const SocialLinks = () => {
+const SocialLinks = ({ classes }: { classes: string }) => {
   return (
-    <Card classes="w-full lg:w-1/3">
-      <div className="flex items-center justify-between">
-        <div>
-          <div className="font-bolder text-gray-dark">Contact Me</div>
-          <p className="mb-3 text-base text-gray">
-            For more info connect me with bellow links.
-          </p>
-        </div>
-        <div>
-          <EmailAnimation height={80} width={80} />
-        </div>
+    <Card
+      classes={`${classes} relative`}
+      title="Contact Me"
+      subTitle="For more info connect me with bellow links."
+    >
+      <div className="absolute right-0 top-0">
+        <EmailAnimation height={80} width={80} />
       </div>
 
       <div className="flex flex-col">

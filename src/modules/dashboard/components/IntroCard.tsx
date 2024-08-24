@@ -1,31 +1,28 @@
-import { ReactElement } from "react";
+import { cloneElement, ReactElement } from "react";
 import { useNavigate } from "react-router";
 import Card from "../../../components/card/Card";
 import { RouteEnum } from "../../../types/RouteModels";
+import { useWindowWidth } from "../../../utils/useWindowWidth";
 
 interface Props {
   title: string;
   description: string;
   lottie: ReactElement;
-  classes?: string;
   route: RouteEnum;
 }
 
-const IntroCard = ({
-  description,
-  lottie,
-  title,
-  route,
-  classes = "",
-}: Props) => {
+const IntroCard = ({ description, lottie, title, route }: Props) => {
   const navigate = useNavigate();
+  const windowWidth = useWindowWidth();
+  const lottieSize = windowWidth < 480 ? 150 : 200;
+
   return (
     <Card
-      classes={`me-0 mb-5 md:mb-0 md:me-5 cursor-pointer h-[230px]  group w-full ${classes}`}
+      classes="cursor-pointer h-[230px] group"
       onClick={() => navigate(`/${route}`)}
     >
       <div className="flex h-full items-center">
-        <div className="me-3 flex h-full w-1/3 flex-col justify-between md:w-1/2">
+        <div className="me-3 flex h-full w-1/2 flex-col justify-between">
           <div>
             <div className="mb-2 font-bolder text-gray-dark">{title}</div>
             <p className="text-base text-gray">{description}</p>
@@ -34,8 +31,12 @@ const IntroCard = ({
             View More
           </div>
         </div>
-        <div className="flex w-2/3 items-center justify-start overflow-visible md:w-1/2">
-          {lottie}
+        <div className="flex w-1/2 items-center justify-start overflow-visible">
+          {cloneElement(lottie, {
+            height: lottieSize,
+            width: lottieSize,
+          })}
+          {/* {lottie} */}
         </div>
       </div>
     </Card>
