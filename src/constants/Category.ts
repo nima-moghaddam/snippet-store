@@ -6,6 +6,7 @@ export enum Category {
   Regex = "Regex",
   Utils = "Utils",
   NextJs = "Next js",
+  Redux = "Redux",
 
   // links
   WebTools = "Web Tools",
@@ -20,6 +21,7 @@ export enum SnippetCategory {
   Regex = "Regex",
   Utils = "Utils",
   NextJs = "Next js",
+  Redux = "Redux",
 }
 
 export enum LinksCategory {

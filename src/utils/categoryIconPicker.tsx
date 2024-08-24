@@ -8,6 +8,7 @@ import { CgTemplate } from "react-icons/cg";
 import { FaTools } from "react-icons/fa";
 import { GoTools } from "react-icons/go";
 import { SiNextdotjs } from "react-icons/si";
+import { SiRedux } from "react-icons/si";
 
 export const categoryIconPicker = (category: CategoryType) => {
   let icon = <></>;
@@ -38,6 +39,9 @@ export const categoryIconPicker = (category: CategoryType) => {
       break;
     case Category.NextJs:
       icon = <SiNextdotjs />;
+      break;
+    case Category.Redux:
+      icon = <SiRedux />;
       break;
     default:
       break;

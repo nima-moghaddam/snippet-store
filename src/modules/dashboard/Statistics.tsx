@@ -23,9 +23,9 @@ const totalData = snippetCount + linksCount;
 const Statistics = () => {
   return (
     <div className="mb-4 grid grid-cols-2 gap-4 xl:grid-cols-4">
-      <TotalCountCard title="Tags" count={totalTagCountSum} icon={<FaTags />} />
       <TotalCountCard title="Snippets" count={snippetCount} icon={<FaCode />} />
       <TotalCountCard title="Links" count={linksCount} icon={<FaLink />} />
+      <TotalCountCard title="Tags" count={totalTagCountSum} icon={<FaTags />} />
       <TotalCountCard
         title="Total Data"
         count={totalData}

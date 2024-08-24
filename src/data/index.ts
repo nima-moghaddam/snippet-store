@@ -7,6 +7,7 @@ import { WebTools } from "./Links/Web-Tools";
 import { NextJs } from "./Snippets/Nextjs";
 import { ReactHooks } from "./Snippets/React-Hooks";
 import { ReactQuery } from "./Snippets/React-Query";
+import { Redux } from "./Snippets/Redux";
 import { Regex } from "./Snippets/Regex";
 import { SweetAlert2 } from "./Snippets/Sweet-Alert2";
 import { Utils } from "./Snippets/Utils";
@@ -15,11 +16,12 @@ import { Utils } from "./Snippets/Utils";
 
 const Snippets: ISnippetModel = {
   [Category.ReactQuery]: ReactQuery,
+  [Category.ReactHooks]: ReactHooks,
+  [Category.NextJs]: NextJs,
+  [Category.Redux]: Redux,
   [Category.SweetAlert2]: SweetAlert2,
   [Category.Utils]: Utils,
-  [Category.ReactHooks]: ReactHooks,
   [Category.Regex]: Regex,
-  [Category.NextJs]: NextJs,
 };
 
 let SnippetList: ISnippet[] = [];

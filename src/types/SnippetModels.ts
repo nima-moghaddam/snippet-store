@@ -18,4 +18,5 @@ export interface ISnippetModel {
   [Category.Regex]: ISnippet[];
   [Category.Utils]: ISnippet[];
   [Category.NextJs]: ISnippet[];
+  [Category.Redux]: ISnippet[];
 }

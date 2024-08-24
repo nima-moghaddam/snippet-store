@@ -7,4 +7,5 @@ export enum Tags {
   ReactHook = "react-hook",
   Html2Canvas = "html2canvas",
   NextJs = "nextjs",
+  Redux = "redux",
 }

@@ -22,8 +22,6 @@ const categoryPercentsList = categoryList.map((item) => {
   return { [key]: Math.round(percentage) };
 });
 
-console.log(categoryPercentsList);
-
 const CategoryChart = ({ classes }: { classes: string }) => {
   return (
     <Card
