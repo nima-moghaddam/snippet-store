@@ -63,12 +63,12 @@ const SideBar = () => {
           />
           <MenuCard
             onClick={() => {
-              navigate("/documents");
+              navigate("/document");
               toggleMenu();
               resetMenu();
             }}
-            isActive={pathname === "/documents"}
-            title={"Documents"}
+            isActive={pathname === "/document"}
+            title={"Document"}
             icon={<HiDocumentText />}
             classes="mb-3"
           />

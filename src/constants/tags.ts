@@ -8,4 +8,5 @@ export enum Tags {
   Html2Canvas = "html2canvas",
   NextJs = "nextjs",
   Redux = "redux",
+  Formik = "formik",
 }

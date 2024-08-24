@@ -7,6 +7,7 @@ export enum Category {
   Utils = "Utils",
   NextJs = "Next js",
   Redux = "Redux",
+  Formik = "Formik",
 
   // links
   WebTools = "Web Tools",
@@ -22,6 +23,7 @@ export enum SnippetCategory {
   Utils = "Utils",
   NextJs = "Next js",
   Redux = "Redux",
+  Formik = "Formik",
 }
 
 export enum LinksCategory {

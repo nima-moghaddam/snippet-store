@@ -4,6 +4,7 @@ import { ISnippet, ISnippetModel } from "../types/SnippetModels";
 import { Blogs } from "./Links/Blogs";
 import { Templates } from "./Links/Templates";
 import { WebTools } from "./Links/Web-Tools";
+import { Formik } from "./Snippets/Formik";
 import { NextJs } from "./Snippets/Nextjs";
 import { ReactHooks } from "./Snippets/React-Hooks";
 import { ReactQuery } from "./Snippets/React-Query";
@@ -20,6 +21,7 @@ const Snippets: ISnippetModel = {
   [Category.NextJs]: NextJs,
   [Category.Redux]: Redux,
   [Category.SweetAlert2]: SweetAlert2,
+  [Category.Formik]: Formik,
   [Category.Utils]: Utils,
   [Category.Regex]: Regex,
 };

@@ -14,7 +14,7 @@ const AppRoutes = () => {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/documents" element={<Documents />} />
+          <Route path="/document" element={<Documents />} />
           <Route path={RouteEnum.Links} element={<LinksPage />} />
           <Route path={RouteEnum.Snippet}>
             <Route index element={<SnippetPage />} />

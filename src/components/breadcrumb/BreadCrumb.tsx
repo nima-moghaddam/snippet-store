@@ -22,6 +22,7 @@ const BreadCrumb = () => {
       header = "Links";
     else if (pathLength === 4 && pathList[2] === "preview")
       header = "Code Preview";
+    else if (pathList[1] === "document") header = "Document";
     return header;
   };
 

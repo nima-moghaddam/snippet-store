@@ -19,4 +19,5 @@ export interface ISnippetModel {
   [Category.Utils]: ISnippet[];
   [Category.NextJs]: ISnippet[];
   [Category.Redux]: ISnippet[];
+  [Category.Formik]: ISnippet[];
 }

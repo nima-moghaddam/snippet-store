@@ -9,6 +9,7 @@ import { FaTools } from "react-icons/fa";
 import { GoTools } from "react-icons/go";
 import { SiNextdotjs } from "react-icons/si";
 import { SiRedux } from "react-icons/si";
+import { TbPencilQuestion } from "react-icons/tb";
 
 export const categoryIconPicker = (category: CategoryType) => {
   let icon = <></>;
@@ -42,6 +43,9 @@ export const categoryIconPicker = (category: CategoryType) => {
       break;
     case Category.Redux:
       icon = <SiRedux />;
+      break;
+    case Category.Formik:
+      icon = <TbPencilQuestion />;
       break;
     default:
       break;
