@@ -5,6 +5,7 @@ export enum Category {
   SweetAlert2 = "Sweet Alert2",
   Regex = "Regex",
   Utils = "Utils",
+  NextJs = "Next js",
 
   // links
   WebTools = "Web Tools",
@@ -18,6 +19,7 @@ export enum SnippetCategory {
   SweetAlert2 = "Sweet Alert2",
   Regex = "Regex",
   Utils = "Utils",
+  NextJs = "Next js",
 }
 
 export enum LinksCategory {

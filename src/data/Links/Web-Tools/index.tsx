@@ -15,5 +15,6 @@ export const WebTools = [
   { title: "web colorfull gradient", link: "https://webgradients.com/", category: Category.WebTools },
   { title: "wave Svg", link: "https://getwaves.io/", category: Category.WebTools },
   { title: "react animation lib", link: "https://www.framer.com/", category: Category.WebTools },
-  { title: "swiper and slider", link: "https://swiperjs.com/", category: Category.WebTools }
+  { title: "swiper and slider", link: "https://swiperjs.com/", category: Category.WebTools },
+  { title: "Vercel", link: "https://vercel.com/nima-moghaddams-projects", category: Category.WebTools }
 ]

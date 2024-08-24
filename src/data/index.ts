@@ -4,6 +4,7 @@ import { ISnippet, ISnippetModel } from "../types/SnippetModels";
 import { Blogs } from "./Links/Blogs";
 import { Templates } from "./Links/Templates";
 import { WebTools } from "./Links/Web-Tools";
+import { NextJs } from "./Snippets/Nextjs";
 import { ReactHooks } from "./Snippets/React-Hooks";
 import { ReactQuery } from "./Snippets/React-Query";
 import { Regex } from "./Snippets/Regex";
@@ -18,6 +19,7 @@ const Snippets: ISnippetModel = {
   [Category.Utils]: Utils,
   [Category.ReactHooks]: ReactHooks,
   [Category.Regex]: Regex,
+  [Category.NextJs]: NextJs,
 };
 
 let SnippetList: ISnippet[] = [];

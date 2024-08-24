@@ -7,6 +7,7 @@ import { GoAlertFill } from "react-icons/go";
 import { CgTemplate } from "react-icons/cg";
 import { FaTools } from "react-icons/fa";
 import { GoTools } from "react-icons/go";
+import { SiNextdotjs } from "react-icons/si";
 
 export const categoryIconPicker = (category: CategoryType) => {
   let icon = <></>;
@@ -34,6 +35,9 @@ export const categoryIconPicker = (category: CategoryType) => {
       break;
     case Category.WebTools:
       icon = <FaTools />;
+      break;
+    case Category.NextJs:
+      icon = <SiNextdotjs />;
       break;
     default:
       break;

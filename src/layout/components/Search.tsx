@@ -52,7 +52,7 @@ const Search = () => {
 
   return (
     <div className="flex items-center">
-      <div className="relative me-4">
+      <div className="relative">
         <LuSearch className="absolute bottom-[10px] left-2 h-5 w-5 text-gray-light" />
         <input
           // placeholder={`Search snippet ${searchBy === "code" ? "code" : "title"}...`}

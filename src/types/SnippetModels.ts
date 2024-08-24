@@ -17,4 +17,5 @@ export interface ISnippetModel {
   [Category.SweetAlert2]: ISnippet[];
   [Category.Regex]: ISnippet[];
   [Category.Utils]: ISnippet[];
+  [Category.NextJs]: ISnippet[];
 }
