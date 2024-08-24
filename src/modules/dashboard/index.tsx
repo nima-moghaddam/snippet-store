@@ -35,8 +35,8 @@ const Dashboard = () => {
         <SocialLinks classes="w-full lg:w-1/3" />
       </div>
       <div className="mb-4 flex flex-col gap-4 xl:flex-row">
-        <TagsChart classes="w-full " />
-        <CategoryChart classes="w-full " />
+        <TagsChart classes="w-full" />
+        <CategoryChart classes="w-full" />
       </div>
     </section>
   );

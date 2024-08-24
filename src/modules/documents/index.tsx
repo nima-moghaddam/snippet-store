@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import Card from "../../components/card/Card";
 
 const Documents = () => {
-  return (
-    <div>Documents</div>
-  )
-}
+  return <Card title="Documents">...</Card>;
+};
 
-export default Documents
+export default Documents;
