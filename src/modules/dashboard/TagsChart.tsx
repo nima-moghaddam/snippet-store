@@ -27,7 +27,7 @@ const TagsChart = ({ classes }: { classes: string }) => {
       title="Tags Chart"
       subTitle="Comlpete tags statistics are defined in chart."
     >
-      <div className="flex items-center justify-center p-0 md:p-5">
+      <div className="mt-5 flex items-center justify-center pe-10 sm:mt-0 sm:pe-0 md:p-5">
         <Chart data={tagPercentsList} />
       </div>
     </Card>

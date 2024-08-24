@@ -20,7 +20,7 @@ const snippetCount = SnippetList.length;
 const linksCount = LinkList.length;
 const totalData = snippetCount + linksCount;
 
-const CountList = () => {
+const Statistics = () => {
   return (
     <div className="mb-4 grid grid-cols-2 gap-4 xl:grid-cols-4">
       <TotalCountCard title="Tags" count={totalTagCountSum} icon={<FaTags />} />
@@ -35,4 +35,4 @@ const CountList = () => {
   );
 };
 
-export default CountList;
+export default Statistics;

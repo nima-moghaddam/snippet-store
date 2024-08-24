@@ -2,7 +2,7 @@ import { RouteEnum } from "../../types/RouteModels";
 import CodeAnimation from "../../lotties/CodeAnimation";
 import DocumentAnimation from "../../lotties/DocumentAnimation";
 import IntroCard from "./components/IntroCard";
-import CountList from "./CountList";
+import Statistics from "./Statistics";
 import SocialLinks from "./SocialLinks";
 import CategoryList from "./CategoryList";
 import useAnimation from "../../utils/useAnimation";
@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   return (
     <section className={animateClass}>
-      <CountList />
+      <Statistics />
       <div className="mb-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <IntroCard
           title="Snippets"
