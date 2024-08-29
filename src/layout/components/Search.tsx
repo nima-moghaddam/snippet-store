@@ -33,12 +33,12 @@ const Search = () => {
   const onSearchBy = () => {
     resetFilters();
     setTerm("");
+    setRotation((prevRotation) => prevRotation + 180);
+
     setSearchBy((prev) => {
       if (prev === SearchByEnum.Snippet) return SearchByEnum.Link;
       return SearchByEnum.Snippet;
     });
-
-    setRotation((prevRotation) => prevRotation + 180);
   };
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const Search = () => {
   return (
     <div className="flex items-center">
       <div className="relative me-4">
-        <div className="absolute bottom-[-0.55rem] right-[-2rem] rounded-3xl bg-primary py-2 pe-3 ps-2 md:bottom-[-0.3em] md:right-[-0.4rem]">
+        <div className="absolute bottom-[-0.55rem] right-[-2rem] rounded-3xl bg-primary py-2 pe-2 ps-2 md:bottom-[-0.3em] md:right-[-0.4rem] md:pe-3">
           <div
             className="h-full w-full cursor-pointer rounded-full bg-primary-gradient p-2 shadow shadow-gray-lighter md:p-[0.4rem]"
             onClick={onSearchBy}
@@ -69,7 +69,7 @@ const Search = () => {
           </div>
         </div>
         <input
-          placeholder={`Search ${searchBy === SearchByEnum.Snippet ? "snippets" : "links"}...`}
+          placeholder={`Search ${searchBy === SearchByEnum.Snippet ? "snippets" : "links"}`}
           className="min-w-8 rounded-lg py-2 ps-2 text-sm text-gray-light shadow-sm shadow-gray-lighter outline-none sm:min-w-[150px] md:ps-5 md:text-base lg:min-w-[300px]"
           onChange={(e) => setTerm(e.target.value)}
           value={term}
