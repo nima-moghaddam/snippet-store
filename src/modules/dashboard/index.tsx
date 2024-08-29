@@ -34,7 +34,7 @@ const Dashboard = () => {
         <CategoryList classes="w-full lg:w-2/3" />
         <SocialLinks classes="w-full lg:w-1/3" />
       </div>
-      <div className="mb-4 flex flex-col gap-4 xl:flex-row">
+      <div className="mb-4 flex flex-col gap-4 2xl:flex-row">
         <TagsChart classes="w-full" />
         <CategoryChart classes="w-full" />
       </div>
