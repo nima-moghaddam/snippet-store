@@ -7,24 +7,20 @@ import { SearchByEnum } from "../../types/SearchByModels";
 import { PiCodeBold } from "react-icons/pi";
 import { PiTextTBold } from "react-icons/pi";
 
-const Search = ({ hasScrolled }: { hasScrolled: boolean }) => {
+const Search = () => {
   const [term, setTerm] = useState("");
   const [searchBy, setSearchBy] = useState<SearchByEnum>(SearchByEnum.Snippet);
+  const [rotation, setRotation] = useState(0);
 
-  const navigate = useNavigate();
   const {
     resetFilters,
     setSearchFilter,
     term: storeTermValue,
   } = useFilterStore((state) => state);
   const { resetMenu } = useMenuStore((state) => state);
+  const navigate = useNavigate();
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const term = e.target.value;
-    setTerm(term);
-  };
-
-  const handleSearchOnEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const searchOnEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       resetMenu();
       setSearchFilter(term, searchBy);
@@ -34,13 +30,15 @@ const Search = ({ hasScrolled }: { hasScrolled: boolean }) => {
     }
   };
 
-  const handleSearhByOnclick = () => {
+  const onSearchBy = () => {
     resetFilters();
     setTerm("");
     setSearchBy((prev) => {
       if (prev === SearchByEnum.Snippet) return SearchByEnum.Link;
       return SearchByEnum.Snippet;
     });
+
+    setRotation((prevRotation) => prevRotation + 180);
   };
 
   useEffect(() => {
@@ -53,36 +51,29 @@ const Search = ({ hasScrolled }: { hasScrolled: boolean }) => {
 
   return (
     <div className="flex items-center">
-      <div className="relative">
-        <div
-          className={`absolute bottom-[-0.6rem] right-[-1rem] rounded-full p-2 ${hasScrolled ? "bg-primary" : "bg-primary"}`}
-        >
+      <div className="relative me-4">
+        <div className="absolute bottom-[-0.55rem] right-[-2rem] rounded-full bg-primary p-2 md:bottom-[-0.65rem] md:right-[-1rem]">
           <div
-            className="h-full w-full cursor-pointer rounded-full bg-white p-3 shadow shadow-gray-lighter"
-            onClick={handleSearhByOnclick}
+            className="h-full w-full cursor-pointer rounded-full bg-primary-gradient p-2 shadow shadow-gray-lighter md:p-[0.58rem]"
+            onClick={onSearchBy}
             style={{
               transition: "transform 1s",
+              transform: `rotateY(${rotation}deg)`,
             }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.transform = "rotateY(180deg)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.transform = "rotateY(0deg)")
-            }
           >
             {searchBy === SearchByEnum.Snippet ? (
-              <PiCodeBold className="h-5 w-5 text-gray" />
+              <PiCodeBold className="size-5 text-white" />
             ) : (
-              <PiTextTBold className="h-5 w-5 text-gray" />
+              <PiTextTBold className="size-5 text-white" />
             )}
           </div>
         </div>
         <input
           placeholder={`Search ${searchBy === SearchByEnum.Snippet ? "snippets" : "links"}...`}
-          className="min-w-8 rounded-lg py-2 ps-5 text-gray-light shadow-sm shadow-gray-lighter outline-none sm:min-w-[100px] lg:min-w-[300px]"
-          onChange={handleSearch}
+          className="min-w-8 rounded-lg py-2 ps-2 text-sm text-gray-light shadow-sm shadow-gray-lighter outline-none sm:min-w-[150px] md:ps-5 md:text-base lg:min-w-[300px]"
+          onChange={(e) => setTerm(e.target.value)}
           value={term}
-          onKeyDown={handleSearchOnEnter}
+          onKeyDown={searchOnEnter}
         />
       </div>
     </div>
