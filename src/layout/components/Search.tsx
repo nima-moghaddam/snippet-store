@@ -52,9 +52,9 @@ const Search = () => {
   return (
     <div className="flex items-center">
       <div className="relative me-4">
-        <div className="absolute bottom-[-0.55rem] right-[-2rem] rounded-full bg-primary p-2 md:bottom-[-0.65rem] md:right-[-1rem]">
+        <div className="absolute bottom-[-0.55rem] right-[-2rem] rounded-3xl bg-primary py-2 pe-3 ps-2 md:bottom-[-0.3em] md:right-[-0.4rem]">
           <div
-            className="h-full w-full cursor-pointer rounded-full bg-primary-gradient p-2 shadow shadow-gray-lighter md:p-[0.58rem]"
+            className="h-full w-full cursor-pointer rounded-full bg-primary-gradient p-2 shadow shadow-gray-lighter md:p-[0.4rem]"
             onClick={onSearchBy}
             style={{
               transition: "transform 1s",
@@ -62,9 +62,9 @@ const Search = () => {
             }}
           >
             {searchBy === SearchByEnum.Snippet ? (
-              <PiCodeBold className="size-5 text-white" />
+              <PiCodeBold className="size-4 text-white" />
             ) : (
-              <PiTextTBold className="size-5 text-white" />
+              <PiTextTBold className="size-4 text-white" />
             )}
           </div>
         </div>
