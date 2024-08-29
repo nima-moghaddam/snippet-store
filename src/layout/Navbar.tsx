@@ -17,7 +17,7 @@ const Navbar = ({ hasScrolled }: Props) => {
     >
       <BreadCrumb />
       <div className="flex w-full items-center justify-between md:justify-end">
-        <Search />
+        <Search hasScrolled={hasScrolled} />
         <div className="relative block md:hidden">
           {showSidebar ? (
             <CgMenuRight

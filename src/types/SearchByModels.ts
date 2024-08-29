@@ -1,1 +1,4 @@
-export type SearchByStatusType = "code" | "title"
+export enum SearchByEnum {
+  Link = "links",
+  Snippet = "snippets",
+}

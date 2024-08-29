@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-// import { IoCodeSlashOutline } from "react-icons/io5";
-import { LuSearch } from "react-icons/lu";
-// import { PiTextTBold } from "react-icons/pi";
 import { useNavigate } from "react-router";
 import useFilterStore from "../../store/useFilterStore";
 import useMenuStore from "../../store/useMenuStore";
 import { RouteEnum } from "../../types/RouteModels";
-import { SearchByStatusType } from "../../types/SearchByModels";
+import { SearchByEnum } from "../../types/SearchByModels";
+import { PiCodeBold } from "react-icons/pi";
+import { PiTextTBold } from "react-icons/pi";
 
-const Search = () => {
+const Search = ({ hasScrolled }: { hasScrolled: boolean }) => {
   const [term, setTerm] = useState("");
-  const [searchBy] = useState<SearchByStatusType>("title");
+  const [searchBy, setSearchBy] = useState<SearchByEnum>(SearchByEnum.Snippet);
 
   const navigate = useNavigate();
   const {
@@ -20,27 +19,29 @@ const Search = () => {
   } = useFilterStore((state) => state);
   const { resetMenu } = useMenuStore((state) => state);
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value;
     setTerm(term);
   };
 
-  const handleSearchOnEnter = (e: any) => {
+  const handleSearchOnEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       resetMenu();
-      navigate(`/${RouteEnum.Snippet}`);
       setSearchFilter(term, searchBy);
+
+      if (searchBy === SearchByEnum.Snippet) navigate(`/${RouteEnum.Snippet}`);
+      else navigate(`/${RouteEnum.Links}`);
     }
   };
 
-  // const handleSearhByOnclick = () => {
-  //   resetFilters();
-  //   setTerm("");
-  //   setSearchBy((prev) => {
-  //     if (prev === "code") return "title";
-  //     else return "code";
-  //   });
-  // };
+  const handleSearhByOnclick = () => {
+    resetFilters();
+    setTerm("");
+    setSearchBy((prev) => {
+      if (prev === SearchByEnum.Snippet) return SearchByEnum.Link;
+      return SearchByEnum.Snippet;
+    });
+  };
 
   useEffect(() => {
     if (!term) resetFilters();
@@ -53,29 +54,37 @@ const Search = () => {
   return (
     <div className="flex items-center">
       <div className="relative">
-        <LuSearch className="absolute bottom-[10px] left-2 h-5 w-5 text-gray-light" />
+        <div
+          className={`absolute bottom-[-0.6rem] right-[-1rem] rounded-full p-2 ${hasScrolled ? "bg-primary" : "bg-primary"}`}
+        >
+          <div
+            className="h-full w-full cursor-pointer rounded-full bg-white p-3 shadow shadow-gray-lighter"
+            onClick={handleSearhByOnclick}
+            style={{
+              transition: "transform 1s",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "rotateY(180deg)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.transform = "rotateY(0deg)")
+            }
+          >
+            {searchBy === SearchByEnum.Snippet ? (
+              <PiCodeBold className="h-5 w-5 text-gray" />
+            ) : (
+              <PiTextTBold className="h-5 w-5 text-gray" />
+            )}
+          </div>
+        </div>
         <input
-          // placeholder={`Search snippet ${searchBy === "code" ? "code" : "title"}...`}
-          placeholder="Search snippets..."
-          className="gray-light min-w-8 rounded-lg border border-gray-lighter py-2 ps-10 text-gray-light outline-none focus:border-gray-light sm:min-w-[100px] lg:min-w-[300px]"
+          placeholder={`Search ${searchBy === SearchByEnum.Snippet ? "snippets" : "links"}...`}
+          className="min-w-8 rounded-lg py-2 ps-5 text-gray-light shadow-sm shadow-gray-lighter outline-none sm:min-w-[100px] lg:min-w-[300px]"
           onChange={handleSearch}
           value={term}
           onKeyDown={handleSearchOnEnter}
         />
       </div>
-      {/* <div
-        className={`relative hidden h-10 w-20 cursor-pointer items-center justify-between rounded-lg border border-gray px-[10px] transition-colors duration-300 sm:flex`}
-        onClick={handleSearhByOnclick}
-      >
-        <IoCodeSlashOutline className="z-20 text-black" />
-        <PiTextTBold className="z-20 text-black" />
-
-        <span
-          className={`absolute bottom-0 left-0 top-[1px] z-10 h-9 w-10 transform rounded-lg bg-pink shadow-md transition-transform duration-300 ${
-            searchBy === "title" ? "translate-x-10" : ""
-          }`}
-        ></span>
-      </div> */}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { CategoryType } from "../constants/Category";
 import { Tags } from "../constants/tags";
 import { LinkList, SnippetList } from "../data";
 import { ISnippet } from "../types/SnippetModels";
-import { SearchByStatusType } from "../types/SearchByModels";
+import { SearchByEnum } from "../types/SearchByModels";
 import { RouteEnum } from "../types/RouteModels";
 import { ILink } from "../types/LinkModels";
 
@@ -15,7 +15,7 @@ interface IStoreState {
   setMenuFilter: (category: CategoryType, route: RouteEnum) => void;
   setSubMenuFilter: (name: string, route: RouteEnum) => void;
   setTagFilter: (tag: Tags) => void;
-  setSearchFilter: (term: string, searchBy: SearchByStatusType) => void;
+  setSearchFilter: (term: string, searchBy: SearchByEnum) => void;
   resetFilters: () => void;
 }
 
@@ -55,19 +55,23 @@ const useFilterStore = create<IStoreState>((set) => ({
     }));
   },
   setSearchFilter: (term, searchBy) => {
-    let filteredSnippets: ISnippet[];
-    if (searchBy === "title") {
-      filteredSnippets = SnippetList?.filter((i) =>
+    if (searchBy === SearchByEnum.Snippet) {
+      const filteredSnippets = SnippetList?.filter((i) =>
         i.title.trim().toLocaleLowerCase().includes(term.toLocaleLowerCase()),
       );
-    } else
-      filteredSnippets = SnippetList?.filter((i) =>
-        i.code.trim().toLocaleLowerCase().includes(term.toLocaleLowerCase()),
+      set(() => ({
+        snippets: filteredSnippets,
+        term,
+      }));
+    } else {
+      const filteredLinks = LinkList?.filter((i) =>
+        i.title.trim().toLocaleLowerCase().includes(term.toLocaleLowerCase()),
       );
-    set(() => ({
-      snippets: filteredSnippets,
-      term,
-    }));
+      set(() => ({
+        links: filteredLinks,
+        term,
+      }));
+    }
   },
   resetFilters: () =>
     set(() => ({
