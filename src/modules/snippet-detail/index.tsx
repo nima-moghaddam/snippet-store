@@ -69,7 +69,9 @@ const SnippetDetailPage = () => {
               </button>
             )}
             <button
-              onClick={() => window.open(`preview/${snippet?.title}`)}
+              onClick={() =>
+                window.open(`/${RouteEnum.Snippet}/preview/${snippet?.title}`)
+              }
               className="flex cursor-pointer items-center justify-center px-2 py-1 text-gray-dark hover:text-secondary"
             >
               <IoCameraOutline className="me-2 h-5 w-5" />

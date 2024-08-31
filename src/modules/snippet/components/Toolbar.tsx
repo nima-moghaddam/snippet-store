@@ -22,7 +22,7 @@ const Toolbar = ({ snippet, isForCard }: Props) => {
 
   const handleDownloadImage = (e: React.MouseEvent) => {
     e.stopPropagation();
-    window.open(`${RouteEnum.Snippet}/preview/${title}`);
+    window.open(`/${RouteEnum.Snippet}/preview/${title}`);
   };
 
   const handleOpenLink = (e: React.MouseEvent) => {

@@ -18,7 +18,7 @@ const SnippetCard = ({ snippet }: Props) => {
   return (
     <div
       onClick={() => navigate(`/${RouteEnum.Snippet}/${title}`)}
-      className={`group z-20 max-h-[700px] cursor-pointer overflow-hidden rounded-lg shadow-card hover:shadow-gray-light ${animateClass}`}
+      className={`group z-20 max-h-[700px] cursor-pointer overflow-hidden rounded-lg shadow-card hover:shadow-slate-300 ${animateClass}`}
     >
       <div className="bg-white px-3 pb-5 pt-4">
         <div className="flex h-3 justify-end">

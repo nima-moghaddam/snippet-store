@@ -52,7 +52,7 @@ const Search = () => {
   return (
     <div className="flex items-center">
       <div className="relative me-4">
-        <div className="absolute bottom-[-0.55rem] right-[-2rem] rounded-3xl bg-primary py-2 pe-2 ps-2 md:bottom-[-0.3em] md:right-[-0.4rem] md:pe-3">
+        <div className="absolute bottom-[-0.55rem] right-[-2rem] rounded-3xl border-l border-slate-200 bg-primary py-2 pe-2 ps-2 md:bottom-[-0.3em] md:right-[-0.4rem] md:pe-2">
           <div
             className="h-full w-full cursor-pointer rounded-full bg-primary-gradient p-2 shadow shadow-gray-lighter md:p-[0.4rem]"
             onClick={onSearchBy}
