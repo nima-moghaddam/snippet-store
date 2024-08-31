@@ -11,7 +11,7 @@ export const Bar = ({ name, percent }: Props) => {
   return (
     <div className={`mb-3 flex w-full items-center ${animateClass}`}>
       <div
-        className="relative h-[20px] bg-primary-gradient lg:h-[35px]"
+        className="relative h-[20px] bg-primary-gradient lg:h-[32px]"
         style={{ width: `calc(${percent}% + 50px)` }}
       >
         <span className="absolute left-[50%] top-[15%] text-sm text-white lg:top-[20%] lg:text-base">

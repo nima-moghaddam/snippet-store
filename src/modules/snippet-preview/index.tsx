@@ -29,11 +29,11 @@ const SnippetPreviewPage = () => {
       </Card>
       <div className="mb-10 flex flex-col items-center justify-end sm:flex-row md:mb-10">
         <DownloadImageBtn
-          name="DOWNLOAD PNG"
+          name="Download PNG"
           onClick={() => downloadImage("png", codeRef)}
         />
         <DownloadImageBtn
-          name="DOWNLOAD JPEG"
+          name="Download JPEG"
           onClick={() => downloadImage("jpeg", codeRef)}
         />
       </div>

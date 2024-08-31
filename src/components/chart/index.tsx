@@ -6,7 +6,7 @@ interface Props {
 
 const Chart = ({ data }: Props) => {
   return (
-    <div className="flex h-[300px] w-[200px] rotate-0 flex-col items-center justify-center sm:h-[200px] sm:rotate-[-90deg]">
+    <div className="flex h-[330px] w-[200px] rotate-0 flex-col items-center justify-center sm:h-[200px] sm:rotate-[-90deg]">
       {data.map((item) => (
         <Bar
           key={Object.keys(item)[0]}

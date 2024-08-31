@@ -29,7 +29,7 @@ const CategoryChart = ({ classes }: { classes: string }) => {
       title="Categoty Chart"
       subTitle="Comlpete category statistics are defined in chart."
     >
-      <div className="mt-16 flex items-center justify-center pe-2 ps-0 sm:mt-0 md:p-5">
+      <div className="mt-10 flex items-center justify-center pe-24 ps-0 sm:mt-0 sm:p-5">
         <Chart data={categoryPercentsList} />
       </div>
     </Card>
