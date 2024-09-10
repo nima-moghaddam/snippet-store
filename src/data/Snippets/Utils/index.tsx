@@ -68,4 +68,52 @@ export const Utils = [
       document.body.removeChild(link)
     }`,
   },
+  {
+    title: "clean obj",
+    tags: [Tags.Utility],
+    category: Category.Utils,
+    description:
+      "This function removes properties from the object that have values of null, undefined, or an empty array. All other properties remain intact in the returned object.",
+    code: `export const cleanObject = (obj) => {
+      const cleanedObj = {}
+   
+      for (const key in obj) {
+         if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            const value = obj[key]
+   
+            if (![null, undefined].includes(value) && !(Array.isArray(value) && value.length === 0)) {
+               cleanedObj[key] = value
+            }
+         }
+      }
+   
+      return cleanedObj
+   }`,
+  },
+  {
+    title: "convert time HH:mm:ss",
+    tags: [Tags.Utility],
+    category: Category.Utils,
+    description:
+      "Convert a time string in the format HH:mm:ss to a Date object",
+    code: `export const timeStringToDate = (timeString) => {
+      if (!timeString) return ""
+      const [hours, minutes, seconds] = timeString.split(":")
+      const date = new Date()
+      date.setHours(hours)
+      date.setMinutes(minutes)
+      date.setSeconds(seconds)
+      return date
+   }`,
+  },
+  {
+    title: "convert to shamsi date",
+    tags: [Tags.Utility],
+    category: Category.Utils,
+    description: "convert Date to persian shamsi date",
+    code: `const convertToFaIRDateString = (date: Date) => {
+      const convertedTime = date.toLocaleDateString("fa-IR")
+      return convertedTime
+   }`,
+  },
 ];
