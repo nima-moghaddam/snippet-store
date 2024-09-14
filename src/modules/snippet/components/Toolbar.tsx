@@ -16,7 +16,7 @@ const Toolbar = ({ snippet, isForCard }: Props) => {
 
   const handleCodeCopy = (e: React.MouseEvent) => {
     e.stopPropagation();
-    copy(code + (`\n${type}` || ""));
+    copy((type ? `${type}\n\n` : "") + code);
     toastFire("success", "Code copied");
   };
 

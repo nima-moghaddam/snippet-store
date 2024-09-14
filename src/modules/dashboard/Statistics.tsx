@@ -20,17 +20,24 @@ const snippetCount = SnippetList.length;
 const linksCount = LinkList.length;
 const totalData = snippetCount + linksCount;
 
+const countList = [
+  { title: "Snippets", count: snippetCount, icon: <FaCode /> },
+  { title: "Links", count: linksCount, icon: <FaLink /> },
+  { title: "Tags", count: totalTagCountSum, icon: <FaTags /> },
+  { title: "Total Data", count: totalData, icon: <RiNumbersFill /> },
+];
+
 const Statistics = () => {
   return (
     <div className="mb-4 grid grid-cols-2 gap-4 xl:grid-cols-4">
-      <TotalCountCard title="Snippets" count={snippetCount} icon={<FaCode />} />
-      <TotalCountCard title="Links" count={linksCount} icon={<FaLink />} />
-      <TotalCountCard title="Tags" count={totalTagCountSum} icon={<FaTags />} />
-      <TotalCountCard
-        title="Total Data"
-        count={totalData}
-        icon={<RiNumbersFill />}
-      />
+      {countList.map((i) => (
+        <TotalCountCard
+          key={i.title}
+          title={i.title}
+          count={i.count}
+          icon={i.icon}
+        />
+      ))}
     </div>
   );
 };

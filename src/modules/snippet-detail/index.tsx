@@ -33,7 +33,7 @@ const SnippetDetailPage = () => {
 
   const handleCodeCopy = () => {
     if (snippet) {
-      copy(snippet?.code + (`\n${snippet?.type}` || ""));
+      copy((snippet.type ? `${snippet.type}\n\n` : "") + snippet.code);
       toastFire("success", "Code copied");
     }
   };

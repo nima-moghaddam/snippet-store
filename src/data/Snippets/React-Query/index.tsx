@@ -26,7 +26,7 @@ export const ReactQuery = [
                   method: "GET",
                   headers: {
                     "Content-Type": "application/json",
-                    Authorization: \`Bearer \${swid},
+                    Authorization: \`Bearer \${swid}\`,
                     ...header
                   }
                 }
