@@ -1,8 +1,8 @@
 import { cloneElement, ReactElement } from "react";
 import { useNavigate } from "react-router";
 import Card from "../../../components/card/Card";
+import useFilterStore from "../../../store/useFilterStore";
 import { RouteEnum } from "../../../types/RouteModels";
-// import { useWindowWidth } from "../../../utils/useWindowWidth";
 
 interface Props {
   title: string;
@@ -12,15 +12,17 @@ interface Props {
 }
 
 const IntroCard = ({ description, lottie, title, route }: Props) => {
+  const { resetFilters } = useFilterStore((state) => state);
   const navigate = useNavigate();
-  // const windowWidth = useWindowWidth();
-  // const lottieSize = windowWidth < 480 ? 150 : 200;
-  const lottieSize = 200
+  const lottieSize = 200;
+
+  const onCardClick = () => {
+    resetFilters();
+    navigate(`/${route}`);
+  };
+  
   return (
-    <Card
-      classes="cursor-pointer h-[230px] group"
-      onClick={() => navigate(`/${route}`)}
-    >
+    <Card classes="cursor-pointer h-[230px] group" onClick={onCardClick}>
       <div className="flex h-full items-center">
         <div className="me-3 flex h-full w-1/2 flex-col justify-between">
           <div>
